@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+header{box-shadow:0px 1px 3px rgba(49,104,116,0.05);}
+
+.term_space{margin:10px 0;background:white;border-radius: 8px; padding:10px;box-shadow:0px 1px 2px rgba(49,104,116,0.05);}
+
+.term_none{display: none;}
+.term_textarea{width:100%; height:250px;resize: none;font-size: 13px;padding:5px 5px;border:1px solid white;margin:10px 0;}
+
+.checkbox-style-square {
+
+    & + label {
+        display: inline-block;
+        width:17px; 
+        height: 17px; 
+        background: white;
+        cursor: pointer; 
+        border:black solid 1px;
+        border-radius: 3px; 
+
+        span {
+            position: absolute;
+            display: block; 
+            // font-weight: bold;
+            transform: translate(22px, -3px);
+        }
+    }
+
+    &:checked {
+        & + label {
+            background:url('/img/check_green.png') no-repeat center/17px 18px;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+#center .user{
+    text-indent: -999px;
+}
+#center .mb_nick{
+    position: absolute;
+    margin-top: -40px;
+    left: 30px;
+    
+}
+.selected + .mb_nick{
+    color: white;
+}
+#wrapper {
+    margin-lefT: 0;
+    background:#f8fbff
+}
+.gflag{display:none !important;}
+
+.enroll_wrap{
+    input[type="text"], input[type="number"], input[type="email"]{
+        margin-bottom:0;margin-top:15px;
+        
+        &:first-child{margin:0;}
+    }
+    .cabinet_inner{width:100%;font-size:11px;padding-left:10px;color:#006df3;display:none}
+
+    .in_btn_ly{
+        margin-top:-40px;
+    }
+
+    .btn2_wrap {
+        display: flex;
+
+        .btn_cancle {
+            flex-grow: 0.3;
+        }
+
+        .submit {
+            flex-grow: 1;
+        }
+    }
+
+    .pw_ul > li{
+        background:#ecf3fb;
+        box-shadow: inset 0px 1px 1px rgba(49,104,116,0.15);
+    }
+}

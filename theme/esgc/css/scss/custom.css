@@ -1,0 +1,853 @@
+@charset "UTF-8";
+/*스테이킹 컬러셋 6개만 사용 */
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+::-moz-selection {
+  background-color: #ffd965;
+  color: #000;
+}
+::selection {
+  background-color: #ffd965;
+  color: #000;
+}
+
+/*인트로*/
+#myBar {
+  background-color: #00c8d5;
+}
+
+.b_main {
+  background: linear-gradient(0deg, #00c8d5, #0cdbc5) !important;
+  color: #fff !important;
+}
+.b_main:hover {
+  background: linear-gradient(180deg, #00c8d5, #00c8d5) !important;
+  box-shadow: 0 0 1px 2px #00c8d5;
+}
+
+.b_sub {
+  background: linear-gradient(0deg, #1e5ab9, #3b86ff) !important;
+  color: #fff !important;
+}
+.b_sub:hover {
+  background: linear-gradient(0deg, #1e5ab9, #1e5ab9) !important;
+  box-shadow: 0 0 1px 2px #1e5ab9;
+}
+
+.b_third {
+  background: linear-gradient(0deg, #1a1a1a, #343434) !important;
+  color: #fff !important;
+}
+
+.btn,
+a.btn {
+  border-radius: 5px;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+a.btn_secondary,
+.btn_secondary {
+  color: black;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.6), rgb(255, 255, 255));
+  transition: all 1s;
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+}
+a.btn_secondary:hover,
+.btn_secondary:hover {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+a.btn_primary,
+.btn_primary,
+.btn.btn_primary {
+  color: white;
+  background: linear-gradient(to left, #00c8d5, #0cdbc5);
+  transition: all 1s;
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+}
+a.btn_primary:hover,
+.btn_primary:hover,
+.btn.btn_primary:hover {
+  color: white;
+  background: linear-gradient(to left, #00c8d5, #00c8d5);
+}
+
+a.btn_cancle,
+.btn_cancle {
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+  color: black;
+  border-radius: 3px;
+  background: #fff;
+}
+a.btn_cancle:hover,
+.btn_cancle:hover {
+  color: #0cdbc5;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.user.selected {
+  background: #0cdbc5;
+}
+
+.btn-primary {
+  background: #0cdbc5;
+  color: white;
+}
+
+.b_darkblue {
+  background: #29386b !important;
+  color: #fff;
+}
+.b_darkblue:hover {
+  box-shadow: 0 0 1px 1px #25335f;
+  background: #202c52 !important;
+}
+
+.b_skyblue {
+  background: #3b86ff !important;
+  color: #fff;
+}
+.b_skyblue:hover {
+  box-shadow: 0 0 1px 1px #162d55;
+  background: #224d93 !important;
+}
+
+/*로그인*/
+.login_wrap {
+  width: 100%;
+  max-width: 680px;
+  padding: 10vh 15px;
+}
+
+/*대쉬보드*/
+.day {
+  color: #565656;
+}
+
+.history_latest {
+  line-height: 24px;
+}
+.history_latest .card_title_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.history_latest .card_title {
+  margin-bottom: 15px;
+}
+.history_latest .category {
+  padding: 0 10px;
+  font-size: 12px;
+}
+.history_latest .price {
+  color: #3b86ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.regist_latest {
+  display: grid;
+  line-height: 24px;
+  font-size: 12px;
+}
+.regist_latest .card_title_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.regist_latest .card_title {
+  margin-bottom: 15px;
+}
+.regist_latest .id {
+  font-size: 14px;
+  display: inline-block;
+  min-width: 80px;
+  font-weight: 600;
+  margin: 0 10px;
+}
+.regist_latest .badge {
+  font-weight: 500;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.color0 {
+  background: #cacaca !important;
+}
+
+.color1 {
+  background: rgba(181, 93, 204, 0.8509803922) !important;
+}
+
+.color2 {
+  background: #516feb !important;
+}
+
+.color3 {
+  background: #5ec1df !important;
+}
+
+.color4 {
+  background: #5ed2dc !important;
+}
+
+.color5 {
+  background: #373cbc !important;
+}
+
+.color6 {
+  background: #2b3a6d !important;
+}
+
+.color9 {
+  background: #6214ab !important;
+}
+
+.color10 {
+  background: #6214ab !important;
+}
+
+.red {
+  color: red;
+}
+
+strong {
+  color: red;
+}
+
+.adm_btn {
+  background: #fece00;
+  font-size: 13px !important;
+  letter-spacing: 0px;
+  color: #111;
+  font-weight: 700;
+  padding: 3px 10px 2px;
+  margin-right: 15px;
+  border-radius: 15px;
+  margin: 0;
+}
+.adm_btn i {
+  font-size: 16px;
+  margin-right: 3px;
+}
+.adm_btn:hover {
+  background: #d9b000;
+}
+
+/* 유저 아이콘*/
+.user_icon {
+  background: #cbd2de;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+}
+.user_icon i {
+  font-weight: 300;
+  vertical-align: top;
+}
+.user_icon.lv0 {
+  color: white;
+}
+.user_icon.lv1 {
+  background: #2b3a6d;
+  color: white;
+}
+.user_icon.lv2 {
+  background: #61b5ff;
+  color: #1a4158;
+}
+.user_icon.lv3 {
+  background: red;
+  color: white;
+}
+.user_icon.lv4 {
+  background: green;
+  color: white;
+}
+.user_icon.lv5 {
+  background: black;
+  color: gold;
+}
+.user_icon.lv9 {
+  background: black;
+  color: white;
+}
+.user_icon.lv10 {
+  background: black;
+  color: white;
+}
+
+.value_no {
+  color: red;
+}
+
+.total_view_wrap .rank_title {
+  width: 100%;
+  padding: 3px 10px;
+  margin: 10px 20px -10px;
+  background: #f0edff;
+  border-radius: 10px;
+}
+
+#mining .myitemform {
+  display: contents;
+}
+#mining h3.title {
+  margin: 20px 0 0px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 16px;
+  color: #29386b;
+  padding-left: 10px;
+  display: inline-block;
+}
+#mining .all_view {
+  float: right;
+  background: white;
+  margin-top: 15px;
+}
+#mining .all_view:hover {
+  background: #492191;
+  color: white;
+}
+#mining .mining_wrap {
+  margin: 20px 0 0 0;
+}
+#mining .mining_ico {
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+#mining .mining_ico s img {
+  width: 100%;
+  height: 100%;
+}
+
+#mymining .r_card_wrap {
+  margin: 0 0 10px 0;
+}
+
+#mining_swap {
+  background: #fece00;
+  cursor: pointer;
+  border: 1px solid #fdeda5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+#mining_swap .pop_btn {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+#mining_swap .pop_btn div {
+  display: inline-block;
+}
+#mining_swap .pop_btn .wallet_title {
+  font-weight: 600;
+  font-size: 16px;
+}
+#mining_swap .pop_btn .max_with {
+  margin-left: 10px;
+  font-size: 11px;
+}
+#mining_swap .pop_btn .caret_box {
+  vertical-align: top;
+  float: right;
+  flex-grow: 3;
+  vertical-align: top;
+  text-align: right;
+}
+#mining_swap .pop_btn .caret_box i {
+  font-size: 16px;
+}
+
+#mining_withdraw {
+  background: #ec2b38;
+}
+#mining_withdraw .polding_btn {
+  display: flex;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+#mining_withdraw .polding_btn div {
+  display: inline-block;
+}
+#mining_withdraw .polding_btn .wallet_title {
+  font-weight: 600;
+  font-size: 16px;
+}
+#mining_withdraw .polding_btn .max_with {
+  margin-left: 10px;
+  font-size: 11px;
+}
+#mining_withdraw .polding_btn .caret_box {
+  vertical-align: top;
+  float: right;
+  flex-grow: 3;
+  vertical-align: top;
+  text-align: right;
+}
+#mining_withdraw .polding_btn .caret_box i {
+  font-size: 16px;
+}
+#mining_withdraw.open {
+  background: white;
+}
+#mining_withdraw.open .polding_btn {
+  color: black;
+}
+#mining_withdraw.open .polding_btn .caret_box .btn {
+  background: #f4f1f5;
+  border-radius: 5px;
+}
+#mining_withdraw .input_shift_value .button_wrap {
+  float: right;
+}
+#mining_withdraw .input_shift_value .currency-right {
+  margin-top: 14px;
+  margin-right: 10px;
+}
+#mining_withdraw .input_shift_value .fee {
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+}
+#mining_withdraw .input_shift_value .fee #active_amt,
+#mining_withdraw .input_shift_value .fee #fee_val {
+  color: #ec2b38;
+}
+#mining_withdraw .input_shift_value .fee i {
+  font-size: 18px;
+  color: #ec2b38;
+}
+#mining_withdraw .hidden {
+  display: none;
+}
+#mining_withdraw .polding .comment {
+  float: right;
+  font-size: 11px;
+  line-height: 30px;
+  color: red;
+}
+#mining_withdraw #withdrawal_btn {
+  background: #ec2b38;
+  color: white;
+}
+
+#mining_history .mymining_total {
+  float: right;
+  text-align: right;
+  color: #29386b;
+}
+#mining_history .hist_tit {
+  color: #29386b;
+}
+#mining_history ul {
+  margin-top: 15px;
+  border-top: 1px dashed #e1e1e1;
+  padding: 15px 0;
+  margin: 0;
+}
+#mining_history ul li {
+  padding: 0;
+}
+#mining_history .badge {
+  background: #eff3f9;
+  color: white;
+  font-weight: 300;
+}
+#mining_history .hist_td {
+  line-height: 30px;
+}
+#mining_history .hist_value {
+  font-size: 12px;
+}
+#mining_history .hist_rec {
+  font-size: 11px;
+  color: #767676;
+}
+
+#mining_amt_log {
+  padding: 15px 0;
+  display: grid;
+}
+#mining_amt_log .hist_tit {
+  width: 100%;
+  color: #29386b;
+}
+#mining_amt_log .mymining_total {
+  color: #29386b;
+}
+#mining_amt_log ul li span {
+  display: inline-block;
+  line-height: 26px;
+  font-size: 12px;
+  float: left;
+}
+#mining_amt_log .amt_total {
+  color: #ec2b38;
+  font-weight: 600;
+  font-size: 13px;
+}
+#mining_amt_log .amt {
+  font-size: 13px;
+}
+#mining_amt_log .hist_bank {
+  color: black;
+  border-radius: 5px;
+  width: inherit;
+}
+#mining_amt_log .result {
+  font-size: 15px;
+}
+#mining_amt_log i {
+  font-size: 18px;
+  margin-right: 5px;
+  font-weight: 300;
+  vertical-align: sub;
+  color: #333;
+}
+#mining_amt_log p {
+  display: inline-block;
+}
+
+.b_orange {
+  background: orangered;
+}
+
+.b_pink {
+  background: #ef21fd;
+}
+
+.b_purple {
+  background: #6f00ff;
+}
+
+.b_blue {
+  background: #073a69 !important;
+}
+
+.hist_value {
+  color: #073a69;
+}
+
+.btn.more_record i {
+  font-size: 18px;
+}
+
+.content-box.mining_detail {
+  font-size: 13px;
+  border-bottom: 4px solid #073a69;
+}
+.content-box.mining_history {
+  font-size: 13px;
+  border-left: 4px solid #073a69;
+}
+.content-box .m_hist_exp {
+  font-size: 11px;
+}
+.content-box .hist_value2 {
+  font-size: 13px;
+}
+
+.mypool #minings .nav_set ul {
+  width: 100%;
+  min-height: 40px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+}
+.mypool #minings .nav_set ul .nav {
+  display: inline-block;
+  font-size: 13px;
+  padding: 10px 3px;
+  width: 24.9%;
+  text-align: center;
+  cursor: pointer;
+}
+.mypool #minings .nav_set ul .nav.active {
+  border-bottom: 2px solid blue;
+}
+.mypool #minings .nav_con {
+  display: none;
+  -webkit-animation: slidein 0.5s ease-out;
+          animation: slidein 0.5s ease-out;
+}
+.mypool #minings .nav_con.active {
+  display: block;
+}
+.mypool #minings .box-header {
+  display: block;
+}
+.mypool #minings .box-body ul {
+  margin: 15px 0;
+  border-bottom: 2px dotted #ccc;
+  padding-bottom: 10px;
+}
+.mypool #minings .box-body ul .date {
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  color: #0c4ddf;
+}
+.mypool #minings .box-body ul .mining {
+  font-size: 17px;
+  font-weight: 700;
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 30px;
+  color: #1a1a1a;
+}
+.mypool #minings .box-body ul .rec_adm {
+  font-size: 11px;
+  color: #777;
+}
+.mypool #minings .box-body .from_id {
+  font-size: 14px;
+  color: #333;
+  padding: 0 5px;
+  font-weight: 600;
+  background: #dddeeb;
+  display: inline-block;
+  font-family: Montserrat, Arial, sans-serif;
+  border-right: 2px solid #222;
+}
+.mypool #minings .sparkline {
+  width: 100%;
+}
+.mypool #minings .comp {
+  font-size: 16px;
+  color: #666;
+  padding: 0 5px;
+}
+.mypool #minings .comp.plus {
+  color: red;
+}
+.mypool #minings .comp.minus {
+  color: blue;
+}
+.mypool #minings .point {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Montserrat, Arial, sans-serif;
+  margin: 0 5px;
+  padding: 0 5px;
+  color: black;
+  background: #fece00;
+  display: inline-block;
+}
+.mypool #minings .btn *.ad_btn {
+  letter-spacing: -0.5px;
+  margin-bottom: -10px;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  padding: 5px 8px 4px !important;
+  font-size: 13px !important;
+}
+.mypool #minings .ad_btn i {
+  vertical-align: middle;
+}
+
+#ui-datepicker-div {
+  display: none;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.checkbox-group .checkbox {
+  padding-right: 0.2rem;
+  width: 50%;
+}
+.checkbox-group .checkbox + .checkbox {
+  padding-right: 0;
+  padding-left: 0.2rem;
+}
+.checkbox-group .checkbox-wrapper {
+  width: 100%;
+}
+
+.checkbox-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.checkbox-input:checked + .checkbox-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+.checkbox-input:checked + .checkbox-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
+}
+.checkbox-input:checked + .checkbox-tile .checkbox-icon,
+.checkbox-input:checked + .checkbox-tile .checkbox-label {
+  color: #2260ff;
+}
+.checkbox-input:focus + .checkbox-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+}
+.checkbox-input:focus + .checkbox-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.checkbox-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px 10px 16px;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  color: black;
+  font-weight: 600;
+}
+.checkbox-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.checkbox-tile.active:hover {
+  border-color: #2260ff;
+}
+.checkbox-tile.active:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.checkbox-icon {
+  transition: 0.375s ease;
+  color: #494949;
+}
+.checkbox-icon img {
+  width: 44px;
+  height: 44px;
+}
+
+.checkbox-label {
+  color: #555;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 12px;
+}
+
+.checkbox-price .change_price {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.refresh_loader {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+}
+
+.refresh_loader img {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.pre_loading {
+  position: absolute;
+  z-index: 1100;
+  top: 40%;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.pre_loading img {
+  margin: 0 auto;
+}
+
+.dark .pre_loading img {
+  color: white;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #000;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (min-width: 320px) and (max-width: 757px) {
+  .upstairs .it_price {
+    font-size: 16px;
+  }
+  .history_latest .card_title {
+    width: 220px;
+  }
+  .regist_latest .card_title {
+    width: 220px;
+  }
+}

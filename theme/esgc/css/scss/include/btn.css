@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/*스테이킹 컬러셋 6개만 사용 */
+.btn {
+  border-radius: 3px;
+  margin: 10px auto;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.5px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn.wd {
+  width: 100%;
+  padding: 13px 15px;
+}
+
+.main_btn {
+  background: #00c8d5 !important;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  color: #fff !important;
+}
+.main_btn:hover {
+  background: linear-gradient(180deg, #00c8d5, #67dfcf) !important;
+  box-shadow: 0 0 1px 2px #00c8d5;
+}
+
+.main_btn2 {
+  background: #00c8d5;
+  height: 45px;
+  color: #fff !important;
+}
+.main_btn2:hover {
+  background-color: #67dfcf;
+}
+
+.main_btn3 {
+  background: #03dac3;
+  height: 45px;
+  color: #fff !important;
+}
+.main_btn3:hover {
+  background-color: #67dfcf;
+}
+
+.btn_cancel {
+  background: #c7ccd5;
+  height: 45px;
+  border-radius: 5px !important;
+  color: #fff;
+}

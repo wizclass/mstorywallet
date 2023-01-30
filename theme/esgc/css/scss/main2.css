@@ -1,0 +1,1587 @@
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+main {
+  background-color: #f8fbff;
+  padding-bottom: 0;
+}
+
+.content-box {
+  -webkit-box-shadow: 0 1px 1px 2px #ccc;
+  box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+.content_box2 {
+  background-color: #ecf3fa;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.content_box3 {
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px #eee;
+          box-shadow: 0 1px 3px #eee;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.null_data {
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px #eee;
+          box-shadow: 0 1px 3px #eee;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 300;
+  color: #767676;
+  font-size: 1rem;
+  min-height: 120px;
+  line-height: 120px;
+}
+
+.main_title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #29386b;
+  margin-bottom: 15px;
+}
+
+.user_icon i {
+  vertical-align: middle;
+}
+
+#wrapper {
+  background-color: #fff;
+}
+
+.intro_wrapper {
+  width: 550px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  position: relative;
+}
+
+.intro_wrapper .intro_slide1 {
+  background-image: url("../../img/launcher_0906.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.intro_wrapper .intro_slide2 {
+  background-image: url("../../img/launcher_0906.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.intro_wrapper .intro_slide3 {
+  background-image: url("../../img/launcher_0906.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.intro_wrapper .intro_dots {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.intro_wrapper .intro_dots li button {
+  background: url("../../img/dot1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 20px;
+  font-size: 0;
+  border: 0;
+  outline: 0;
+}
+
+.intro_wrapper .intro_dots li.slick-active button {
+  background: url("../../img/dot2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0;
+  border: 0;
+  outline: 0;
+}
+
+.intro_wrapper .skip {
+  width: 100%;
+  position: absolute;
+  bottom: 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ff0000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.breadcrumb .user-info {
+  padding-bottom: 15px;
+}
+
+.breadcrumb .user-info .user-content {
+  background-color: #fff;
+}
+
+.breadcrumb .user-info .user-content .user_level {
+  width: 40px;
+  height: 40px;
+}
+
+.breadcrumb .user-info .user-content .user_id {
+  color: #b4bac5;
+  font-size: 1rem;
+  margin: 0 5px;
+}
+
+.breadcrumb .user-info .user-content .mygrade {
+  background: none;
+  color: #8b8b8b;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.breadcrumb .total_view_wrap .total_view_top .row.top {
+  background-color: #fff;
+}
+
+.breadcrumb .total_view_wrap .total_view_top .title {
+  color: #00c8d5;
+}
+
+.breadcrumb .total_view_wrap .total_view_top .value {
+  color: #000;
+  font-size: 15px;
+}
+
+.breadcrumb .total_view_wrap .quote_wrap {
+  font-size: 0.8rem;
+  color: #8b8b8b;
+  text-align: right;
+}
+
+.breadcrumb .total_view_wrap .refresh {
+  width: 12px;
+  vertical-align: middle;
+}
+
+.enroll_wrap .btn2_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.enroll_wrap .btn2_wrap .btn_cancle {
+  -webkit-box-flex: 0.3;
+      -ms-flex-positive: 0.3;
+          flex-grow: 0.3;
+}
+
+.enroll_wrap .btn2_wrap .submit {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+header .left_gnbWrap .user-content {
+  background: none;
+  height: 100px;
+}
+
+header .left_gnbWrap .user-content .user_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .left_gnbWrap .user-content .user_id {
+  color: #b4bac5;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 100;
+}
+
+header .left_gnbWrap .user-content .user_name {
+  margin-bottom: 3px;
+}
+
+header .left_gnbWrap .user-content .mygrade {
+  background: none;
+  color: #8b8b8b;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+header .left_gnbWrap .left_gnb {
+  height: calc(100% - 550px);
+}
+
+header .left_gnbWrap .left_gnb li:hover {
+  background: #e5fbfb;
+}
+
+header .left_gnbWrap .left_gnb li:hover .gnb_title_Wrap a {
+  color: #00c8d5;
+}
+
+header .left_gnbWrap .close {
+  left: 0%;
+}
+
+header .logout_wrap {
+  border: 1px solid #e5e5e5;
+}
+
+.login_wrap .login_btn_bottom .login_btn_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.login_wrap .login_btn_bottom .login_btn_wrap > * {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.login_wrap .login_btn_bottom .login_btn_wrap > *:nth-child(2) {
+  margin-left: 10px;
+}
+
+.login_wrap .login_btn_bottom .desc {
+  float: none;
+  display: inline-block;
+}
+
+.dashboard .swiper-container {
+  overflow: hidden;
+}
+
+.dashboard .nav_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.dashboard .nav_wrap .nav1, .dashboard .nav_wrap .nav2, .dashboard .nav_wrap .nav3 {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #ecf3fa;
+  border-radius: 5px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #767676;
+}
+
+.dashboard .nav_wrap .nav1::after, .dashboard .nav_wrap .nav2::after, .dashboard .nav_wrap .nav3::after {
+  content: "+";
+  color: #00c8d5;
+  display: inline-block;
+  position: absolute;
+  right: 10%;
+  font-weight: bold;
+}
+
+.dashboard .nav_wrap .nav2 {
+  margin: 0 10px;
+}
+
+.dashboard .gift_box_wrap .swiper-slide.swiper-slide-active {
+  width: 70% !important;
+}
+
+.dashboard .gift_box_wrap .swiper-slide.last_slide {
+  width: 100% !important;
+}
+
+.dashboard .page_move_btn {
+  color: #767676;
+  font-size: 0.9rem;
+  float: right;
+  font-weight: 300;
+}
+
+.dashboard .page_move_btn img {
+  width: 18px;
+  height: 18px;
+  vertical-align: inherit;
+  margin-left: 5px;
+}
+
+.dashboard .history_wrap {
+  padding: 0;
+}
+
+.dashboard .history_wrap .history_box {
+  background: #f8fbff;
+  padding: 0;
+}
+
+.dashboard .history_wrap .history_box .hist_con {
+  background: none;
+  margin: 0;
+}
+
+.dashboard .history_wrap .history_box .hist_con .hist_con_row1 {
+  margin: 0 15px 10px 15px;
+}
+
+.dashboard .history_wrap .history_box .hist_con .hist_con_row1:last-child {
+  border-bottom: none;
+}
+
+.mywallet #deposit .content_wrap .qr_img {
+  margin: 15px auto 0;
+}
+
+.mywallet #deposit .content_wrap .qr_img img {
+  margin: 0 auto;
+}
+
+.mywallet #deposit .content_wrap .qrBox_right #my_eth_wallet {
+  color: #000;
+  text-align: center;
+}
+
+.mywallet #deposit .content_wrap .qrBox_right .explain_text {
+  color: #767676;
+  text-align: center;
+}
+
+.mywallet #deposit .content_wrap .qrBox_right #accountCopy {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #00c8d5;
+  background: none;
+  border-radius: 10px;
+}
+
+.mywallet #deposit .content_wrap .qrBox_right #accountCopy span {
+  color: #00c8d5;
+}
+
+.mywallet #deposit .content_wrap #deposit_name {
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+  color: #686767;
+}
+
+.mywallet #deposit .content_wrap #deposit_name::-webkit-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #deposit .content_wrap #deposit_name:-ms-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #deposit .content_wrap #deposit_name::-ms-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #deposit .content_wrap #deposit_name::placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #deposit .content_wrap #deposit_value {
+  text-align: right;
+  padding-right: 60px;
+  background: none;
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+  color: #686767;
+}
+
+.mywallet #deposit .content_wrap .currency-right {
+  right: 3%;
+  color: #686767;
+}
+
+.mywallet #deposit .content_wrap .price {
+  text-align: right;
+  color: #686767;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+.mywallet #deposit .content_wrap .won {
+  font-weight: 100;
+  margin-left: 10px;
+}
+
+.mywallet #deposit .content_wrap .deposit_request {
+  background: #00c8d5;
+}
+
+.mywallet #deposit .content_wrap input:focus {
+  border: 1px solid #00c8d5 !important;
+}
+
+.mywallet #withdraw .content_wrap > div {
+  position: relative;
+  display: flow-root;
+  margin: 15px 0;
+}
+
+.mywallet #withdraw .content_wrap > div:first-child {
+  margin: 0;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_wallet_address {
+  border: 1px solid #dfe4ec;
+  border-radius: 6px;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_wallet_address::-webkit-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_wallet_address:-ms-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_wallet_address::-ms-input-placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_wallet_address::placeholder {
+  text-align: center;
+  font-weight: 100;
+}
+
+.mywallet #withdraw .content_wrap #max_value {
+  position: relative;
+  background: #00c8d5;
+  color: #fff;
+  right: 0%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 5px;
+}
+
+.mywallet #withdraw .content_wrap #sendValue {
+  text-align: right;
+  padding-right: 70px;
+  border: 1px solid #dfe4ec;
+  border-radius: 6px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  color: #686767;
+  font-weight: 300;
+}
+
+.mywallet #withdraw .content_wrap #pin_auth_with {
+  border: 1px solid #dfe4ec;
+  border-radius: 6px;
+  text-align: right;
+  color: #686767;
+}
+
+.mywallet #withdraw .content_wrap #pin_open {
+  background: #eef2f8;
+  color: #00c8d5;
+}
+
+.mywallet #withdraw .content_wrap #Withdrawal_btn {
+  background: #00c8d5;
+  color: #fff;
+}
+
+.mywallet #withdraw .content_wrap #available_withdraw {
+  width: 100%;
+  text-align: right;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  height: 50px;
+  line-height: 50px;
+  color: #00c8d5;
+  padding: 0 15px;
+}
+
+.mywallet #withdraw .content_wrap .withdraw_fee_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.mywallet #withdraw .content_wrap #withdraw_currency {
+  color: #686767;
+  font-size: 0.9rem;
+  float: none;
+  top: 22%;
+  right: 20%;
+}
+
+.mywallet #withdraw .content_wrap .real_withdraw {
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.mywallet #withdraw .content_wrap .real_withdraw #fee_val {
+  color: #ff0000;
+  margin-left: 10px;
+}
+
+.mywallet #withdraw .content_wrap .real_withdraw span {
+  color: #686767;
+}
+
+.mywallet #withdraw .content_wrap .input_head_title {
+  font-size: 1rem;
+  position: absolute;
+  top: 20%;
+  left: 0%;
+}
+
+.mywallet #deposit .title, .mywallet #withdraw .title {
+  float: none;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  color: #686767;
+  height: auto;
+  text-align: left;
+  width: auto;
+  display: block;
+}
+
+.mywallet .guide {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 100;
+  color: #767676;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.mywallet .guide img {
+  vertical-align: sub;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.mywallet .guide_content {
+  font-size: 1rem;
+  padding: 20px;
+  border: 1px solid #e3e7ed;
+  border-radius: 10px;
+  color: #767676;
+}
+
+.mywallet .guide_content ul {
+  list-style: decimal;
+  padding-left: 15px;
+}
+
+.mywallet .guide_content .title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #767676;
+  float: none !important;
+}
+
+.mywallet .guide_content .title img {
+  width: 19px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.staking .sub_title {
+  display: block;
+}
+
+.staking .caution {
+  width: 15px;
+  vertical-align: baseline;
+}
+
+.staking .caution + span {
+  font-size: 0.9rem;
+  color: #767676;
+}
+
+.staking .stacking_card {
+  width: 100%;
+  border-radius: 10px;
+  border-top-right-radius: 45px;
+  padding: 20px;
+  color: #fff;
+  min-height: 140px;
+  border: none;
+}
+
+.staking .stacking_card.card1 {
+  background-image: linear-gradient(-32deg, #00c8d5, #00c8d5);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  border-left: none;
+}
+
+.staking .stacking_card.card1 .percent, .staking .stacking_card.card1 .date, .staking .stacking_card.card1 .value, .staking .stacking_card.card1 .currency {
+  color: #fff;
+}
+
+.staking .stacking_card.card2 {
+  border-left: none;
+  background-image: linear-gradient(-32deg, #00d6f6, #00d6f6);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.staking .stacking_card.card2 .percent, .staking .stacking_card.card2 .date, .staking .stacking_card.card2 .value, .staking .stacking_card.card2 .currency {
+  color: #fff;
+}
+
+.staking .stacking_card.card3 {
+  border-left: none;
+  background-image: linear-gradient(-32deg, #00a2ff, #00a2ff);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.staking .stacking_card.card3 .percent, .staking .stacking_card.card3 .date, .staking .stacking_card.card3 .value, .staking .stacking_card.card3 .currency {
+  color: #fff;
+}
+
+.staking .stacking_card.card4 {
+  border-left: none;
+  background-image: linear-gradient(-32deg, #1772ee, #1772ee);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.staking .stacking_card.card4 .percent, .staking .stacking_card.card4 .date, .staking .stacking_card.card4 .value, .staking .stacking_card.card4 .currency {
+  color: #fff;
+}
+
+.notice_wrap ul li span {
+  color: #00c8d5;
+  border: 1px solid #00c8d5;
+}
+
+.more {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #767676;
+  display: inline-block;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.gift_card_wrap {
+  background-image: url("../../img/gift_logo_icon.svg"), linear-gradient(-32deg, #00c8d5, #67dfcf);
+  background-repeat: no-repeat;
+  background-position: 99% 28%, center center;
+  background-size: 3%,100%;
+  width: 100%;
+  border-radius: 10px;
+  border-top-right-radius: 45px;
+  padding: 20px;
+  color: #fff;
+  min-height: 140px;
+  border: 2px solid #fff;
+}
+
+.gift_card_wrap .product_cash_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  min-height: 90px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gift_card_wrap .product_cash_wrap img {
+  width: 120px;
+}
+
+.gift_card_wrap .product_cash_wrap > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  font-size: 14px;
+}
+
+.gift_card_wrap .product_cash_wrap > div p {
+  font-size: 1.1rem;
+  line-height: 22px;
+}
+
+.gift_card_wrap .product_cash_wrap > div p:last-child {
+  font-size: 1.6rem;
+}
+
+.gift_card_sub_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  padding: 0 10px;
+  color: #767676;
+  line-height: 25px;
+}
+
+.gift_card_sub_wrap p:last-child {
+  font-size: 1.2rem;
+}
+
+.stacking_card {
+  min-height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.stacking_card .staking_right_wrap::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 70px;
+  background-color: #f1f5fa;
+  position: absolute;
+  left: 50%;
+}
+
+.stacking_card.card1 {
+  border-left: 3px solid #0cdbc5;
+  background-color: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.stacking_card.card1 .percent {
+  color: #0cdbc5;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.stacking_card.card1 .date {
+  color: #767676;
+  font-weight: 300;
+}
+
+.stacking_card.card1 .value {
+  color: #0cdbc5;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.stacking_card.card1 .currency {
+  text-align: right;
+  color: #767676;
+}
+
+.stacking_card.card2 {
+  border-left: 3px solid #00d6f6;
+  background-color: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.stacking_card.card2 .percent {
+  color: #00d6f6;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.stacking_card.card2 .date {
+  color: #767676;
+  font-weight: 300;
+}
+
+.stacking_card.card2 .value {
+  color: #00d6f6;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.stacking_card.card2 .currency {
+  text-align: right;
+  color: #767676;
+}
+
+.stacking_card.card3 {
+  border-left: 3px solid #00a2ff;
+  background-color: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.stacking_card.card3 .percent {
+  color: #00a2ff;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.stacking_card.card3 .date {
+  color: #767676;
+  font-weight: 300;
+}
+
+.stacking_card.card3 .value {
+  color: #00a2ff;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.stacking_card.card3 .currency {
+  text-align: right;
+  color: #767676;
+}
+
+.stacking_card.card4 {
+  border-left: 3px solid #1772ee;
+  background-color: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.stacking_card.card4 .percent {
+  color: #1772ee;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.stacking_card.card4 .date {
+  color: #767676;
+  font-weight: 300;
+}
+
+.stacking_card.card4 .value {
+  color: #1772ee;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.stacking_card.card4 .currency {
+  text-align: right;
+  color: #767676;
+}
+
+.asset_status_wrap {
+  -webkit-box-shadow: 0 0 0 0 #ccc;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: auto;
+  color: #fff;
+  margin: 20px 0;
+}
+
+.asset_status_wrap .swiper-slide.swiper-slide-active {
+  width: 90% !important;
+}
+
+.asset_status_wrap .swiper-slide.last_slide {
+  width: 100% !important;
+}
+
+.status_card_wrap {
+  color: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  min-height: 300px;
+  position: relative;
+}
+
+.status_card_wrap.esgc {
+  background-image: url("../../img/card_logo.svg");
+  background-color: #00c8d5;
+  background-repeat: no-repeat;
+  background-position: 97% 40%;
+  background-size: 20%;
+}
+
+.status_card_wrap.esgc .link_btn_wrap {
+  background-color: #00baca;
+}
+
+.status_card_wrap.esgc .link_btn_wrap a:nth-child(1)::after {
+  content: "";
+  width: 1px;
+  height: 18px;
+  background-color: #fff;
+  display: inline-block;
+  position: absolute;
+  right: 50%;
+  top: 33%;
+}
+
+.status_card_wrap.eth {
+  background-image: url("../../img/card_logo.svg");
+  background-color: #0cdbc5;
+  background-repeat: no-repeat;
+  background-position: 97% 40%;
+  background-size: 20%;
+}
+
+.status_card_wrap.eth .link_btn_wrap {
+  background-color: #08d1b7;
+}
+
+.status_card_wrap h5 {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.status_card_wrap .quantity_wrap {
+  margin: 35px 0;
+}
+
+.status_card_wrap .esgc_quantity {
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.status_card_wrap .price {
+  font-size: 1.4rem;
+  opacity: 0.5;
+}
+
+.status_card_wrap .currency {
+  font-size: 1.4rem;
+  vertical-align: bottom;
+}
+
+.status_card_wrap .link_btn_wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  line-height: 60px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.status_card_wrap .link_btn_wrap a {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
+.status_card_wrap .link_btn_wrap a.active {
+  color: #ffd800;
+}
+
+.history_wrap {
+  background-color: #fff;
+  padding-top: 30px;
+}
+
+.history_wrap .history_nav_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.history_wrap .history_nav_wrap a {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: 1px solid #d0d0d0;
+  color: #767676;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 3px;
+  font-weight: 300;
+}
+
+.history_wrap .history_nav_wrap a:nth-child(2) {
+  margin: 0 10px;
+}
+
+.history_wrap .history_nav_wrap a.active {
+  border: 1px solid #00c8d5;
+  color: #00c8d5;
+}
+
+.history_wrap .history_box {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.history_wrap .history_box > * {
+  color: #767676;
+}
+
+.history_wrap .history_box .hist_con .hist_con_row1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  background: #fff;
+  border-top: 1px solid #eef2f8;
+  border-bottom: 1px solid #eef2f8;
+  height: 100px;
+}
+
+.history_wrap .history_box .hist_con .hist_con_row1.deposit .hist_value {
+  color: #00c8d5;
+}
+
+.history_wrap .history_box .hist_con .hist_con_row1.withdraw .hist_value {
+  color: #767676;
+}
+
+.history_wrap .history_box .hist_con .hist_con_row1:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.history_wrap .history_box .hist_con .hist_mid {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.history_wrap .history_box .hist_con .hist_mid .tx_id {
+  font-size: 1rem;
+}
+
+.history_wrap .history_box .hist_con .hist_mid .hist_date {
+  width: auto;
+  color: inherit;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.history_wrap .history_box .hist_con .hist_right {
+  text-align: right;
+  line-height: 30px;
+}
+
+.history_wrap .history_box .hist_con .hist_right .hist_value {
+  width: auto;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.history_wrap .history_box .hist_con .hist_right .hist_won {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.history_wrap .history_box .hist_con img {
+  width: 18px;
+}
+
+.modal .modal-header {
+  border-bottom: none;
+}
+
+.modal .modal-footer {
+  border-top: none;
+}
+
+.modal .modal_title {
+  margin-bottom: 15px;
+}
+
+.modal .modal_sub_text {
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+
+.modal .modal_basic_btn {
+  background: #00c8d5;
+  color: #fff;
+}
+
+@media (min-width: 335px) and (max-width: 757px) {
+  .intro_wrapper {
+    width: 100%;
+  }
+  .breadcrumb .user-info .user-content .user_id {
+    font-size: 0.8rem;
+  }
+  .breadcrumb .user-info .user-content .mygrade {
+    font-size: 0.8rem;
+  }
+  .breadcrumb .total_view_wrap .total_view_top .row.top {
+    background-color: #fff;
+  }
+  .breadcrumb .total_view_wrap .total_view_top .title {
+    font-size: 0.7rem;
+  }
+  .breadcrumb .total_view_wrap .total_view_top .value {
+    color: #000;
+    font-size: 0.8rem;
+  }
+  .breadcrumb .total_view_wrap .quote_wrap {
+    font-size: 0.8rem;
+    color: #8b8b8b;
+    text-align: right;
+    font-weight: 100;
+  }
+  .breadcrumb .total_view_wrap .refresh {
+    width: 12px;
+    vertical-align: middle;
+  }
+  header .left_gnbWrap .user-content {
+    background: none;
+    height: 100px;
+  }
+  header .left_gnbWrap .user-content .user_id {
+    font-size: 0.8rem;
+    margin: 5px 0;
+  }
+  header .left_gnbWrap .user-content .mygrade {
+    font-size: 0.8rem;
+  }
+  header .left_gnbWrap .left_gnb {
+    height: calc(100% - 340px);
+  }
+  .dashboard .nav_wrap .nav1, .dashboard .nav_wrap .nav2, .dashboard .nav_wrap .nav3 {
+    font-size: 0.7rem;
+  }
+  .dashboard .gift_box_wrap .swiper-slide.swiper-slide-active {
+    width: 80% !important;
+  }
+  .dashboard .gift_box_wrap .swiper-slide.last_slide {
+    width: 100% !important;
+  }
+  .dashboard .page_move_btn {
+    font-size: 0.8rem;
+  }
+  .mywallet #deposit .content_wrap .qr_img {
+    margin: 15px auto 0;
+  }
+  .mywallet #deposit .content_wrap .qr_img img {
+    margin: 0 auto;
+  }
+  .mywallet #deposit .content_wrap .qrBox_right #my_eth_wallet {
+    color: #767676;
+    text-align: center;
+    font-weight: bold;
+  }
+  .mywallet #deposit .content_wrap .qrBox_right .explain_text {
+    color: #767676;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  .mywallet #deposit .content_wrap .currency-right {
+    font-size: 0.8rem;
+    right: 11%;
+  }
+  .mywallet #deposit .content_wrap .price {
+    font-size: 0.8rem;
+  }
+  .mywallet #withdraw .content_wrap #withdraw_wallet_address::-webkit-input-placeholder {
+    text-align: center;
+    font-weight: 100;
+  }
+  .mywallet #withdraw .content_wrap #withdraw_wallet_address:-ms-input-placeholder {
+    text-align: center;
+    font-weight: 100;
+  }
+  .mywallet #withdraw .content_wrap #withdraw_wallet_address::-ms-input-placeholder {
+    text-align: center;
+    font-weight: 100;
+  }
+  .mywallet #withdraw .content_wrap #withdraw_wallet_address::placeholder {
+    text-align: center;
+    font-weight: 100;
+  }
+  .mywallet #withdraw .content_wrap #max_value {
+    background: #00c8d5;
+    color: #fff;
+    right: 0%;
+  }
+  .mywallet #withdraw .content_wrap #withdraw_currency {
+    right: 24%;
+  }
+  .mywallet #withdraw .content_wrap .input_head_title {
+    font-size: 0.8rem;
+    position: absolute;
+    top: 20%;
+    left: 4%;
+  }
+  .mywallet .guide {
+    font-size: 0.8rem;
+    color: #686767;
+    font-weight: 100;
+  }
+  .mywallet .guide img {
+    vertical-align: initial;
+    width: 12px;
+  }
+  .mywallet .guide_content {
+    font-size: 0.8rem;
+  }
+  .mywallet .guide_content .title {
+    font-size: 0.9rem;
+  }
+  .mywallet .guide_content .title img {
+    width: 15px;
+  }
+  .staking .sub_title {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 15px;
+    color: #767676;
+  }
+  .staking .sub_title .caution {
+    margin-right: 3px;
+    vertical-align: middle;
+  }
+  .staking .stacking_card.card1 {
+    background-image: linear-gradient(-32deg, #00c8d5, #00c8d5);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    border-left: none;
+  }
+  .staking .stacking_card.card1 .percent, .staking .stacking_card.card1 .value {
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .staking .stacking_card.card1 .date, .staking .stacking_card.card1 .currency {
+    font-weight: 100;
+  }
+  .staking .stacking_card.card2 {
+    border-left: none;
+    background-image: linear-gradient(-32deg, #00d6f6, #00d6f6);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .staking .stacking_card.card2 .percent, .staking .stacking_card.card2 .date, .staking .stacking_card.card2 .value, .staking .stacking_card.card2 .currency {
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .staking .stacking_card.card3 {
+    border-left: none;
+    background-image: linear-gradient(-32deg, #00a2ff, #00a2ff);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .staking .stacking_card.card3 .percent, .staking .stacking_card.card3 .date, .staking .stacking_card.card3 .value, .staking .stacking_card.card3 .currency {
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .staking .stacking_card.card4 {
+    border-left: none;
+    background-image: linear-gradient(-32deg, #1772ee, #1772ee);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .staking .stacking_card.card4 .percent, .staking .stacking_card.card4 .date, .staking .stacking_card.card4 .value, .staking .stacking_card.card4 .currency {
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .staking .stacking_card .staking_left_wrap {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .null_data {
+    font-size: 0.8rem;
+  }
+  .gift_card_wrap {
+    background-image: url("../../img/gift_logo_icon.svg"), linear-gradient(-32deg, #00c8d5, #67dfcf);
+    background-repeat: no-repeat;
+    background-position: 89% 21%, center center;
+    background-size: 14%,100%;
+  }
+  .gift_card_wrap .product_cash_wrap img {
+    width: 100px;
+  }
+  .gift_card_wrap .product_cash_wrap > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+    font-size: 14px;
+  }
+  .gift_card_wrap .product_cash_wrap > div p {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  .gift_card_wrap .product_cash_wrap > div p:last-child {
+    font-size: 1.4rem;
+  }
+  .gift_card_sub_wrap {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  .gift_card_sub_wrap p:last-child {
+    font-size: 1.2rem;
+  }
+  .stacking_card .staking_right_wrap::before {
+    left: 60%;
+  }
+  .stacking_card.card1 {
+    border-left: 3px solid #0cdbc5;
+    background-color: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .stacking_card.card1 .percent, .stacking_card.card1 .value {
+    font-size: 1.2rem;
+  }
+  .stacking_card.card1 .date, .stacking_card.card1 .currency {
+    font-size: 0.8rem;
+  }
+  .stacking_card.card2 {
+    border-left: 3px solid #00d6f6;
+    background-color: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .stacking_card.card2 .percent, .stacking_card.card2 .value {
+    font-size: 1.2rem;
+  }
+  .stacking_card.card2 .date, .stacking_card.card2 .currency {
+    font-size: 0.8rem;
+  }
+  .stacking_card.card3 {
+    border-left: 3px solid #00a2ff;
+    background-color: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .stacking_card.card3 .percent, .stacking_card.card3 .value {
+    font-size: 1.2rem;
+  }
+  .stacking_card.card3 .date, .stacking_card.card3 .currency {
+    font-size: 0.8rem;
+  }
+  .stacking_card.card4 {
+    border-left: 3px solid #1772ee;
+    background-color: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+  .stacking_card.card4 .percent, .stacking_card.card4 .value {
+    font-size: 1.2rem;
+  }
+  .stacking_card.card4 .date, .stacking_card.card4 .currency {
+    font-size: 0.8rem;
+  }
+  .status_card_wrap {
+    min-height: 250px;
+    background-image: url("../../img/card_logo.svg");
+    background-color: #00c8d5;
+    background-repeat: no-repeat;
+    background-position: 90% 35%;
+    background-size: 20%;
+  }
+  .status_card_wrap h5 {
+    font-size: 1rem;
+  }
+  .status_card_wrap .esgc_quantity {
+    font-size: 1.8rem;
+  }
+  .status_card_wrap .price {
+    font-size: 1rem;
+    opacity: 0.5;
+  }
+  .status_card_wrap .currency {
+    font-size: 1rem;
+  }
+  .status_card_wrap .link_btn_wrap a {
+    font-size: 0.9rem;
+  }
+  .history_wrap {
+    background-color: #fff;
+  }
+  .history_wrap .history_box > * {
+    color: #767676;
+  }
+  .history_wrap .history_box .hist_con .hist_mid {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: 0 10px;
+  }
+  .history_wrap .history_box .hist_con .hist_mid .tx_id {
+    font-size: 0.9rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 140px;
+    white-space: nowrap;
+  }
+  .history_wrap .history_box .hist_con .hist_mid .hist_date {
+    width: auto;
+    color: inherit;
+    font-weight: 300;
+    font-size: 0.7rem;
+  }
+  .history_wrap .history_box .hist_con .hist_right .hist_value {
+    width: auto;
+    font-size: 0.9rem;
+  }
+  .history_wrap .history_box .hist_con .hist_right .hist_won {
+    font-size: 0.8rem;
+  }
+  .history_wrap .history_box .hist_con img {
+    width: 18px;
+  }
+}
