@@ -140,7 +140,7 @@ $(document).ready(function(){
 	<div class="top_title">
 		<h3>
 			<!-- <a href="/"><img src= "<?=G5_THEME_URL?>/img/title.svg" alt="logo"></a> -->
-			ESG Chain Wallet
+			MSTORY WALLET
 
 			<?if($member['mb_level'] >= 9){?>
 				<a href= '<?=G5_ADMIN_URL?>' class='btn adm_btn ' style="line-height:16px;margin:0 0 0 10px;vertical-align:text-bottom">

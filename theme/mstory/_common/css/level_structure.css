@@ -137,7 +137,7 @@
 
 
 .main-container {
-	display: absolute;
+	position: absolute;
 	height: 100%;
 	z-index: 0;
 	margin:0 5px;
@@ -279,12 +279,13 @@
 }
 /* search_layout */
 /* binary search result */
-.structure_search_container{position:fixed;display:none;z-index:10;top:180px;right:15px;}
+.structure_search_container{position:fixed;display:none;z-index:99999;top:180px;right:15px;}
 .structure_search_result{width:250px; height:310px;background-color:#dddde6;text-align:center;padding:10px 15px;transition:all 0.8s;overflow:auto;z-index:1; }
 
 .structure_search_result .mbId{
 	display:block;
 	background:white;
+	color: #333;
 }
 
 .mbId {
@@ -365,7 +366,7 @@
     #levelStructure{
       clear: both;
       width:100%;
-      margin:20px auto;
+      margin:0 auto 20px;
     }
 
     .lvl-one{
@@ -423,8 +424,7 @@
 }
 
 .main-container {
-	/* background-color: rgb(242, 242, 242); */
-	display: absolute;
+	position: absolute;
 	height: 100%;
 	width: 100%;
 	z-index: 0;
@@ -653,8 +653,7 @@
 }
 
 .tree-container {
-	/* background: white; */
-	padding: 10px;
+	padding: 15px;
 	width: 100%;
 	font-size: 14px;
 }
@@ -853,8 +852,8 @@
 	}
 	.page-scroll span{text-align:center;font-size: 10px;}
 	.lvl3 .addMem span{
-	font-size:10px;
-}
+		font-size:10px;
+	}
 }
 
 @media only screen and (max-width: 414px) {

@@ -505,29 +505,28 @@ var gradeMap = {
 	</script>
 
 	<style>
-		main {background: #fff;}
-		.toggle{float:right;width:38px;height:38px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
+		.toggle{float:right;width:30px;height:30px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
 		.toggle i{vertical-align:middle;line-height:36px;}
 		.badge.package{ background:none;border:1px solid #2b3a6d;color:#2b3a6d;font-size:12px;line-height:10px;padding:4px 10px;}
 		.badge.package i{font-size:12px;margin-right:2px;}
 		.hp{margin-right:5px;}
-		.toggle{margin-top:-25px;}
+		.toggle{margin-top:-30px;}
 		.mbpoint{padding-left:15px;}
 	</style>
 
 	<main>
 		
 		<div class="container nopadding nomargin">
-			<section class="structure_wrap content-box6">
+			<section class="structure_wrap">
 				<!--<p>데이터 크기로 인해 한번에 5대씩 화면에 나타납니다</p>-->
-				<div class="btn_input_wrap" style='background:white'>
-				<div class="bin_top">회원 검색</div>
-					<ul class="row">
-						<li class="col-9 user_search_wrap">
-							<input type="text" id="now_id" class="" style='background:#eff3f9;color:black;border:1px solid #d9dfe8' placeholder="회원찾기"/>
+				<div class="btn_input_wrap">
+					<div class="bin_top">회원 검색</div>
+					<ul class="row align-items-center">
+						<li class="col-9 col-lg-10 user_search_wrap">
+							<input type="text" id="now_id" class="nomargin" style='background:#eff3f9;color:black;border:1px solid #d9dfe8;padding:8px 10px' placeholder="회원찾기"/>
 						</li>
-						<li class="col-3 search_btn_wrap">
-							<button type="button" class="btn wd b_skyblue b_radius" id="binary_search"  onclick="member_search();"><i class="ri-search-line"></i></button>
+						<li class="col-3 col-lg-2 search_btn_wrap">
+							<button type="button" class="btn wd b_skyblue nomargin" id="binary_search"  onclick="member_search();"><i class="ri-search-line"></i></button>
 						</li>
 					</ul>
 				</div>
@@ -543,10 +542,9 @@ var gradeMap = {
 
 				
 				<!-- <div class="desc font_red" style='font-size:11px'>[ 금액단위 : 만원 ]</div> -->
-				<div class="main-container content-box tree-container">
-					<div class="bin_top" >추천 조직도</div>
-					
-					<div id="levelStructure" class="accordion_wrap" ></div>
+				<div class="tree-container">
+					<div class="bin_top">추천 조직도</div>					
+					<div id="levelStructure" class="accordion_wrap"></div>
 				</div>
 				<div style="display:none;" id="dup">
 					<dl class="lvl-container" >
@@ -581,7 +579,12 @@ var gradeMap = {
 
 	<script>
 		$(function(){
-			$(".top_title h3").html("<span >추천조직도</span>")
+			$(".top_title h3").html("<span>추천조직도</span>")
 		});
+
+		let url = location.href;
+		if(url.indexOf('structure') != -1) {
+			$('#wrapper').css('background-color','#f8fbff');
+		}
 	</script>
 <? include_once(G5_THEME_PATH.'/_include/tail.php'); ?>

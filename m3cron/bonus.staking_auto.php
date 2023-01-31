@@ -8,7 +8,7 @@ define('COIN_NUMBER_POINT',8); // 이더 단위
 
 $absolute_path = "/var/www/html/esgcwallet";
 // include_once("{$absolute_path}/logcompany.php");
-include_once("{$absolute_path}/theme/esgc/_include/coin_price.php");
+include_once("{$absolute_path}/theme/mstory/_include/coin_price.php");
 
 $host_name = 'localhost';
 $user_name = 'root';

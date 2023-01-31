@@ -287,7 +287,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
                     부정 거래가 의심되는 경우 출금이 제한 될 수 있습니다.<br><br>
                   </li>
                   <li>
-                    타인의 지시나 요청 등으로 본인 명의 ESG Chain Wallet 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
+                    타인의 지시나 요청 등으로 본인 명의 MSTORY WALLET 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
                   </li>
                   <li>
                     실명 인증된 계정을 타인에게 대여하는 경우 개인 정보 노출 위험에 처할 수 있습니다.<br><br>
@@ -1098,7 +1098,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
                       부정 거래가 의심되는 경우 출금이 제한 될 수 있습니다.<br><br>
                   </li>
                   <li>
-                      타인의 지시나 요청 등으로 본인 명의 ESG Chain Wallet 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
+                      타인의 지시나 요청 등으로 본인 명의 MSTORY WALLET 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
                   </li>
                   <li>
                       실명 인증된 계정을 타인에게 대여하는 경우 개인 정보 노출 위험에 처할 수 있습니다.<br><br>

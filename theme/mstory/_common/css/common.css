@@ -226,7 +226,9 @@ a.btn {
   cursor: pointer;
 }
 .btn:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #0c3879;
+  border-color: #0c3879;
 }
 .btn_default {
   background: #fff;
@@ -274,10 +276,6 @@ a.btn {
 .btn.wide {
   min-width: 160px;
   border-radius: 3px;
-}
-.btn.wd {
-  width: 100%;
-  padding: 13px 15px;
 }
 .btn.inline {
   margin: 0;
@@ -770,7 +768,7 @@ input.p15 {
   overflow-x: hidden;
 }
 #wrapper {
-  background: #eff3f9;
+  background: #f8fbff;
   color: #333;
 }
 #wrapper.dark {
@@ -1507,8 +1505,8 @@ a.more i {
 }
 .notice_wrap ul li span {
   font-weight: normal;
-  color: #00c8d5;
-  border: 1px solid #00c8d5;
+  color: #0c3879;
+  border: 1px solid #0c3879;
   border-radius: 10px;
   padding: 0px 7px 0px 7px;
   margin-right: 3px;
@@ -2679,10 +2677,6 @@ input.input_price {
   font-size: 16px;
 }
 /* structure */
-.structure_wrap {
-  padding-bottom: 20px;
-  color: #29386b;
-}
 .structure_wrap > p {
   text-align: center;
   color: black;
@@ -2691,7 +2685,7 @@ input.input_price {
 }
 .btn_input_wrap {
   margin: auto;
-  padding: 10px;
+  padding: 15px;
 }
 .tree-container {
   background: transparent;
@@ -2710,11 +2704,15 @@ input.input_price {
 .search_btn_wrap {
   padding-left: 0px;
 }
-.search_btn_wrap button {
+/* .search_btn_wrap button {
   box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.22);
-}
+} */
 .btn_input_wrap input {
-  margin-top: 12px;
+  margin-top: 15px;
+}
+.btn_input_wrap:first-child {
+  background-color: #fff;
+  padding-bottom: 30px;
 }
 .btn_input_wrap button {
   color: white;
@@ -2723,8 +2721,7 @@ input.input_price {
   font-weight: bold;
   font-size: 14px;
   line-height: 30px;
-  padding: 0 5px;
-  color: #29386b;
+  margin-bottom: 5px;
 }
 .accordion_wrap dl {
   -webkit-box-sizing: border-box;
@@ -2779,7 +2776,7 @@ input.input_price {
 }
 .lvl-username {
   font-weight: 400;
-  vertical-align: top;
+  vertical-align: middle;
   line-height: 40px;
   display: inline-block;
 }
@@ -2789,7 +2786,7 @@ input.input_price {
   background: white;
   border: none;
   margin-bottom: 5px;
-  padding: 6px 10px 6px 10px;
+  padding: 10px;
   cursor: pointer;
 }
 .accordion_wrap dt div {
@@ -3464,6 +3461,13 @@ input.input_price {
   text-align: right;
   border-top: none;
   padding-top: 8px;
+}
+.pop_close_wrap .btn {
+  height: 45px;
+  line-height: normal;
+}
+.pop_close_wrap .btn.inline:hover {
+  border-color: #0c3879 !important;
 }
 .pop_close_wrap:after {
   content: "";

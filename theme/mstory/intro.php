@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>ESG WALLET</title>
+		<title>MSTORY WALLET</title>
 		<style>
 			body{
 				overflow-y: hidden;
@@ -53,20 +53,26 @@
 				line-height:26px;letter-spacing:0;
 			}
 			.login_btn {
-				color: #06bbd6 !important;
+				color: #0c3879 !important;
 				border: 1px solid #fff !important;
-				background: linear-gradient(to right, #fffeff, #d7fffe);
+				background: #f8fbff;
+				padding: 16px;
+				font-weight: bold !important;
 			}
 			.login_btn:hover {
-					background: linear-gradient(to right, #d7fffe, #d7fffe);
+				background: #d7e8ff;
+				border-color: #d7e8ff !important;
 			}
 			.signup_btn {
 				color: white !important;
-					border: 0.5px solid #fff !important;
-					background: linear-gradient(45deg, #95e4e8, #4bcedf, #32c6dd);
+				border: 0.5px solid #fff !important;
+				background: rgba(12, 56, 121, 0.8);
+				padding: 16px;
+				font-weight: bold !important;
 			}
 			.signup_btn:hover {
-				background: linear-gradient(to left, #00c8d5, #00c8d5);
+				background: rgba(12, 56, 121, 1);
+				border-color: #002964 !important;
 			}
 			@-webkit-keyframes animatebottom {
 				from { bottom:70px; opacity:0 }
@@ -75,18 +81,6 @@
 			@keyframes animatebottom {
 				from{ bottom:70px; opacity:0 }
 				60%, 100% { bottom:80px; opacity:1 }
-			}
-			@media screen and (max-width: 766px) {
-				.container {
-					max-width: 100%;
-					margin:0;
-					padding:0;
-					width:100%;
-					display:block;
-					height:100vh;
-					background:#000 url('<?=G5_THEME_URL?>/img/launcher_m.png') no-repeat center;
-					background-size:cover;
-				}
 			}
 			@media (min-width: 767px) {
 				body{background:#0b0c13}
@@ -102,8 +96,8 @@
 			<div id="btnDiv" class="animate-bottom">
 				<div class='btn_ly'>
 					<? include_once(G5_THEME_PATH.'/_include/lang.php'); ?>
-					<a href="/bbs/login_pw.php" class="btn btn_wd login_btn">로그인</a>
-					<a href="/bbs/register_form.php" class="btn btn_wd signup_btn">회원가입</a>
+					<a href="/bbs/login_pw.php" class="btn btn_wd login_btn">LOG IN</a>
+					<a href="/bbs/register_form.php" class="btn btn_wd signup_btn">SIGN UP</a>
 				</div>
 			</div>
 		</div>

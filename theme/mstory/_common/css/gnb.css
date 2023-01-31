@@ -152,13 +152,13 @@ header .left_gnbWrap .user-content .user_wrap .userid.user_level {
 	margin-left: 10px;
 }
 header .left_gnbWrap .left_gnb {
-	padding: 10px 0 120px;
+	padding: 10px 0 150px;
 	width: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 header .left_gnbWrap .left_gnb>li {
-	margin: 5px 15px;
+	margin: 10px 15px;
 	border-radius: 60px;
 }
 header .left_gnbWrap .left_gnb li a {
@@ -173,12 +173,12 @@ header .left_gnbWrap .left_gnb li a {
 }
 header .left_gnbWrap .left_gnb li:hover a,
 header .left_gnbWrap .left_gnb li.active a {
-	color: #00c8d5;
-	background: #e5fbfb;
+	color: #0c3879;
+	background: #e6f7ff;
 }
 header .left_gnbWrap .left_gnb li:hover a .gnb_title_Wrap,
 header .left_gnbWrap .left_gnb li.active a .gnb_title_Wrap {
-	color: #00c8d5;
+	color: #0c3879;
 }
 header .left_gnbWrap .left_gnb>li>a {
   display: -webkit-box;
@@ -186,13 +186,13 @@ header .left_gnbWrap .left_gnb>li>a {
   display: flex;
 }
 header .left_gnbWrap .left_gnb>li .gnb_img_wrap {
-	background: url("../../img/gnb/menu_set_white.png") no-repeat left center / 123px;
+	background: url("../../img/gnb/menu_set_white.svg") no-repeat left center / 227px;
 	width: 35px;
 	height: 38px;
 }
 header .left_gnbWrap .left_gnb>li:hover .gnb_img_wrap,
 header .left_gnbWrap .left_gnb>li.active .gnb_img_wrap {
-	background-image: url("../../img/gnb/menu_set_white_hover.png");
+	background-image: url("../../img/gnb/menu_set_white_hover.svg");
 }
 header .left_gnbWrap .left_gnb>li .gnb_title_Wrap {
 	flex-grow: 2;
@@ -202,7 +202,7 @@ header .left_gnbWrap .left_gnb>li.dashboard_icon .gnb_img_wrap {
 	background-position: 5px 7px;
 }
 header .left_gnbWrap .left_gnb>li.profile_icon .gnb_img_wrap {
-	background-position: -27px 7px;
+	background-position: 7px 9px;
 }
 header .left_gnbWrap .left_gnb>li.mywallet_icon .gnb_img_wrap {
 	background-position: -59px 7px;
@@ -226,7 +226,7 @@ header .left_gnbWrap .left_gnb>li.center_page_icon .gnb_img_wrap {
 	background-position: -161px -26px;
 }
 header .left_gnbWrap .left_gnb>li.recommend_icon .gnb_img_wrap {
-	background-position: -90px 7px;
+	background-position: -128px 8px;
 }
 header .left_gnbWrap .left_gnb>li.support_icon .gnb_img_wrap {
 	background-position: 7px -27px;
@@ -235,7 +235,7 @@ header .left_gnbWrap .left_gnb>li.notice_icon .gnb_img_wrap {
 	background-position: -27px -28px;
 }
 header .left_gnbWrap .left_gnb>li.question_icon .gnb_img_wrap {
-	background-position: -58px -28px;
+	background-position: -60px -28px;
 }
 header .left_gnbWrap .left_gnb>li.reffer_icon .gnb_img_wrap {
 	background-position: -94px -27px;
@@ -270,9 +270,11 @@ header .left_gnbWrap .position_wrap {
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	background: #fff;
+	padding-top: 10px;
 }
 header .left_gnbWrap .gnb_language_wrap .language_wrap {
-	margin-bottom: 10px;
+	padding: 10px 0;
 }
 header .left_gnbWrap .gnb_language_wrap .language_text {
 	color: #333;
@@ -283,7 +285,6 @@ header .left_gnbWrap .logout_wrap {
 	width: 100%;
 	display: flex;
 	border-top: 1px solid #f1f4fb;
-	background: #fff;
 }
 header .left_gnbWrap .logout_wrap a {
 	display: inline-block;

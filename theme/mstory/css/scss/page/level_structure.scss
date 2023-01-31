@@ -14,7 +14,6 @@
 .structure_wrap>p{text-align:center; color:black; font-weight:600; margin-bottom:30px;}
 .btn_input_wrap{ margin: auto;padding: 10px;background:$main-background-depth1-color;}
 .btn_input_wrap:first-child {background: $main-background-depth2-color;}
-.user_search_wrap {}
 .user_search_wrap input {background:#eff3f9;color:black;border:1px solid #d9dfe8;}
 .legbox{background:rgba(255,255,255,0.7)}
 .legbox .mbId{font-size:15px;}
@@ -217,7 +216,7 @@
 
 
 .main-container {
-	display: absolute;
+	position: relative;
 	height: 100%;
 	z-index: 0;
 }
@@ -491,8 +490,7 @@
 }
 
 .main-container {
-	/* background-color: rgb(242, 242, 242); */
-	display: absolute;
+	position: absolute;
 	height: 100%;
 	width: 100%;
 	z-index: 0;
@@ -721,7 +719,6 @@
 }
 
 .tree-container {
-	/* background: white; */
 	padding: 10px;
 	padding-right: 5px;
 	width: 100%;

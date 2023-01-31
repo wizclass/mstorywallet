@@ -13,7 +13,7 @@
 	<div class="v_center">
 		<div class="login_wrap">
 			<div class="logo_login_div">
-				<img src="<?=G5_THEME_URL?>/img/logo.svg" alt="LOGO">
+				<img src="<?=G5_THEME_URL?>/img/logo_.svg" alt="LOGO">
 				<?if(strpos($url,'adm')){echo "<br><span class='adm_title'>For Administrator</span>";}?>
 			</div>
 
@@ -73,8 +73,8 @@
 	}
 
 	#showPw:checked {
-		background-color: #00c8d5;
-		border-color: #00c8d5;
+		background-color: #0c3879;
+		border-color: #0c3879;
 	}
 
 	#showPw + label {

@@ -1,5 +1,6 @@
 header {
-  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+  -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
 }
 
 .term_space {
@@ -7,7 +8,8 @@ header {
   background: white;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0px 1px 2px rgba(49, 104, 116, 0.05);
+  -webkit-box-shadow: 0px 1px 2px rgba(49, 104, 116, 0.05);
+          box-shadow: 0px 1px 2px rgba(49, 104, 116, 0.05);
 }
 
 .term_none {
@@ -36,7 +38,8 @@ header {
 .checkbox-style-square + label span {
   position: absolute;
   display: block;
-  transform: translate(22px, -3px);
+  -webkit-transform: translate(22px, -3px);
+          transform: translate(22px, -3px);
 }
 .checkbox-style-square:checked + label {
   background: url("/img/check_green.png") no-repeat center/17px 18px;
@@ -84,15 +87,22 @@ header {
   margin-top: -40px;
 }
 .enroll_wrap .btn2_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .enroll_wrap .btn2_wrap .btn_cancle {
-  flex-grow: 0.3;
+  -webkit-box-flex: 0.3;
+      -ms-flex-positive: 0.3;
+          flex-grow: 0.3;
 }
 .enroll_wrap .btn2_wrap .submit {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 .enroll_wrap .pw_ul > li {
   background: #ecf3fb;
-  box-shadow: inset 0px 1px 1px rgba(49, 104, 116, 0.15);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(49, 104, 116, 0.15);
+          box-shadow: inset 0px 1px 1px rgba(49, 104, 116, 0.15);
 }

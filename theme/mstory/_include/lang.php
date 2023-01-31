@@ -10,13 +10,13 @@
 
 <style type="text/css">
     .language_wrap {
-        margin-bottom: 20px;
+        padding: 20px 0;
         text-align: center;
     }
     .language_text {
         font-size: 13px;
         margin-bottom: 10px;
-        color: #fff;
+        color: #0c3879;
     }
     a.gflag {
         vertical-align: middle;
@@ -24,7 +24,8 @@
         padding: 0px;
         background-repeat: no-repeat;
         background-image: url(https://www.drupal.org/files/issues/2018-06-04/32.png);
-        width:32px;height:32px;
+        width:32px;
+        height:25px;
         display:inline-block;
         margin-right:10px;
     }

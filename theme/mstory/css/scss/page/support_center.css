@@ -37,6 +37,7 @@
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
+  -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   color: #29386b;
 }
@@ -114,6 +115,7 @@
   cursor: pointer;
   margin-top: 15px;
   padding: 15px 20px;
+  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   width: 100%;
   display: table;
@@ -171,7 +173,8 @@
   border-bottom-right-radius: 6px;
   margin: 0 1px;
   margin-top: -1px;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
   background: white;
 }
 

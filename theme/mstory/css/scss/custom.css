@@ -31,28 +31,35 @@
 
 /*인트로*/
 #myBar {
-  background-color: #00c8d5;
+  background-color: #0c3879;
 }
 
 .b_main {
-  background: linear-gradient(0deg, #00c8d5, #0cdbc5) !important;
+  background: -webkit-gradient(linear, left bottom, left top, from(#0c3879), to(#0cdbc5)) !important;
+  background: linear-gradient(0deg, #0c3879, #0cdbc5) !important;
   color: #fff !important;
 }
 .b_main:hover {
-  background: linear-gradient(180deg, #00c8d5, #00c8d5) !important;
-  box-shadow: 0 0 1px 2px #00c8d5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0c3879), to(#0c3879)) !important;
+  background: linear-gradient(180deg, #0c3879, #0c3879) !important;
+  -webkit-box-shadow: 0 0 1px 2px #0c3879;
+          box-shadow: 0 0 1px 2px #0c3879;
 }
 
 .b_sub {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1e5ab9), to(#3b86ff)) !important;
   background: linear-gradient(0deg, #1e5ab9, #3b86ff) !important;
   color: #fff !important;
 }
 .b_sub:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1e5ab9), to(#1e5ab9)) !important;
   background: linear-gradient(0deg, #1e5ab9, #1e5ab9) !important;
-  box-shadow: 0 0 1px 2px #1e5ab9;
+  -webkit-box-shadow: 0 0 1px 2px #1e5ab9;
+          box-shadow: 0 0 1px 2px #1e5ab9;
 }
 
 .b_third {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1a1a1a), to(#343434)) !important;
   background: linear-gradient(0deg, #1a1a1a, #343434) !important;
   color: #fff !important;
 }
@@ -67,9 +74,12 @@ a.btn {
 a.btn_secondary,
 .btn_secondary {
   color: black;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.6)), to(rgb(255, 255, 255)));
   background: linear-gradient(to left, rgba(255, 255, 255, 0.6), rgb(255, 255, 255));
+  -webkit-transition: all 1s;
   transition: all 1s;
-  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+  -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
 }
 a.btn_secondary:hover,
 .btn_secondary:hover {
@@ -81,20 +91,25 @@ a.btn_primary,
 .btn_primary,
 .btn.btn_primary {
   color: white;
-  background: linear-gradient(to left, #00c8d5, #0cdbc5);
+  background: -webkit-gradient(linear, right top, left top, from(#0c3879), to(#0cdbc5));
+  background: linear-gradient(to left, #0c3879, #0cdbc5);
+  -webkit-transition: all 1s;
   transition: all 1s;
-  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+  -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
 }
 a.btn_primary:hover,
 .btn_primary:hover,
 .btn.btn_primary:hover {
   color: white;
-  background: linear-gradient(to left, #00c8d5, #00c8d5);
+  background: -webkit-gradient(linear, right top, left top, from(#0c3879), to(#0c3879));
+  background: linear-gradient(to left, #0c3879, #0c3879);
 }
 
 a.btn_cancle,
 .btn_cancle {
-  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+  -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
   color: black;
   border-radius: 3px;
   background: #fff;
@@ -120,7 +135,8 @@ a.btn_cancle:hover,
   color: #fff;
 }
 .b_darkblue:hover {
-  box-shadow: 0 0 1px 1px #25335f;
+  -webkit-box-shadow: 0 0 1px 1px #25335f;
+          box-shadow: 0 0 1px 1px #25335f;
   background: #202c52 !important;
 }
 
@@ -129,7 +145,8 @@ a.btn_cancle:hover,
   color: #fff;
 }
 .b_skyblue:hover {
-  box-shadow: 0 0 1px 1px #162d55;
+  -webkit-box-shadow: 0 0 1px 1px #162d55;
+          box-shadow: 0 0 1px 1px #162d55;
   background: #224d93 !important;
 }
 
@@ -149,8 +166,12 @@ a.btn_cancle:hover,
   line-height: 24px;
 }
 .history_latest .card_title_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .history_latest .card_title {
   margin-bottom: 15px;
@@ -171,8 +192,12 @@ a.btn_cancle:hover,
   font-size: 12px;
 }
 .regist_latest .card_title_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .regist_latest .card_title {
   margin-bottom: 15px;
@@ -355,11 +380,16 @@ strong {
   background: #fece00;
   cursor: pointer;
   border: 1px solid #fdeda5;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 #mining_swap .pop_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: black;
 }
 #mining_swap .pop_btn div {
@@ -376,7 +406,9 @@ strong {
 #mining_swap .pop_btn .caret_box {
   vertical-align: top;
   float: right;
-  flex-grow: 3;
+  -webkit-box-flex: 3;
+  -ms-flex-positive: 3;
+      flex-grow: 3;
   vertical-align: top;
   text-align: right;
 }
@@ -388,8 +420,12 @@ strong {
   background: #ec2b38;
 }
 #mining_withdraw .polding_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
   cursor: pointer;
 }
@@ -407,7 +443,9 @@ strong {
 #mining_withdraw .polding_btn .caret_box {
   vertical-align: top;
   float: right;
-  flex-grow: 3;
+  -webkit-box-flex: 3;
+  -ms-flex-positive: 3;
+      flex-grow: 3;
   vertical-align: top;
   text-align: right;
 }
@@ -579,6 +617,8 @@ strong {
   min-height: 40px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .mypool #minings .nav_set ul .nav {
@@ -674,9 +714,14 @@ strong {
 }
 
 .checkbox-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -709,11 +754,13 @@ strong {
 }
 .checkbox-input:checked + .checkbox-tile {
   border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #2260ff;
 }
 .checkbox-input:checked + .checkbox-tile:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
   background-color: #2260ff;
   border-color: #2260ff;
@@ -724,23 +771,36 @@ strong {
 }
 .checkbox-input:focus + .checkbox-tile {
   border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
 .checkbox-input:focus + .checkbox-tile:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
 }
 
 .checkbox-tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 10px 16px 10px 16px;
   border-radius: 0.5rem;
   border: 2px solid #b5bfd9;
   background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.15s ease;
   transition: 0.15s ease;
   cursor: pointer;
   position: relative;
@@ -760,7 +820,9 @@ strong {
   top: 0.25rem;
   left: 0.25rem;
   opacity: 0;
-  transform: scale(0);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: 12px;
@@ -771,11 +833,13 @@ strong {
   border-color: #2260ff;
 }
 .checkbox-tile.active:hover:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
 }
 
 .checkbox-icon {
+  -webkit-transition: 0.375s ease;
   transition: 0.375s ease;
   color: #494949;
 }
@@ -786,6 +850,7 @@ strong {
 
 .checkbox-label {
   color: #555;
+  -webkit-transition: 0.375s ease;
   transition: 0.375s ease;
   text-align: center;
   font-size: 12px;
@@ -802,6 +867,8 @@ strong {
   margin: 0 auto;
   width: 100%;
   min-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 

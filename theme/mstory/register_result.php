@@ -59,7 +59,7 @@ body{
         <div class="container">
             <div class="logo-login-div">
                 <!-- <img src="<?=G5_THEME_URL?>/img/logo.png" width="190" alt="LOGO"> -->
-                <img src="<?=G5_THEME_URL?>/img/logo.svg" width="190" alt="LOGO">
+                <img src="<?=G5_THEME_URL?>/img/logo_.svg" width="190" alt="LOGO">
                 <?if(strpos($url,'adm')){echo "<br><span class='adm_title'>For Administrator</span>";}?>
             </div>
         </div>
