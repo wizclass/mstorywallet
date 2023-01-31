@@ -101,6 +101,7 @@
 			<div id="myBar"></div>
 			<div id="btnDiv" class="animate-bottom">
 				<div class='btn_ly'>
+					<? include_once(G5_THEME_PATH.'/_include/lang.php'); ?>
 					<a href="/bbs/login_pw.php" class="btn btn_wd login_btn">로그인</a>
 					<a href="/bbs/register_form.php" class="btn btn_wd signup_btn">회원가입</a>
 				</div>

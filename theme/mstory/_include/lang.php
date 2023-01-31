@@ -9,6 +9,15 @@
 ?>
 
 <style type="text/css">
+    .language_wrap {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .language_text {
+        font-size: 13px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
     a.gflag {
         vertical-align: middle;
         font-size: 15px;
@@ -51,24 +60,30 @@
 </style>
 
 
-
-<a href="#" onclick="doGTranslate('ko|ko');return false;" title="한국어" class="gflag nturl"
-   style="background-position:-0px -205px;"><img src="//gtranslate.net/flags/blank.png" 
-                                               alt="한국어"/></a>
-<a href="#" onclick="doGTranslate('ko|en');return false;" title="English" class="gflag nturl"
-   style="background-position:-0px -5px;"><img src="//gtranslate.net/flags/blank.png" 
-                                                   alt="English"/></a>
-<a href="#" onclick="doGTranslate('ko|zh-CN');return false;" title="中文" class="gflag nturl"
-   style="background-position:-300px -5px;"><img src="//gtranslate.net/flags/blank.png" 
-                                                   alt="中文"/></a>
-<a href="#" onclick="doGTranslate('ko|vi');return false;" title="Tiếng Việt" class="gflag nturl"
-style="background-position:-200px -405px;"><img src="//gtranslate.net/flags/blank.png" 
-                                                alt="Tiếng Việt"/></a>                                                   
-<a href="#" onclick="doGTranslate('ko|ja');return false;" title="日本語" class="gflag nturl"
-   style="background-position:-700px -105px;"><img src="//gtranslate.net/flags/blank.png" 
-                                                   alt="日本語"/></a>
-
-<div id="google_translate_element2"></div>
+<div class="language_wrap">
+    <p class="language_text">언어선택</p>
+    <a href="#" onclick="doGTranslate('ko|ko');return false;" title="한국어" class="gflag nturl"
+    style="background-position:-0px -205px;">
+        <img src="//gtranslate.net/flags/blank.png" alt="한국어"/>
+    </a>
+    <a href="#" onclick="doGTranslate('ko|en');return false;" title="English" class="gflag nturl"
+    style="background-position:-0px -5px;">
+        <img src="//gtranslate.net/flags/blank.png" alt="English"/>
+    </a>
+    <a href="#" onclick="doGTranslate('ko|zh-CN');return false;" title="中文" class="gflag nturl"
+    style="background-position:-300px -5px;">
+        <img src="//gtranslate.net/flags/blank.png" alt="中文"/>
+    </a>
+    <a href="#" onclick="doGTranslate('ko|vi');return false;" title="Tiếng Việt" class="gflag nturl"
+    style="background-position:-200px -405px;">
+        <img src="//gtranslate.net/flags/blank.png" alt="Tiếng Việt"/>
+    </a>                                                   
+    <a href="#" onclick="doGTranslate('ko|ja');return false;" title="日本語" class="gflag nturl"
+    style="background-position:-700px -105px;">
+        <img src="//gtranslate.net/flags/blank.png" alt="日本語"/>
+    </a>
+    <div id="google_translate_element2"></div>
+</div>
 
 <script type="text/javascript">
     function googleTranslateElementInit2() {

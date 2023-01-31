@@ -505,6 +505,7 @@ var gradeMap = {
 	</script>
 
 	<style>
+		main {background: #fff;}
 		.toggle{float:right;width:38px;height:38px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
 		.toggle i{vertical-align:middle;line-height:36px;}
 		.badge.package{ background:none;border:1px solid #2b3a6d;color:#2b3a6d;font-size:12px;line-height:10px;padding:4px 10px;}
@@ -517,7 +518,7 @@ var gradeMap = {
 	<main>
 		
 		<div class="container nopadding nomargin">
-			<section class="structure_wrap">
+			<section class="structure_wrap content-box6">
 				<!--<p>데이터 크기로 인해 한번에 5대씩 화면에 나타납니다</p>-->
 				<div class="btn_input_wrap" style='background:white'>
 				<div class="bin_top">회원 검색</div>

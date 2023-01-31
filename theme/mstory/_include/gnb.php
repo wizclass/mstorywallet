@@ -124,11 +124,16 @@ $(document).ready(function(){
 				</a>
 			</li>
 
-		</ul>		
-		<div class="logout_wrap">
-			<a href="javascript:void(0);" class="logout_pop_open"><i class="ri-logout-box-r-line"></i><span>로그아웃</span></a>
-			<a href="/page.php?id=member_term"><span>회원약관</span></a>
-		</div>	
+		</ul>	
+		<div class="position_wrap">	
+			<div class="gnb_language_wrap">
+				<? include_once(G5_THEME_PATH.'/_include/lang.php'); ?>
+			</div>
+			<div class="logout_wrap">
+				<a href="javascript:void(0);" class="logout_pop_open"><i class="ri-logout-box-r-line"></i><span>로그아웃</span></a>
+				<a href="/page.php?id=member_term"><span>회원약관</span></a>
+			</div>	
+		</div>
 	</nav>
 	<?}?>
 

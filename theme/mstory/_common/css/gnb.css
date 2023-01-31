@@ -226,7 +226,7 @@ header .left_gnbWrap .left_gnb>li.center_page_icon .gnb_img_wrap {
 	background-position: -161px -26px;
 }
 header .left_gnbWrap .left_gnb>li.recommend_icon .gnb_img_wrap {
-	background-position: -128px 8px;
+	background-position: -90px 7px;
 }
 header .left_gnbWrap .left_gnb>li.support_icon .gnb_img_wrap {
 	background-position: 7px -27px;
@@ -239,49 +239,6 @@ header .left_gnbWrap .left_gnb>li.question_icon .gnb_img_wrap {
 }
 header .left_gnbWrap .left_gnb>li.reffer_icon .gnb_img_wrap {
 	background-position: -94px -27px;
-}
-
-.logout_wrap {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	top: auto;
-	line-height: 20px;
-	padding: 20px 15px;
-	width: 100%;
-	display: flex;
-	border-top: 1px solid #f1f4fb;
-	background: #fff;
-}
-.logout_wrap a {
-	display: inline-block;
-	width: 50%;
-	text-align: center;
-	font-size: 13px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: #333;
-}
-.logout_wrap a:first-child {
-	border-right: 1px solid #f5f5f5;
-}
-.logout_wrap a i {
-	padding-right: 5px;
-	font-size: 18px;
-}
-
-#gnb_language {
-	position: fixed;
-	bottom: 80px;
-	background: #eeedf7;
-	width: 300px;
-	text-align: center;
-	box-shadow: inset -1px 1px 3px rgba(0, 0, 0, 0.25);
-}
-#gnb_language .title {
-	font-size: 11px;
-	padding: 5px 0;
 }
 header .left_gnbWrap .left_gnb .menu_tree:before {
 	content: "";
@@ -308,6 +265,44 @@ header .left_gnbWrap .left_gnb .logout_wrap .foot_btn {
 	padding: 5px 15px !important;
 	background-position: 30px 15px;
 }
+header .left_gnbWrap .position_wrap {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+header .left_gnbWrap .gnb_language_wrap .language_wrap {
+	margin-bottom: 10px;
+}
+header .left_gnbWrap .gnb_language_wrap .language_text {
+	color: #333;
+}
+header .left_gnbWrap .logout_wrap {
+	line-height: 20px;
+	padding: 20px 15px;
+	width: 100%;
+	display: flex;
+	border-top: 1px solid #f1f4fb;
+	background: #fff;
+}
+header .left_gnbWrap .logout_wrap a {
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	font-size: 13px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #333;
+}
+header .left_gnbWrap .logout_wrap a:first-child {
+	border-right: 1px solid #f5f5f5;
+}
+header .left_gnbWrap .logout_wrap a i {
+	padding-right: 5px;
+	font-size: 18px;
+}
+
 .gnb-footer {
 	position: absolute;
 	bottom: 0;
