@@ -58,12 +58,12 @@ $(document).ready(function(){
 		</div>
 		<div class="b_line3"></div>
 		<ul class="left_gnb">
-			<li class="dashboard_icon <? if($_SERVER['REQUEST_URI'] === '/') {echo 'active';}?>">
+			<!-- <li class="dashboard_icon <? if($_SERVER['REQUEST_URI'] === '/') {echo 'active';}?>">
 				<a href="/">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">대시보드</div>
 				</a>
-			</li>
+			</li> -->
 			<li class="profile_icon <? if($_GET['id'] === 'profile') {echo 'active';}?>">
 				<a href="/page.php?id=profile">
 					<div class="gnb_img_wrap"></div>
@@ -89,24 +89,41 @@ $(document).ready(function(){
 				</li>
 				<? } ?>
 			<?php } ?>
-			<li class="giftcard_icon <?if($_GET['id'] === 'giftcard_purchase'){echo 'active';}?>">
+			<!-- <li class="giftcard_icon <?if($_GET['id'] === 'giftcard_purchase'){echo 'active';}?>">
 				<a href="/page.php?id=giftcard_purchase">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">상품권</div>
 				</a>
+			</li> -->
+
+			<li class="recommend_icon">
+				<a href="/page.php?id=structure">
+					<div class="gnb_img_wrap"></div>
+					<div class="gnb_title_Wrap">추천조직도</div>
+				</a>
 			</li>
+
 			<li class="notice_icon <?if($_GET['id'] === 'news'){echo 'active';}?>">
 				<a href="/page.php?id=news">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">공지사항</div>
 				</a>
 			</li>
+
 			<li class="question_icon <?if($_GET['id'] === 'support_center'){echo 'active';}?>">
 				<a href="/page.php?id=support_center">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">1:1문의사항</div>
 				</a>
 			</li>
+
+			<li class="reffer_icon">
+				<a href="/page.php?id=referral_link">
+					<div class="gnb_img_wrap"></div>
+					<div class="gnb_title_Wrap">추천인링크</div>
+				</a>
+			</li>
+
 		</ul>		
 		<div class="logout_wrap">
 			<a href="javascript:void(0);" class="logout_pop_open"><i class="ri-logout-box-r-line"></i><span>로그아웃</span></a>
