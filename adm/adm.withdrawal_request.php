@@ -423,12 +423,13 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 
 					<td style='font-size:11px;'>
 					ESGC : <?= shift_auto($token_total_amt, ASSETS_CURENCY) ?>
-					<br>ETH : <?= shift_auto($eth_total_amt) ?>
+					<?if(ETH_AVAILABLE){?><br>ETH : <?= shift_auto($eth_total_amt) ?><?}?>
 					</td>
+					
 
 					<td colspan=2 style='font-size:11px;'>
 					ESGC : <?= shift_auto($token_total_out,ASSETS_CURENCY) ?> ( <?=shift_auto($token_total_fee,ASSETS_CURENCY)?> )
-					<br>ETH : <?= shift_auto($eth_total_out) ?> ( <?= shift_auto($eth_total_fee) ?> )		
+					<?if(ETH_AVAILABLE){?><br>ETH : <?= shift_auto($eth_total_out) ?> ( <?= shift_auto($eth_total_fee) ?> )		<?}?>
 					</td>
 					<td colspan=5></td>
 				</tr>

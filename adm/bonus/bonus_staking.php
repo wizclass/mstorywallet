@@ -291,10 +291,8 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 		</td>
 		<td width='80' style='text-align:center'><?=get_text($row['mb_name']); ?></td>
 		<td width='80' style='text-align:center'><?=get_text($row['allowance_name']); ?></td>
-        <td width="100" class='bonus <?=mining_kind($row['allowance_name'])?>'><?=$row['currency'] == WITHDRAW_CURENCY ? shift_auto($soodang) : shift_auto($soodang,ASSETS_CURENCY) ?></td>
-        <td width="30" class='bonus <?=mining_kind($row['allowance_name'])?>'><?=$row['currency']?></td>
-		
-
+    <td width="100" class='bonus <?=mining_kind($row['allowance_name'])?>'><?=$row['currency'] == WITHDRAW_CURENCY ? shift_auto($soodang) : shift_auto($soodang,ASSETS_CURENCY) ?></td>
+    <td width="30" class='bonus <?=mining_kind($row['allowance_name'])?>'><?=$row['currency']?></td>
 		<td width="300"><?= $row['rec']."<br> <span class='adm'> ".$row['rec_adm']."</span>" ?></td>
 		<td width="100" class='date'><?=$row['datetime']?></td>
     </tr>
@@ -309,8 +307,9 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 	<tr class="<?php echo $bg; ?>">
 		<td colspan=3>TOTAL :</td>
         <td ></td>
-		<td width="150" class='bonus' style="line-height:24px;"><span style='color:red'><?=shift_auto($soodang_sum)?></span><br> <span style='color:green'><?=$soodang_sum_eth?></span></td>
-		<td style="line-height:24px;"><span style='color:red'><?=ASSETS_CURENCY?></span><br> <span style='color:green'><?=WITHDRAW_CURENCY?></span></td>
+		<td width="150" class='bonus' style="line-height:24px;"><span style='color:red'><?=shift_auto($soodang_sum)?></span><br> 
+		<?if(ETH_AVAILABLE){?><span style='color:green'><?=$soodang_sum_eth?></span></td><?}?>
+		<td style="line-height:24px;"><span style='color:red'><?=ASSETS_CURENCY?></span><br> <?if(ETH_AVAILABLE){?><span style='color:green'><?=WITHDRAW_CURENCY?></span></td><?}?>
 		<td ></td>
 		<td ></td>
     </tr>

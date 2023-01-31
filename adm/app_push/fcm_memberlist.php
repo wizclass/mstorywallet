@@ -519,8 +519,10 @@ function app_install($val)
 
 					<th scope="col"  id="" class="color_white" style="background: crimson;"><?= subject_sort_link('mb_bonus_total') ?>스테이킹<br><?=ASSETS_CURENCY?>수량</th>
 					<th scope="col" id="" class="gold"><?= subject_sort_link('mb_bonus_total') ?>누적 보너스<br><?=ASSETS_CURENCY?>수량</th>
+					<?if(ETH_AVAILABLE){?>
 					<th scope="col" id="" class="" style="background: yellowgreen;"><?= subject_sort_link('mb_bonus_total') ?>누적 보너스<br><?=WITHDRAW_CURENCY?>수량</th>
 					<th scope="col"  id="" class="color_white" style="background: crimson;"><?= subject_sort_link('mb_bonus_total') ?>출금<br><?=WITHDRAW_CURENCY?>수량<br>(+수수료)</th>
+					<?}?>
 				
 					<th scope="col"  id="" class=''><?= subject_sort_link('fcm_token', '', 'desc') ?>앱설치/푸쉬</a></th>
 					<th scope="col"  id="mb_list_mng">관리</th>
@@ -562,9 +564,11 @@ function app_install($val)
 
 						<td headers="mb_list_auth" class="td_mbstat"><?= $total_staking_member[$row['mb_id']] ? shift_auto($total_staking_member[$row['mb_id']],ASSETS_CURENCY)  : 0?></td>
 						<td headers="mb_list_auth" class="td_mbstat"><?= shift_auto($row['mb_balance'],ASSETS_CURENCY) ?></td>
+						<?if(ETH_AVAILABLE){?>
 						<td headers="mb_list_auth" class="td_mbstat"><?= shift_auto($row['mb_balance_eth']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat"><?= shift_auto($row['mb_amt_eth']) ?></td>
-			
+						<?}?>
+
 						<td headers="mb_list_lastcall"  class="td_app  center"><?= app_install($row['fcm_token']) ?></td>
 						<td headers="mb_list_mng" class="td_mngsmall" style="width:100px;">
 							<a class='btn send_person' >푸쉬/문자 발송</a>
