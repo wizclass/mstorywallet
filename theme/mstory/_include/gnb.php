@@ -167,6 +167,11 @@ $(document).ready(function(){
 	});
 
 	$(function(){
+
+		$(".left_gnb").on('scroll', function() {
+			$(".left_gnbWrap").addClass('scroll');
+		})
+		$(".left_gnbWrap").removeClass('scroll');
 		
 		var left_gnb = $('.left_gnb');
 		// console.log(left_gnb.height());
@@ -182,6 +187,7 @@ $(document).ready(function(){
 					$(".gnb_bottom i").attr('class','ri-arrow-down-s-line')
 				}
 			}); 
+			
 
 			$(left_gnb).scroll(function () {
 				var gnb_height = $(left_gnb).scrollTop();

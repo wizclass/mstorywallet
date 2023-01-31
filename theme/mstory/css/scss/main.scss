@@ -482,15 +482,16 @@ input:-webkit-autofill:active {
 
       >* {
         flex-grow: 1;
-        border: none;
         box-shadow: none;
-        transition: all .3s;
+        transition: all .5s;
 
         &:nth-child(2) {
           margin-left: 10px;
+          border: 1px solid #ccc;
 
           &:hover {
             color: $main_color;
+            border-color: $main_color;
             background-color: #fff !important;
           }
         }
@@ -686,8 +687,6 @@ input:-webkit-autofill:active {
   }
 
   .title {
-    color: #333;
-
     &.b_line {
       padding-bottom: 10px;
     }
@@ -722,6 +721,7 @@ input:-webkit-autofill:active {
           color: $main_color;
           display: block;
           margin: 0 0 3px;
+          cursor: default;
         }
 
         p {
@@ -1008,6 +1008,35 @@ input:-webkit-autofill:active {
       vertical-align: top;
     }
   }
+
+  // 이메일 인증
+  &.auth_email {
+    .email_row {
+      margin: 0;
+      display: flex;
+
+      #current_email {
+        margin-right: 10px;
+      }
+
+      .btn_email {
+        width: 160px;
+      }
+      @media all and (max-width: 768px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        #current_email {
+          margin: 0 0 10px 0;
+        }
+
+        .btn_email {
+          width: 100%;
+          height: 35px;
+        }
+      }
+    }
+  }
 }
 // 고유식별정보 처리방침 모달
 #commonModal {
@@ -1027,6 +1056,11 @@ input:-webkit-autofill:active {
 
 // ********* 추천조직도 *********
 .structure_wrap {
+
+  .btn_input_wrap:first-child {
+    background-color: #fff;
+    padding-bottom: 30px;
+  }
 
   .btn {
     .ri-search-line {
@@ -2408,9 +2442,9 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 80px;
 
         .tit {
-          color: #00c8d5;
+          color: $main_color;
           font-weight: bold;
-          border: 1px solid #00c8d5;
+          border: 1px solid $main_color;
           border-radius: 10px;
           text-align: center;
           padding-left: 9px;

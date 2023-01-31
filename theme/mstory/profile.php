@@ -363,10 +363,10 @@
 
 	<div class="pop_wrap auth_email input_pop_css">
 		<p class="pop_title" >이메일 인증</p>
-
-		<input type="text" id="current_email" value="<?=$member['mb_email']?>" readonly>
-		<button id="send_email">이메일 전송</button>
-		
+		<div class="email_row">
+			<input type="text" id="current_email" value="<?=$member['mb_email']?>" readonly>
+			<button class="btn btn_email nomargin ml-10" id="send_email">이메일 전송</button>
+		</div>
 		<div class="btn2_btm_wrap">
 			<input type="button" value="취소" class="btn btn_double default_btn cancel btn_cancel pop_close" >
 			<input type="button" value="확인" class="btn btn_double default_btn main_btn2 auth_save">

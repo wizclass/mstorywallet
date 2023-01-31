@@ -45,7 +45,7 @@
 					<a href="/page.php?id=find_pw" class='desc find_pw' style="text-decoration: none">비밀번호 찾기</a>
 					<div class="login_btn_wrap">
 						<button type="button" class="btn wd main_btn" onclick="flogin_submit();" rerender="form"><span>로그인</span></button>
-						<a href="/bbs/register_form.php" class="btn wd btn_secondary" style="background: #e6ecf3"><span>회원 가입</span></a>
+						<a href="/bbs/register_form.php" class="btn wd btn_secondary"><span>회원 가입</span></a>
 					</div>
 					<!-- <a href="javascript:temp_block();" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a> -->
 				</div>
@@ -73,8 +73,8 @@
 	}
 
 	#showPw:checked {
-		background-color: #0c3879;
-		border-color: #0c3879;
+		background-color: #00a2ff;
+		border-color: #00a2ff;
 	}
 
 	#showPw + label {

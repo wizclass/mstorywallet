@@ -227,8 +227,8 @@ a.btn {
 }
 .btn:hover {
   background: #fff;
-  color: #0c3879;
-  border-color: #0c3879;
+  color: #00a2ff;
+  border: 1px solid #00a2ff;
 }
 .btn_default {
   background: #fff;
@@ -1761,7 +1761,7 @@ a.more i {
 .profile-box .title {
   font-size: 16px;
   font-weight: bold;
-  color: #29386b;
+  color: #2f3d6f;
   border-bottom: 2px solid #f1f4fb;
 }
 .profile-box .title i {
@@ -2709,10 +2709,6 @@ input.input_price {
 .btn_input_wrap input {
   margin-top: 15px;
 }
-.btn_input_wrap:first-child {
-  background-color: #fff;
-  padding-bottom: 30px;
-}
 .btn_input_wrap button {
   color: white;
 }
@@ -3426,9 +3422,10 @@ input.input_price {
 }
 .pop_wrap {
   position: fixed;
-  top: 20%;
+  top: 50%;
   width: 90%;
-  left: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
   display: none;
   z-index: 999;
@@ -3466,7 +3463,7 @@ input.input_price {
   line-height: normal;
 }
 .pop_close_wrap .btn.inline:hover {
-  border-color: #0c3879 !important;
+  border-color: #00a2ff !important;
 }
 .pop_close_wrap:after {
   content: "";
@@ -4104,7 +4101,6 @@ a.gray_close {
 }
 @media screen and (min-width: 768px) {
   .pop_wrap {
-    left: calc(10% + 250px);
     width: calc(80% - 250px);
   }
 }
