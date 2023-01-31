@@ -9,6 +9,8 @@
   border: 0;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .btn.wd {
@@ -17,34 +19,37 @@
 }
 
 .main_btn {
-  background: #0c3879 !important;
+  background: #00a2ff !important;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   color: #fff !important;
 }
 .main_btn:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#0c3879), to(#1758ba)) !important;
-  background: linear-gradient(180deg, #0c3879, #1758ba) !important;
-  -webkit-box-shadow: 0 0 1px 2px #0c3879;
-          box-shadow: 0 0 1px 2px #0c3879;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00a2ff), to(#2073f7)) !important;
+  background: linear-gradient(180deg, #00a2ff, #2073f7) !important;
+  -webkit-box-shadow: 0 0 1px 2px #00a2ff;
+          box-shadow: 0 0 1px 2px #00a2ff;
 }
 
-.main_btn2 {
-  background: #0c3879;
+.main_btn2,
+.btn_email {
+  background: #00a2ff;
   height: 45px;
   color: #fff !important;
 }
-.main_btn2:hover {
-  background-color: #1758ba;
+.main_btn2:hover,
+.btn_email:hover {
+  background-color: #2073f7;
+  border-color: #2073f7;
 }
 
 .main_btn3 {
-  background: #1155bb;
+  background: #2f3d6f;
   height: 45px;
   color: #fff !important;
 }
 .main_btn3:hover {
-  background-color: #1758ba;
+  background-color: #2073f7;
 }
 
 .btn_cancel {

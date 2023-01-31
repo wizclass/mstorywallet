@@ -90,6 +90,9 @@ header .left_gnbWrap.on {
 	display: flex;
 	flex-direction: column;
 }
+header .left_gnbWrap.scroll .position_wrap {
+	box-shadow: 0 0 8px 1px rgba(0,0,0,0.035);
+}
 header .left_gnbWrap .user_icon i {
 	vertical-align: middle;
 }
@@ -173,12 +176,12 @@ header .left_gnbWrap .left_gnb li a {
 }
 header .left_gnbWrap .left_gnb li:hover a,
 header .left_gnbWrap .left_gnb li.active a {
-	color: #0c3879;
+	color: #00a2ff;
 	background: #e6f7ff;
 }
 header .left_gnbWrap .left_gnb li:hover a .gnb_title_Wrap,
 header .left_gnbWrap .left_gnb li.active a .gnb_title_Wrap {
-	color: #0c3879;
+	color: #00a2ff;
 }
 header .left_gnbWrap .left_gnb>li>a {
   display: -webkit-box;

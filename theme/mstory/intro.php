@@ -24,7 +24,7 @@
 				position:absolute;
 				bottom: 80px;
 				width:100%;
-				padding:0 1rem;
+				padding:0 30px;
 				z-index:1000;
 			}
 			.btn_ly{
@@ -66,7 +66,7 @@
 			.signup_btn {
 				color: white !important;
 				border: 0.5px solid #fff !important;
-				background: rgba(12, 56, 121, 0.8);
+				background: linear-gradient(157deg, rgba(10,125,206,0.83) 48%, rgba(8,52,117,0.83));
 				padding: 16px;
 				font-weight: bold !important;
 			}
