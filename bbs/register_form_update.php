@@ -81,10 +81,14 @@ if(!$mb_id)
 $mb_password    = trim($_POST['mb_password']);
 $mb_password_re = trim($_POST['mb_password_re']);
 $mb_name        = trim($_POST['mb_name']);
-// $mb_nick        = trim($_POST['mb_nick']);
-$mb_nick        = '';
-// $mb_email       = trim($_POST['mb_email']);
-$mb_email       = $mb_id;
+
+if(REGISTER_USEPASS) {
+	$mb_nick        = '';
+	$mb_email       = $mb_id;
+} else {
+	$mb_nick        = trim($_POST['mb_nick']);
+	$mb_email       = trim($_POST['mb_email']);
+}
 
 $gp             = trim($_POST['gp']);
 $mb_sex         = isset($_POST['mb_sex'])           ? trim($_POST['mb_sex'])         : "";

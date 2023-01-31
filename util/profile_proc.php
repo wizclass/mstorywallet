@@ -77,6 +77,10 @@ if($category == 'pw'){
 		$pass_result= sql_query($pass_sql);
 
 		if( $pass_result){
+
+			$auth_email_sql = "UPDATE auth_email set auth_check = '2' where email = '{$member['mb_email']}'";
+			sql_query($auth_email_sql);
+
 			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '비밀번호가 변경되었습니다.')));
 		}else{
 			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 계속 문제가 발생한다면 관리자에게 문의해주세요.')));
@@ -107,6 +111,10 @@ if($category == 'tpw'){
 			$pass_result= sql_query($pass_sql);
 
 			if( $pass_result){
+
+				$auth_email_sql = "UPDATE auth_email set auth_check = '2' where email = '{$member['mb_email']}'";
+				sql_query($auth_email_sql);
+				
 				echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '출금 비밀번호가 변경되었습니다.')));
 			}else{
 				echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 계속 문제가 발생한다면 관리자에게 문의해주세요.')));
