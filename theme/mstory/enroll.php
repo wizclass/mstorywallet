@@ -1,22 +1,155 @@
 <?php
 $menubar = 1;
-include_once(G5_THEME_PATH.'/_include/head.php');
-include_once(G5_THEME_PATH.'/_include/gnb.php');
+include_once(G5_THEME_PATH . '/_include/head.php');
+include_once(G5_THEME_PATH . '/_include/gnb.php');
 // include_once(G5_THEME_PATH.'/_include/lang.php');
 
-if($nw['nw_enroll'] == 'Y'){
-}else{
+if ($nw['nw_enroll'] == 'Y') {
+} else {
 	alert("현재 서비스를 이용할수없습니다.");
 }
 
 $service_term = get_write("g5_write_agreement", 1);
 $private_term = get_write("g5_write_agreement", 2);
 $marketing_term = get_write("g5_write_agreement", 3);
+
+// 추천인링크 타고 넘어온경우
+if ($_GET['recom_referral']) {
+	$recom_sql = "select mb_id,mb_nick from g5_member where mb_no = '{$_GET['recom_referral']}'";
+	$recom_result = sql_fetch($recom_sql);
+	$mb_recommend = $recom_result['mb_id'];
+
+	if ($recom_result['mb_nick'] != '') {
+		$mb_center = $mb_recommend;
+	}
+}
 ?>
 
 <link href="<?= G5_THEME_URL ?>/css/scss/enroll.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-<script src="<?=G5_URL?>/js/certify.js"></script>
+<script src="<?= G5_URL ?>/js/certify.js"></script>
+<script>
+	var recommned = "<?= $mb_recommend ?>";
+	var recommend_search = false;
+
+	var center_search = false;
+
+	if (recommned) {
+		recommend_search = true;
+	}
+
+	/*추천인, 센터멤버 등록*/
+	function getUser(etarget, type) {
+		var target = etarget;
+		if (type == 1) {
+			var target_type = "#referral";
+		} else if (type == 2) {
+			var target_type = "#center";
+		} else {
+			var target_type = "#director";
+		}
+		console.log(target + ' === ' + type);
+
+		$.ajax({
+			type: 'POST',
+			url: '/util/ajax.recommend.user.php',
+			data: {
+				mb_id: $(target).val(),
+				type: type
+			},
+			success: function(data) {
+				var list = JSON.parse(data);
+
+				if (list.length > 0) {
+					$(target_type).modal('show');
+					var vHtml = $('<div>');
+
+					$.each(list, function(index, obj) {
+						// vHtml.append($("<div>").addClass('user').html(obj.mb_id));
+
+						if (type == 2) {
+							if (obj.mb_level > 0) {
+								vHtml.append($("<div style='text-indent:-999px'>").addClass('user').html(obj.mb_id));
+								vHtml.append($("<label>").addClass('mb_nick').html(obj.mb_nick));
+							} else {
+								vHtml.append($("<div style='color:red;text-indent:-999px'>").addClass('non_user').html(obj.mb_id));
+								vHtml.append($("<label style='color:red'>").addClass('mb_nick').html(obj.mb_nick));
+							}
+						} else {
+							if (obj.mb_level >= 0) {
+								vHtml.append($("<div>").addClass('user').html(obj.mb_id));
+							} else {
+								vHtml.append($("<div style='color:red;>").addClass('non_user').html(obj.mb_id));
+							}
+						}
+						/* 
+						if (obj.mb_level > 0) {
+							
+
+							if(type == 2){
+								vHtml.append($("<label>").addClass('mb_nick').html(obj.mb_nick));
+							}
+
+						} else {
+							if(type == 2){
+								
+							}else{
+								vHtml.append($("<div style='color:red;>").addClass('non_user').html(obj.mb_id));
+							}
+						} */
+
+
+					});
+
+					$(target_type + ' .modal-body').html(vHtml.html());
+					first_select();
+
+
+					/* 첫번째 선택되어있게 */
+					function first_select() {
+						$(target_type + ' .modal-body .user:nth-child(1)').addClass('selected');
+
+						if (type == 2) {
+							$('#reg_mb_center_nick').val($(target_type + ' .modal-body .user.selected').html())
+							$(target).val($(target_type + ' .modal-body .user.selected + .mb_nick').html());
+						} else {
+							$(target).val($(target_type + ' .modal-body .user.selected').html());
+						}
+					}
+
+
+					$(target_type + ' .modal-body .user').click(function() {
+						// console.log('user click');
+						$(target_type + ' .modal-body .user').removeClass('selected');
+						$(target + ' .modal-body .user').removeClass('selected');
+						$(this).addClass('selected');
+					});
+
+
+					$(target_type + ' .modal-footer #btnSave').click(function() {
+
+						if (type == 2) {
+							$('#reg_mb_center_nick').val($(target_type + ' .modal-body .user.selected').html());
+							$(target).val($(target_type + ' .modal-body .user.selected + .mb_nick').html());
+							center_search = true;
+						} else {
+							$(target).val($(target_type + ' .modal-body .user.selected').html());
+							recommend_search = true;
+							$('#reg_mb_center').val($(target_type + ' .modal-body .user.selected').html());
+						}
+						$(target).attr("readonly", true);
+						$(target_type).modal('hide');
+					});
+
+				} else {
+
+					dialogModal('처리 결과', '해당되는 회원이 없습니다.', 'failed');
+				}
+			}
+		});
+
+	} ///*추천인등록*/
+</script>
 
 <div class="v_center" style="padding:0;">
 
@@ -25,97 +158,122 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			<input type='hidden' name="cert_type" value="">
 			<input type='hidden' name="cert_no" value="">
 
-			<p class="check_appear_title"><span>개인 정보 & 인증</span></p>
+			<!-- 추천인 정보 -->
+			<p class="check_appear_title mt10"><span>추천인정보</span></p>
+			<section class='referzone'>
+				<div class="btn_input_wrap">
+					<input type="text" name="mb_recommend" id="reg_mb_recommend" value="<?= $mb_recommend ?>" required placeholder="추천인 아이디" />
+					<div class='in_btn_ly2'>
+						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"><span>검색</span></button>
+					</div>
+				</div>
+			</section>
+
+			<p class="check_appear_title mt40"><span>개인 정보 & 인증</span></p>
 			<div>
-				
-				
 				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
 
-				
-				<!-- <div class='in_btn_ly'><input type="button" id='win_hp_cert' class='btn_round check hp_cert' value="휴대폰 본인인증" style="width:80px;"></div> -->
-				
-				<input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;">
-				
-				<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름"/>
-				<input type="text" name="mb_hp"  id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호"/>
-				<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)"/>
-				<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
-				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
 
-				
-				
-		
+				<!-- <div class='in_btn_ly'><input type="button" id='win_hp_cert' class='btn_round check hp_cert' value="휴대폰 본인인증" style="width:80px;"></div> -->
+				<?php if (REGISTER_USEPASS) { ?>
+					<input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;">
+					<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름" />
+					<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호" />
+					<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)" />
+					<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
+					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
+				<?php } else { ?>
+					<input type="text" name="mb_name" style='padding:15px;' id="reg_mb_name" required placeholder="이름" />
+					<div class="" style="display: flex; align-items: center; margin-top: 15px">
+						<select id="nation_number" name="nation_number" required style="width: 30%">
+							<option value="country">Select Country</option>
+							<option value="1">001 - USA</option>
+							<option value="81">081 - Japan</option>
+							<option value="82">082 - Korea</option>
+							<option value="84">084 - Vietnam</option>
+							<option value="86">086 - China</option>
+							<option value="62">062 - Indonesia</option>
+							<option value="63">063 - Philippines</option>
+							<option value="66">066 - Thailand</option>
+						</select>
+					<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
+					</div>
+					
+					<input type="text" name="mb_id" style='padding:15px' id="reg_mb_id" required placeholder="아이디" />
+					<input type="email" name="mb_email" class='cabinet' style='padding:15px' id="reg_mb_email" required placeholder="이메일" />
+					<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
+					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
+				<?php } ?>
 			</div>
 
-			
 
 			<ul class="clear_fix pw_ul mt20">
 				<li>
-					<input type="password" name="mb_password" id="reg_mb_password" minlength="8" maxlength="16" placeholder="로그인 비밀번호" />
-					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="8" maxlength="16" placeholder="로그인 비밀번호 확인" />
+					<input type="password" name="mb_password" id="reg_mb_password" minlength="4" maxlength="12" placeholder="로그인 비밀번호" />
+					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" maxlength="12" placeholder="로그인 비밀번호 확인" />
 
 					<strong><span class='mb10' style='display:block;font-size:13px;'>비밀번호 설정 조건</span></strong>
 					<ul>
-						<li class="x_li" id="pm_1" >8자 이상 16자 이하</li>
-						<li class="x_li" id="pm_3" >영문+숫자+특수문자</li>
-						<li class="x_li" id="pm_5" >비밀번호 비교</li>
+						<li class="x_li" id="pm_1">4자 이상 12자 이하</li>
+						<li class="x_li" id="pm_3">영문+숫자+특수문자</li>
+						<li class="x_li" id="pm_5">비밀번호 비교</li>
 					</ul>
 				</li>
 				<li style='margin-left:5px'>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="출금비밀번호(핀코드)" />
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="출금비밀번호(핀코드) 확인" />
 
-					<strong><span class='mb10' style='display:block;font-size:13px;' >핀코드 설정 조건</span></strong>
+					<strong><span class='mb10' style='display:block;font-size:13px;'>핀코드 설정 조건</span></strong>
 					<ul>
-						<li class="x_li" id="pt_1" >6 자리</li>
-						<li class="x_li" id="pt_3" >숫자</li>
-						<li class="x_li" id="pt_2" >핀코드 비교</li>
+						<li class="x_li" id="pt_1">6 자리</li>
+						<li class="x_li" id="pt_3">숫자</li>
+						<li class="x_li" id="pt_2">핀코드 비교</li>
 					</ul>
 				</li>
 			</ul>
 
-			
+
 
 			<!--
 			<hr>
 			<div class="agreement_btn"> <button type="button" class="agreeement_show btn"><span data-i18n='register.회원가입 약관보기'>Read Terms and Conditions</span></button></div>
 			-->
 
-			<p class="check_appear_title mt40"><span >회원가입 약관동의 </span></p>
+			<p class="check_appear_title mt40"><span>회원가입 약관동의 </span></p>
 			<div class="mt20">
 				<div class="term_space">
-					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required" >
+					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required">
 					<label for="service_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
-						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="service" href="javascript:collapse('#service');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="service_term" class="term_textarea term_none"><?= $service_term['wr_content'] ?></textarea>
 				</div>
-				
-				
+
+
 
 				<div class="term_space">
-					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required" >
+					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required">
 					<label for="private_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
-						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="private" href="javascript:collapse('#private');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
 				</div>
-				
+
 
 				<div class="term_space">
 					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square term_none" name="mb_sms" value="1">
 					<label for="marketing_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
-						<a id="marketing" href="javascript:collapse('#marketing');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="marketing" href="javascript:collapse('#marketing');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
 				</div>
-				
+
 			</div>
-			
+
 
 			<div class="btn2_wrap " style='width:100%;height:60px; display: flex'>
 				<input class="btn btn_double btn_secondary btn_cancle" type="button" value="취소">
@@ -139,25 +297,28 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		$(".top_title h3").html("<span style='font-size:16px;line-height:16px;'>신규 회원등록</span>");
 
 		onlyNumber('reg_mb_hp');
-		$('.cabinet').on('click',function(){
-			$(this).next().css('display','contents');
+		$('.cabinet').on('click', function() {
+			$(this).next().css('display', 'contents');
 		});
 
-		$('.cabinet').on('mouseout',function(){
-			$(this).next().css('display','none');
+		$('.cabinet').on('mouseout', function() {
+			$(this).next().css('display', 'none');
 		});
 
-		$('.btn_cancle').on('click',function(){
+		$('.btn_cancle').on('click', function() {
 			dialogModal("회원가입 취소", "입력했던 내용을 모두 삭제하고 초기화면으로 돌아갑니다.", 'warning');
-			$('#modal_return_url').on('click',function(){
-				location.href= g5_url;
+			$('#modal_return_url').on('click', function() {
+				location.href = g5_url;
 			});
 		});
 
 
 		/*이메일 체크*/
-		$('#EmailChcek').on('click',function(){
-			var email = $('#reg_mb_id').val();
+		$('#EmailChcek').on('click', function() {
+			if(<?=REGISTER_USEPASS?>) {
+				var email = $('#reg_mb_id').val();
+			} else var email = $('#reg_mb_email').val();
+			
 			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 
@@ -177,7 +338,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 				},
 				complete: function(res) {
 					var email_check = res.hasOwnProperty("responseJSON")
-					if(email_check){
+					if (email_check) {
 						dialogModal("이메일 인증", "이미 사용중인 이메일 입니다.", 'failed');
 						return false;
 					}
@@ -220,7 +381,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		});
 	});
 
-	
+
 	function collapse(id) {
 		if ($(id + "_term").css("display") == "none") {
 			$(id + "_term").css("display", "block");
@@ -238,7 +399,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			});
 		}
 	}
-	
+
 	//휴대폰 인증
 	/* var mb_hp_check = false;
 	document.querySelector('#hp_check').addEventListener('click',function(){
@@ -259,7 +420,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		// var pattern = /^(?!((?:[0-9]+)|(?:[a-zA-Z]+)|(?:[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,\n]+))$)(.){4,}$/;
 		var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
 
-		if (pw.length < 8) {
+		if (pw.length < 4) {
 			$("#pm_1").attr('class', 'x_li');
 		} else {
 			$("#pm_1").attr('class', 'o_li');
@@ -324,84 +485,100 @@ $marketing_term = get_write("g5_write_agreement", 3);
 	$(function() {
 		mb_hp_check = true;
 		var pageTypeParam = "pageType=register";
-		
-        <?php if($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
-		var params = "";
-        // 휴대폰인증
-        $("#win_hp_cert").click(function() {
-            if(!cert_confirm())
-                if(!cert_confirm()) return false;
-            	params = "?" + pageTypeParam;
-            <?php
-            switch($config['cf_cert_hp']) {
-                case 'kcb':
-                    $cert_url = G5_OKNAME_URL.'/hpcert1.php';
-                    $cert_type = 'kcb-hp';
-                    break;
-                case 'kcp':
-                    $cert_url = G5_KCPCERT_URL.'/kcpcert_form.php';
-                    $cert_type = 'kcp-hp';
-                    break;
-                default:
-                    echo 'alert("기본환경설정에서 휴대폰 본인확인 설정을 해주십시오");';
-                    echo 'return false;';
-                    break;
-            }
-            ?>
 
-			certify_win_open("<?php echo $cert_type; ?>", "<?php echo $cert_url; ?>"+params);
-            return;
-        });
-        <?php } ?>
-    });
+		<?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
+			var params = "";
+			// 휴대폰인증
+			$("#win_hp_cert").click(function() {
+				if (!cert_confirm())
+					if (!cert_confirm()) return false;
+				params = "?" + pageTypeParam;
+				<?php
+				switch ($config['cf_cert_hp']) {
+					case 'kcb':
+						$cert_url = G5_OKNAME_URL . '/hpcert1.php';
+						$cert_type = 'kcb-hp';
+						break;
+					case 'kcp':
+						$cert_url = G5_KCPCERT_URL . '/kcpcert_form.php';
+						$cert_type = 'kcp-hp';
+						break;
+					default:
+						echo 'alert("기본환경설정에서 휴대폰 본인확인 설정을 해주십시오");';
+						echo 'return false;';
+						break;
+				}
+				?>
 
-    // 인증체크
-    function cert_confirm()
-    {
-        var val = document.fregisterform.cert_type.value;
-        var type;
+				certify_win_open("<?php echo $cert_type; ?>", "<?php echo $cert_url; ?>" + params);
+				return;
+			});
+		<?php } ?>
+	});
 
-        switch(val) {
-            case "ipin":
-                type = "아이핀";
-                break;
-            case "hp":
-                type = "휴대폰";
-                break;
-            default:
-                return true;
-        }
+	// 인증체크
+	function cert_confirm() {
+		var val = document.fregisterform.cert_type.value;
+		var type;
 
-        if(confirm("이미 "+type+"으로 본인확인을 완료하셨습니다.\n\n이전 인증을 취소하고 다시 인증하시겠습니까?"))
-            return true;
-        else
-            return false;
-    }
+		switch (val) {
+			case "ipin":
+				type = "아이핀";
+				break;
+			case "hp":
+				type = "휴대폰";
+				break;
+			default:
+				return true;
+		}
+
+		if (confirm("이미 " + type + "으로 본인확인을 완료하셨습니다.\n\n이전 인증을 취소하고 다시 인증하시겠습니까?"))
+			return true;
+		else
+			return false;
+	}
 
 
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
-		
+
 
 		// 이름
 		if (f.mb_name.value == '' || f.mb_name.value == 'undefined') {
 			dialogModal('이름입력확인', '이름을 확인해주세요', 'warning');
 			return false;
 		}
-		
+
 		//아이디 중복체크
 		// if (check_id == 0) {
 		// 	dialogModal('ID 중복확인', '아이디 중복확인을 해주세요.', 'warning');
 		// 	return false;
 		// }
 
+		//추천인 검사
+		if (f.mb_recommend.value == '' || f.mb_recommend.value == 'undefined') {
+			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warring');
+			return false;
+		}
+		if (!recommend_search) {
+			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warring');
+			return false;
+		}
+
+		//추천인이 본인인지 확인
+		if (f.mb_id.value == f.mb_recommend.value) {
+			commonModal('조직 관계 입력 확인', '<strong> 자신을 추천인으로 등록할수없습니다. </strong>', 80);
+			f.mb_recommend.focus();
+			return false;
+		}
+
 		// 연락처
 		if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined' || !mb_hp_check) {
 			dialogModal('휴대폰번호확인', '휴대폰 번호가 잘못되거나 누락되었습니다.', 'warning');
 			return false;
 		}
-		
+
 
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
@@ -424,6 +601,11 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 		}
 
+		if(<?=REGISTER_USEPASS?>) {
+				var user_email = $('#reg_mb_id').val();
+			} 
+		else var user_email = $('#reg_mb_email').val();
+
 		// 메일인증 체크
 		$.ajax({
 			type: "POST",
@@ -432,7 +614,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			async: false,
 			dataType: "json",
 			data: {
-				user_email: $('#reg_mb_id').val()
+				user_email: user_email
 			},
 			success: function(res) {
 				if (res.result == "OK") {
@@ -449,12 +631,11 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		});
 	}
 
-	function chkChar(obj){
+	function chkChar(obj) {
 		var RegExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=0-9]/gi;
 		if (RegExp.test(obj.value)) {
 			// 특수문자 모두 제거    
-			obj.value = obj.value.replace(RegExp , '');
+			obj.value = obj.value.replace(RegExp, '');
 		}
 	}
-
 </script>

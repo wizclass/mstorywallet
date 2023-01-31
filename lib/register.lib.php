@@ -9,13 +9,19 @@ function empty_mb_id($reg_mb_id)
         return "";
 }
 
-function valid_mb_id($reg_mb_id)
+function valid_mb_id($reg_mb_id, $register_usepass = REGISTER_USEPASS)
 {
-    // if (preg_match("/[^0-9a-z]+/i", $reg_mb_id))
-    //     return "회원아이디는 영문자, 숫자 만 입력하세요.".$reg_mb_id;
-    // else
-    //     return "";
-    return valid_mb_email($reg_mb_id);
+
+    if($register_usepass == 0) {
+        if (preg_match("/[^0-9a-z]+/i", $reg_mb_id))
+        return "회원아이디는 영문자, 숫자 만 입력하세요.".$reg_mb_id;
+    else
+        return "";
+    } else {
+        return valid_mb_email($reg_mb_id);
+    }
+    
+    
 }
 
 function count_mb_id($reg_mb_id)
