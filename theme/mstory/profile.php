@@ -150,6 +150,19 @@
 						</li>
 					</ul>
 				</div>
+
+				<div class='col-sm-12 col-12 profile-box' style="padding-bottom:80px;">
+					<h3 class='title b_line'>
+						<i class="p3"><img src="<?=G5_THEME_URL?>/img/recommendation_information.png" alt=""></i>
+						<span >추천인 정보</span>
+					</h3>
+					<ul class='row mt10'>
+						<li class='col-sm-12 col-12'>
+							<label >나의 추천</label>
+							<p ><?=$member['mb_recommend']?></p>
+						</li>
+					</ul>
+				</div>
 			</section>
 		</div>
 	</main>
@@ -224,17 +237,38 @@
 	</div>
 <script>
 
-$(function() {
 	//  트랜잭션 비밀번호변경
 	$('.ch_tpw_open').click(function(){
-		//$('.chage_tpw_pop').css("display","block");
-		$('.chage_tpw_pop1').css("display","block");
+		$('.auth_email').removeClass('_send_email_chage_pw_pop1');
+		$('.auth_email').addClass('_send_email_chage_tpw_pop1');
+		$('.auth_email').css("display","block");
 	});
 
 	if(<?= $member['reg_tr_password_change'] ?> == 0) {
 		$('#current_tpw').hide();
 		$('#current_tpw').prev().hide();
 	}
+
+	$(document).on('click','._send_email_chage_tpw_pop1 #send_email',function(){
+
+		check_email_condition((state,email)=>{
+			if(state){
+				ajax_send_mail(email);
+			}
+		})
+
+	})
+
+
+	$(document).on('click','._send_email_chage_tpw_pop1 .auth_save',function(){
+		check_email_condition((state,email)=>{
+			if(state){
+				ajax_check_mail(email,"chage_tpw_pop1");
+			}
+		})
+
+	})
+
 
 	onlyNumber('current_tpw');
 	onlyNumber('new_tpw');
@@ -285,7 +319,7 @@ $(function() {
 			});
 
 	});
-});
+
 </script>
 
 <!--  비밀번호 변경 -->
@@ -326,12 +360,107 @@ $(function() {
 		</div>
 	</div>
 
+
+	<div class="pop_wrap auth_email input_pop_css">
+		<p class="pop_title" >이메일 인증</p>
+
+		<input type="text" id="current_email" value="<?=$member['mb_email']?>" readonly>
+		<button id="send_email">이메일 전송</button>
+		
+		<div class="btn2_btm_wrap">
+			<input type="button" value="취소" class="btn btn_double default_btn cancel btn_cancel pop_close" >
+			<input type="button" value="확인" class="btn btn_double default_btn main_btn2 auth_save">
+		</div>
+	</div>
+
 <script>
-$(function() {	
+
+
+	let check_email_condition = (invoke) =>{
+		let current_email = document.getElementById('current_email').value.trim();
+		
+		if(current_email == '' || current_email == null || current_email == undefined){
+			dialogModal('이메일 인증','<strong>이메일을 입력해주세요.</strong>','failed',false);
+			invoke(false,current_email);
+			return false;
+		}
+
+		if(current_email != "<?=$member['mb_email']?>"){
+			dialogModal('이메일 인증','<strong>회원님의 이메일이 일치하지 않습니다.</strong>','failed',false);
+			invoke(false,current_email);
+			return false;
+		}
+
+		invoke(true,current_email);
+
+	}
+
+	let ajax_send_mail = (email) => {
+		$.ajax({
+			url: "/mail/send_mail.php",
+			type: "POST",
+			dataType: "json",
+			async: false,
+			cache: false,
+			data:{
+				user_email : email
+			},
+			complete: (_) => {
+				dialogModal('이메일 인증','<strong>해당 메일로 이메일을 발송하였습니다.<br>이메일을 확인해주세요.</strong>','failed',false);
+			}
+		})
+	}
+
+	let ajax_check_mail = (email, clazz) => {
+		$.ajax({
+				url: "/mail/check_mail_for_register.php",
+				type: "POST",
+				dataType: "json",
+				async: false,
+				cache: false,
+				data:{
+					user_email : email
+				},
+				success: (res) => {
+					if(res.result == "OK"){
+						if($('.auth_email').css("display") == "block"){
+							$('.auth_email').css("display","none");
+							$(`.${clazz}`).css("display","block");
+						}
+					}else{
+						dialogModal('이메일 인증',`<strong>${res.res}</strong>`,'failed',false);
+					}
+				}
+			})
+	}
+
+
+
 	$('.ch_pw_open').click(function(){
-			//$('.chage_pw_pop').css("display","block");
-		$('.chage_pw_pop1').css("display","block");
+		$('.auth_email').removeClass('_send_email_chage_tpw_pop1');
+		$('.auth_email').addClass('_send_email_chage_pw_pop1');
+		$('.auth_email').css("display","block");
 	});
+
+	$(document).on('click','._send_email_chage_pw_pop1 #send_email',function(){
+
+		check_email_condition((state,email)=>{
+			if(state){
+				ajax_send_mail(email);
+			}
+		})
+
+	})
+
+	$(document).on('click','._send_email_chage_pw_pop1 .auth_save',function(){
+
+		check_email_condition((state,email)=>{
+			if(state){
+				ajax_check_mail(email,"chage_pw_pop1");
+			}
+		})
+
+	})
 
 
 	$('.chage_pw_pop1 .save').click(function(){
@@ -380,7 +509,7 @@ $(function() {
 		});
 
 	});
-});
+
 </script>
 <!--  비밀번호 변경 -->
 

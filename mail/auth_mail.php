@@ -23,7 +23,7 @@ include_once("../common.php");
         $result_2nd = sql_query($sql_2nd);
   
         if($result_2nd){
-          echo "<script>alert('인증완료되었습니다. 회원가입을 진행해주세요.');
+          echo "<script>alert('이메일 인증이 완료되었습니다.');
                 self.close(); </script>";
         }else{
           echo "<script>alert('죄송합니다. 다시 시도해주세요.');

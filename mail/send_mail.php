@@ -25,15 +25,15 @@ try {
     // $mail -> Username = "redonemart.01";    // 메일 계정
     // $mail -> Password = "redonemart.77";                // 메일 비밀번호
 
-    $mail -> SMTPSecure = "ssl";                    // SSL을 사용함
-    $mail -> Port = 465;                            // email 보낼때 사용할 포트를 지정
+    $mail -> SMTPSecure = "tls";                    // SSL을 사용함
+    $mail -> Port = 587;                            // email 보낼때 사용할 포트를 지정
     $mail -> CharSet = "utf-8";                        // 문자셋 인코딩
 
     // 보내는 메일
     $mail -> setFrom(CONFIG_MAIL_ADDR, CONFIG_TITLE);
 
     // 받는 메일
-    $mail -> addAddress($to_email, $to_id);
+    $mail -> addAddress($to_email, "");
 
     //인증해시값
     $dateTime = new DateTime("now", new DateTimeZone("Asia/Seoul"));
@@ -43,7 +43,7 @@ try {
 
     // 메일 내용
     $mail -> isHTML(true);                                               // HTML 태그 사용 여부
-    $mail -> Subject = "[".CONFIG_TITLE."] MEMBER RESTRATION CERTIFICATION";              // 메일 제목
+    $mail -> Subject = "[".CONFIG_TITLE."] MEMBER CERTIFICATION";              // 메일 제목
     // $mail -> Body = $auth_md5;    // 메일 내용
 
     $hostname=$_SERVER["HTTP_HOST"];
@@ -70,7 +70,7 @@ try {
     margin-top: 20px;'>
     <p 
     style='color:black;font-size: 32px;font-weight: bold;line-height:initial;width: 500px;margin: 0 auto;margin-top: 50px;'>
-    회원가입 메일인증 안내입니다.
+    회원정보수정 메일 인증입니다.
     </p>
     <p
     style='color:black;line-height: 22px;width: 500px;margin: 0 auto;margin-top: 40px;'>
