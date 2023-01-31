@@ -186,17 +186,19 @@ if ($_GET['recom_referral']) {
 				<?php } else { ?>
 					<input type="text" name="mb_name" style='padding:15px;' id="reg_mb_name" required placeholder="이름" />
 					<div class="" style="display: flex; align-items: center; margin-top: 15px">
-						<select id="nation_number" name="nation_number" required>
-							<option value="1">1</option>
-							<option value="81">81</option>
-							<option value="82" selected>82</option>
-							<option value="84">84</option>
-							<option value="86">86</option>
-							<option value="62">62</option>
-							<option value="63">63</option>
-							<option value="66">66</option>
-						</select>
-					<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
+						<div class="nation_number_wrap">
+							<select id="nation_number" name="nation_number" required>
+								<option value="1">1</option>
+								<option value="81">81</option>
+								<option value="82" selected>82</option>
+								<option value="84">84</option>
+								<option value="86">86</option>
+								<option value="62">62</option>
+								<option value="63">63</option>
+								<option value="66">66</option>
+							</select>
+						</div>
+						<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
 					</div>
 					
 					<input type="text" name="mb_id" style='padding:15px' id="reg_mb_id" required placeholder="아이디" />
@@ -310,7 +312,6 @@ if ($_GET['recom_referral']) {
 				location.href = g5_url;
 			});
 		});
-
 
 		/*이메일 체크*/
 		$('#EmailChcek').on('click', function() {
