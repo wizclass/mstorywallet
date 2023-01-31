@@ -10,7 +10,12 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
 
 $rlevel = 'all';
 $states = isset($_GET['states']) && $_GET['states'] != "" ? $_GET['states'] : "2";
-$type = isset($_GET['type']) && $_GET['type'] != "" ? $_GET['type'] : "2";
+if(ETH_AVAILABLE){
+    $type = isset($_GET['type']) && $_GET['type'] != "" ? $_GET['type'] : "2";
+} else {
+    $type = isset($_GET['type']) && $_GET['type'] != "" ? $_GET['type'] : "1";
+}
+
 $mb_info = isset($_GET['mb_info']) && $_GET['mb_info'] != "" ? $_GET['mb_info'] : "1";
 
 if($_GET['rlevel']){
@@ -31,8 +36,8 @@ function onselect($val){
 }
 
 $state_array = ['만료','진행중','전체'];
-$type_array = ['ETH','ESGC','전체'];
-$times_array = ['ETH','ESGC','ESGC | ETH'];
+$type_array = ['ETH','MST','전체'];
+$times_array = ['ETH','MST','MST | ETH'];
 $mb_info_array = ['회원이름', '회원ID'];
 
 function set_selected($index, $param){
@@ -238,7 +243,7 @@ function change_select_mbinfo(){
 <div class="local_desc01 local_desc">
     <p>
         <!-- <strong>- 일괄지급 :</strong> (임시)지급테스트용 - 만료회차까지 지급  <br> -->
-        <strong>- 상품종류 :</strong> ESGC->ETH 변경시 해당 구매 회원 등급 자동조정<br>
+        <!-- <strong>- 상품종류 :</strong> ESGC->ETH 변경시 해당 구매 회원 등급 자동조정<br> -->
         <strong>- 구매일/지급예정일/지급회차 :</strong> 상품구매일 기준 29일~31일인경우 익익월 1일로 자동계산 ~ 만료일까지 자동계산
 	</p>
 </div>
@@ -275,14 +280,16 @@ function change_select_mbinfo(){
             </select>
         </div>
 
-        <div class="selectbox inline">
-            <label for='select_type'>상품종류 : </label>
-            <select id='select_type' onchange="change_select_type(this)" style='width:80px;'>
-            <?php for($i = count($type_array)-1; $i >= 0; $i--){?>
-                <option value="<?=$i?>" <?=set_selected($i,$type)?>><?=$type_array[$i]?></option>
-            <?php } ?>
-            </select>
-        </div>
+        <?if(ETH_AVAILABLE){?>
+            <div class="selectbox inline">
+                <label for='select_type'>상품종류 : </label>
+                    <select id='select_type' onchange="change_select_type(this)" style='width:80px;'>
+                    <?php for($i = count($type_array)-1; $i >= 0; $i--){?>
+                        <option value="<?=$i?>" <?=set_selected($i,$type)?>><?=$type_array[$i]?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        <?}?>
 
         
         <div class='selectbox inline'> 
@@ -370,10 +377,14 @@ function change_select_mbinfo(){
                 <span class='td_email'><a href="/adm/member_form.php?w=u&mb_id=<?=$row['mb_id']?>" target="_blank"><?=$row['mb_id']?></a></span>
             </td>
             <td class='no text-center'>
+                <? if(ETH_AVAILABLE){ ?>
                 <select onchange="set_staking_type(this);" <?=$row['od_settle_case'] == WITHDRAW_CURENCY ? "disabled" : "" ?> data-od_id="<?=$row['od_id']?>">
                     <option value="<?=ASSETS_CURENCY?>" <?=$row['od_settle_case'] == ASSETS_CURENCY ? "selected" : "" ?>><?=ASSETS_CURENCY?></option>
                     <option value="<?=WITHDRAW_CURENCY?>" <?=$row['od_settle_case'] == WITHDRAW_CURENCY ? "selected" : "" ?>><?=WITHDRAW_CURENCY?></option>
                 </select>
+                <? } else { ?>
+                    <?=ASSETS_CURENCY?>
+                <? } ?>
             </td>
 
             <?php  $sql = "SELECT it_maker FROM {$g5['g5_shop_item_table']} s JOIN {$g5['g5_shop_order_table']} p ON s.it_id = p.od_tno WHERE p.od_tno = '".$row['od_tno']."'";

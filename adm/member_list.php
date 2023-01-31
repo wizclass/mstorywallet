@@ -548,9 +548,11 @@ while ($l_row = sql_fetch_array($get_lc)) {
 		
 		echo "<div class='bonus'>스테이킹 누적 보너스<strong>(".strtoupper($minings[0]).")</strong><span>:<strong>" . shift_auto($stats_result['balance'],ASSETS_CURENCY) .' '.strtoupper($minings[0])." </strong></span> | ";
 		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_with'],ASSETS_CURENCY) .' '.strtoupper($minings[0])."  </span></span></div> ";
-
-		echo "<div class='bonus mining'>스테이킹 누적 보너스<strong>(".strtoupper($minings[1]).")</strong><span>:<strong>" . shift_auto($stats_result['mining_total']) .' '.strtoupper($minings[1])." </strong></span> | ";
-		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_mining']) .' '.strtoupper($minings[1])."  </span></span></div> ";
+		if(ETH_AVAILABLE){
+			echo "<div class='bonus mining'>스테이킹 누적 보너스<strong>(".strtoupper($minings[1]).")</strong><span>:<strong>" . shift_auto($stats_result['mining_total']) .' '.strtoupper($minings[1])." </strong></span> | ";
+			echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_mining']) .' '.strtoupper($minings[1])."  </span></span></div> ";
+		}
+		
 	}
 	?>
 	<br>
@@ -647,9 +649,11 @@ while ($l_row = sql_fetch_array($get_lc)) {
 					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance') ?> 누적 보너스<br><?=ASSETS_CURENCY?></th>
 					<th scope="col" id="mb_list_auth2" class="bonus_usdt before_eth" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_shift_amt') ?>총 출금<br>(+수수료)<br></th>
 
-					<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_eth_fund') ?>총 <?=WITHDRAW_CURENCY?> 잔고<br></a></th>
-					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance_eth') ?>누적 보너스<br><?=WITHDRAW_CURENCY?></th>
-					<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_amt_eth') ?>출금<?=WITHDRAW_CURENCY?><br>(+수수료)<br></th>
+					<?if(ETH_AVAILABLE){?>
+						<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_eth_fund') ?>총 <?=WITHDRAW_CURENCY?> 잔고<br></a></th>
+						<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance_eth') ?>누적 보너스<br><?=WITHDRAW_CURENCY?></th>
+						<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_amt_eth') ?>출금<?=WITHDRAW_CURENCY?><br>(+수수료)<br></th>
+					<?}?>
 					<th scope="col" id="mb_list_member"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mng">관리</th>
 				</tr>
@@ -759,9 +763,11 @@ while ($l_row = sql_fetch_array($get_lc)) {
 						<td headers="mb_list_auth" class="td_mbstat before_eth" style='color:red' rowspan="2"><?= shift_auto($total_amt,ASSETS_CURENCY) ?></td>
 
 						<!-- ETH -->
+						<?if(ETH_AVAILABLE){?>
 						<td headers="mb_list_auth" class="td_mbstat " rowspan="2" ><?= shift_auto($row['mb_balance_eth'] - $row['mb_amt_eth']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2" ><?= shift_auto($row['mb_balance_eth']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= shift_auto($row['mb_amt_eth']) ?></td>
+						<?}?>
 						<td headers="mb_list_lastcall" class="td_date"><?php echo substr($row['mb_today_login'], 2, 8); ?></td>
 						<td headers="mb_list_mng" rowspan="2" class="td_mngsmall" style="width:100px;"><?php echo $s_mod ?></td>
 					

@@ -787,55 +787,56 @@ $rank_result = sql_fetch($rank_sql);
 
 	</tr>
  -->
+ 	<?if(ETH_AVAILABLE){?>
+		<tr class='divide-top'>
+			<th scope="row">보유 <?=WITHDRAW_CURENCY?> 수량</th>
+			<td colspan="1">
+				<strong><?=$this_member_total_eth_balance?> <?=WITHDRAW_CURENCY?></strong> 
+			</td>
+		</tr>
 
- 	<tr class='divide-top'>
-		<th scope="row">보유 <?=WITHDRAW_CURENCY?> 수량</th>
-		<td colspan="1">
-			<strong><?=$this_member_total_eth_balance?> <?=WITHDRAW_CURENCY?></strong> 
-		</td>
-	</tr>
 
+		<tr class='ly_up padding-box fund'>
+			<th scope="row">총 지급받은 <?=WITHDRAW_CURENCY?> 수량</th>
+			<td colspan="1"><span class='strong soodang'>
+			<input type="hidden" class='no-input' value="<?= $mb['mb_balance_eth'] ?>" readonly> 
+			<span style="margin-right:1.5em;"><?= shift_auto($mb['mb_balance_eth']) ?> ETH</span>
+		
+				<input type="hidden" name="mb_balance_eth_math" id="math_code3" value="">
+				<input type="button" value="+" class='math_btn plus math_btn3' data-num="3">
+				<input type="button" value="-" class='math_btn minus math_btn3' data-num="3">
+				<input type="text" name="calc_mb_balance_eth" value="" class="frm_input wide field_upstair" size="15" style="max-width:60%">
+			</td>
 
-	<tr class='ly_up padding-box fund'>
-		<th scope="row">총 지급받은 <?=WITHDRAW_CURENCY?> 수량</th>
-		<td colspan="1"><span class='strong soodang'>
-		<input type="hidden" class='no-input' value="<?= $mb['mb_balance_eth'] ?>" readonly> 
-		<span style="margin-right:1.5em;"><?= shift_auto($mb['mb_balance_eth']) ?> ETH</span>
-	
-			<input type="hidden" name="mb_balance_eth_math" id="math_code3" value="">
-			<input type="button" value="+" class='math_btn plus math_btn3' data-num="3">
-			<input type="button" value="-" class='math_btn minus math_btn3' data-num="3">
-			<input type="text" name="calc_mb_balance_eth" value="" class="frm_input wide field_upstair" size="15" style="max-width:60%">
-		</td>
+			<th scope="row">출금 <?=WITHDRAW_CURENCY?> 수량</th>
+			<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_amt_eth']) ?> <?=WITHDRAW_CURENCY?></span></td>
 
-		<th scope="row">출금 <?=WITHDRAW_CURENCY?> 수량</th>
-		<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_amt_eth']) ?> <?=WITHDRAW_CURENCY?></span></td>
+		</tr>
 
-	</tr>
+		<tr class="ly_up padding-box">
+			<th scope="row">스테이킹 상품 및 수량</th>
+			<td colspan="3">		
+				<?php 
+				$get_eth_shop_item = get_shop_item_type(WITHDRAW_CURENCY);
+				$eth_pack_array = package_have_return($mb['mb_id'],0,WITHDRAW_CURENCY);
+				for ($i = 0; $i < count($get_eth_shop_item); $i++) {?>
+					<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_eth_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
+						<span class='pack_title color<?= substr($get_eth_shop_item[$i]['ca_id2'],0,-1) ?>'><?= $get_eth_shop_item[$i]['it_option_subject'] ?></span>
+						<div class='pack_have'><?= number_format($eth_pack_array[$get_eth_shop_item[$i]['it_id']][0]) ?>
+						<div style="color:cadetblue;font-size:13px;"><?= $eth_pack_array[$get_eth_shop_item[$i]['it_id']] ? shift_auto($eth_pack_array[$get_eth_shop_item[$i]['it_id']][1],ASSETS_CURENCY) : 0 ?> <?=ASSETS_CURENCY?></div>
+					</button>
+				<?php } ?>
+			</td>	
+		</tr>
 
-	<tr class="ly_up padding-box">
-		<th scope="row">스테이킹 상품 및 수량</th>
-		<td colspan="3">		
-			<?php 
-			$get_eth_shop_item = get_shop_item_type(WITHDRAW_CURENCY);
-			$eth_pack_array = package_have_return($mb['mb_id'],0,WITHDRAW_CURENCY);
-			for ($i = 0; $i < count($get_eth_shop_item); $i++) {?>
-				<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_eth_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-					<span class='pack_title color<?= substr($get_eth_shop_item[$i]['ca_id2'],0,-1) ?>'><?= $get_eth_shop_item[$i]['it_option_subject'] ?></span>
-					<div class='pack_have'><?= number_format($eth_pack_array[$get_eth_shop_item[$i]['it_id']][0]) ?>
-					<div style="color:cadetblue;font-size:13px;"><?= $eth_pack_array[$get_eth_shop_item[$i]['it_id']] ? shift_auto($eth_pack_array[$get_eth_shop_item[$i]['it_id']][1],ASSETS_CURENCY) : 0 ?> <?=ASSETS_CURENCY?></div>
-				</button>
-			<?php } ?>
-		</td>	
-	</tr>
-
-	<tr class='divide-bottom'>
-		<th scope="row">출금 <?=WITHDRAW_CURENCY?> 지갑주소</th>
-		<td colspan="3">
-			<input type="text" name="eth_my_wallet" value="<?=Decrypt($mb['eth_my_wallet'],$mb['mb_id'],'x')?>" id="eth_my_wallet" class="frm_input wide" size="100" readonly=true>
-			<button type="button" class="copybutton" onclick="copyAddress('#eth_my_wallet')">복사하기</button>
-		</td>
-	</tr>
+		<tr class='divide-bottom'>
+			<th scope="row">출금 <?=WITHDRAW_CURENCY?> 지갑주소</th>
+			<td colspan="3">
+				<input type="text" name="eth_my_wallet" value="<?=Decrypt($mb['eth_my_wallet'],$mb['mb_id'],'x')?>" id="eth_my_wallet" class="frm_input wide" size="100" readonly=true>
+				<button type="button" class="copybutton" onclick="copyAddress('#eth_my_wallet')">복사하기</button>
+			</td>
+		</tr>
+	<?}?>
 
 
 	<tr class="hidden">
