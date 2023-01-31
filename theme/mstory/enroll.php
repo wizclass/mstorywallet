@@ -186,16 +186,15 @@ if ($_GET['recom_referral']) {
 				<?php } else { ?>
 					<input type="text" name="mb_name" style='padding:15px;' id="reg_mb_name" required placeholder="이름" />
 					<div class="" style="display: flex; align-items: center; margin-top: 15px">
-						<select id="nation_number" name="nation_number" required style="width: 30%">
-							<option value="country">Select Country</option>
-							<option value="1">001 - USA</option>
-							<option value="81">081 - Japan</option>
-							<option value="82">082 - Korea</option>
-							<option value="84">084 - Vietnam</option>
-							<option value="86">086 - China</option>
-							<option value="62">062 - Indonesia</option>
-							<option value="63">063 - Philippines</option>
-							<option value="66">066 - Thailand</option>
+						<select id="nation_number" name="nation_number" required>
+							<option value="1">1</option>
+							<option value="81">81</option>
+							<option value="82" selected>82</option>
+							<option value="84">84</option>
+							<option value="86">86</option>
+							<option value="62">62</option>
+							<option value="63">63</option>
+							<option value="66">66</option>
 						</select>
 					<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
 					</div>

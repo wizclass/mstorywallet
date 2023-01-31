@@ -1153,8 +1153,7 @@ a.desc {
 }
 .enroll_wrap #nation_number {
   height: 48px;
-  width: 100%;
-  padding-left: 10px;
+  width: 20%;
   font-size: 0.9em;
   border-top: 0;
   border-left: 0;
