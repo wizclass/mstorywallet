@@ -3,6 +3,10 @@ include_once('./_common.php');
 include_once('../admin.head.php');
 include_once(G5_EDITOR_LIB);
 include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php
 
 if (!$board['bo_table']) {
     alert('존재하지 않는 게시판입니다.', G5_ADMIN_URL);

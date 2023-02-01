@@ -1,9 +1,10 @@
 <?php
 include_once('./_common.php');
-$g5['title'] = $bo_table.' 관리';
+$g5['title'] = strtoupper($bo_table).' 관리';
 include_once('../admin.head.php');
 ?>
 <script src="<?php echo G5_ADMIN_URL ?>/admin.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
 
 if (!$board['bo_table']) {
