@@ -653,7 +653,22 @@ input:-webkit-autofill:active {
     font-size: 1.1rem;
     color: #000;
     display: flex;
+    align-items: center;
     width: 100%;
+
+    .nation_flag {
+      display: inline-block;
+      margin-left: 5px;
+      line-height: normal;
+      border: 1px solid #f1f4fb;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .nation_flag_img {
+        margin: 0;
+        width: 30px;
+      }
+    }
   }
 
   .mb_level {

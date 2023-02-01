@@ -54,6 +54,7 @@
 								<? if($member['mb_level'] != 10) { ?>
 									<span class='mb_level'><?=$mb_level_array[$member['mb_level']]?></span>
 								<?} ?>
+								<span class='nation_flag'><img class="nation_flag_img" src="<?=national_flag($member['nation_number'])?>"></span>
 							</h4>
 							<h4 class='mb_id'><?=$member['mb_id']?></h4>
 						</li>

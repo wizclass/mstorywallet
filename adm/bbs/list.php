@@ -98,7 +98,7 @@ if (!$sca && !$stx) {
 
         if($k < $from_notice_idx) continue;
 
-        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
+        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len'],G5_ADMIN_BBS_URL);
         $list[$i]['is_notice'] = true;
 
         $i++;
@@ -183,7 +183,7 @@ if($page_rows > 0) {
         if ($sca || $stx)
             $row = sql_fetch(" select * from {$write_table} where wr_id = '{$row['wr_parent']}' ");
 
-        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
+        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len'],G5_ADMIN_BBS_URL);
         if (strstr($sfl, 'subject')) {
             $list[$i]['subject'] = search_font($stx, $list[$i]['subject']);
         }
@@ -241,5 +241,6 @@ if ($board['bo_use_rss_view']) {
 }
 
 $stx = get_text(stripslashes($stx));
+
 include_once($board_skin_path.'/list.skin.php');
 ?>
