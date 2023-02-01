@@ -453,8 +453,8 @@ var gradeMap = {
 					row.find('.lvl-container').attr('class',"gr_"+member.grade);
 					row.find('.direct_cnt').html("<i class='ri-user-star-line'></i>" + member.cnt);
 					row.find('.package').html("<i class='ri-vip-diamond-fill'></i>" + member.rank);
-					row.find('.pv').html("마이닝해시 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
-					row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(member.recom_sales)+"</strong>");
+					// row.find('.pv').html("마이닝해시 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
+					// row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(member.recom_sales)+"</strong>");
 
 					vHtml.append(row);
 				});
