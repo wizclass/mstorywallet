@@ -5,14 +5,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 //add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
 
-<style>
-input[type="text"], input[type="number"], input[type="password"], input[type="email"]{
-    padding:20px;
-}
-#notice{display:inline;float:left;width:25px;height:25px;}
-#bo_w .btn_submit{padding:8px !important}
-</style>
-
 <link rel="stylesheet" href="<?=G5_THEME_URL?>/css/default.css">
 <link rel="stylesheet" href="<?=$board_skin_url?>/style.css">
 

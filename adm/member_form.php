@@ -3,7 +3,7 @@ $sub_menu = "200100";
 include_once('./_common.php');
 include_once(G5_THEME_PATH . '/_include/wallet.php');
 include_once(G5_PATH . '/util/package.php');
-include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
+include_once(G5_PLUGIN_PATH . '/Encrypt/rule.php');
 
 auth_check($auth[$sub_menu], 'w');
 
@@ -15,9 +15,41 @@ function bonus_pick($val)
 	return $list;
 }
 
-function checkerble($val,$bool){
-	if($val == $bool){
+function checkerble($val, $bool)
+{
+	if ($val == $bool) {
 		return "checked";
+	}
+}
+
+function national_flag($ncode, $return = 'icon')
+{
+	if ($return == 'icon') {
+		switch ($ncode) {
+			case 1:
+				$tcode = 'us';
+				break;
+			case 81:
+				$tcode = 'jp';
+				break;
+			case 82:
+				$tcode = 'kr';
+				break;
+			case 84:
+				$tcode = 'vn';
+				break;
+			case 86:
+				$tcode = 'cn';
+				break;
+			case 66:
+				$tcode = 'th';
+				break;
+			default:
+				$tcode = 'etc';
+		}
+		$code_return = G5_IMG_URL . '/flag/' . $tcode . '.png';
+		return $code_return;
+	} else if ($return == 'ncode') {
 	}
 }
 
@@ -174,37 +206,35 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 <script src="<?= G5_THEME_URL ?>/_common/js/common.js" crossorigin="anonymous"></script>
 
 <script>
+	$('#center_use').click(function() {
+		var checked = $(this).is(":checked");
 
-		$('#center_use').click(function() {
-			var checked = $(this).is(":checked");
-
-			if (checked) {
-				$('#mb_nick_regist').addClass('active');
-			} else {
-				$('#mb_nick_regist').removeClass('active');
-			}
-		});
-
-
-		$('#field_upstair').on('change', function() {
-			var after = $(this).val().replace(/,/g, '');
-			var before = "<?= $mb['mb_deposit_point'] ?>";
-			console.log(after + '/' + before);
-
-			// var calc = (after - conv_number(before));
-			// $('#be_to').val(Price(calc));
-		});
-
-		function copyAddress(param) {
-			var $temp = $("<input>");
-			$("body").append($temp);
-			$temp.val($(param).val()).select();
-			document.execCommand("copy");
-			$temp.remove();
-
-			alert('주소가 복사되었습니다.');
+		if (checked) {
+			$('#mb_nick_regist').addClass('active');
+		} else {
+			$('#mb_nick_regist').removeClass('active');
 		}
+	});
 
+
+	$('#field_upstair').on('change', function() {
+		var after = $(this).val().replace(/,/g, '');
+		var before = "<?= $mb['mb_deposit_point'] ?>";
+		console.log(after + '/' + before);
+
+		// var calc = (after - conv_number(before));
+		// $('#be_to').val(Price(calc));
+	});
+
+	function copyAddress(param) {
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val($(param).val()).select();
+		document.execCommand("copy");
+		$temp.remove();
+
+		alert('주소가 복사되었습니다.');
+	}
 </script>
 
 <?
@@ -340,7 +370,7 @@ $rank_result = sql_fetch($rank_sql);
 		<p>
 			- 별도관리지정은 <strong>출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
 			<br>
-			- <strong>최초</strong> <?=ASSETS_CURENCY?> <strong>지급/차감</strong> 처리시 <strong>입금 요청내역에서 승인처리</strong>를 해야합니다.
+			- <strong>최초</strong> <?= ASSETS_CURENCY ?> <strong>지급/차감</strong> 처리시 <strong>입금 요청내역에서 승인처리</strong>를 해야합니다.
 		</p>
 	</div>
 
@@ -362,70 +392,82 @@ $rank_result = sql_fetch($rank_sql);
 						<? if ($w == "u") { ?>
 							<input type="hidden" name="mb_id" id="mb_id" value="<?= $mb['mb_id'] ?>" />
 							<span class='td_id <? if ($mb['mb_divide_date'] != '') {
-													echo 'red';
-												} ?>'><?= $mb['mb_id'] ?></span>
+																		echo 'red';
+																	} ?>' style="padding-left: 0px"><span class='nation_flag' style="margin-right: 10px"><img class="nation_flag_img" src="<?= national_flag($mb['nation_number']) ?>"></span><?= $mb['mb_id'] ?></span>
 
 						<? } else { ?>
 							<input type="text" name="mb_id" value="<?php echo $mb['mb_id'] ?>" id="mb_id" <?php echo $required_mb_id ?> class="frm_input <?php echo $required_mb_id_class ?>" size="15" minlength="3" maxlength="20">
 							<?php if ($w == 'u') { ?><a href="./boardgroupmember_form.php?mb_id=<?php echo $mb['mb_id'] ?>">접근가능그룹보기</a><?php } ?>
 						<? } ?>
-
 					</td>
-
-					<th scope="row"><label for="mb_id">이름<?php echo $sound_only ?></label></th>
+					<th scope="row"><label for="mb_email">이메일<?php echo $sound_only ?></label></th>
 					<td>
-						<input type="text" name="mb_name" id="mb_name" class='frm_input wide' value="<?= $mb['mb_name'] ?>" />
+						<span class="td_id"><?= $mb['mb_email'] ?></span>
 					</td>
-
 				</tr>
 
 				<tr>
-					<th scope="row"><label for="mb_password">비밀번호<?php echo $sound_only ?></label></th>
-					<td><input type="password" name="mb_password" id="mb_password" <?php echo $required_mb_password ?> class="frm_input wide<?php echo $required_mb_password ?>" size="15" maxlength="20"></td>
-					<?php if($w == 'u') { ?> 
-						<th scope="row"><label for="reg_tr_password">핀번호</label></th>
-						<td><input type="password" name="reg_tr_password" id="reg_tr_password" class="frm_input wide" size="15" maxlength="6"></td>
-					<?php } ?>
+					<th scope="row"><label for="mb_name">이름<?php echo $sound_only ?></label></th>
+					<td>
+						<input type="text" name="mb_name" id="mb_name" class='frm_input wide' value="<?= $mb['mb_name'] ?>" />
+					</td>
+					<th scope="row"><label for="mb_hp">휴대폰번호</label></th>
+					<td>
+						<input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="20">
+					</td>
 				</tr>
 
 				<!-- <tr> -->
-					<!-- <th scope="row"><label for="mb_email">E-mail<strong class="sound_only">필수</strong></label></th> -->
-					<!-- <td><input type="text" name="mb_email" value="<?php echo $mb['mb_email'] ?>" id="mb_email" maxlength="100" class="frm_input email wide" size="30"> -->
-						<!--
+				<!-- <th scope="row"><label for="mb_email">E-mail<strong class="sound_only">필수</strong></label></th> -->
+				<!-- <td><input type="text" name="mb_email" value="<?php echo $mb['mb_email'] ?>" id="mb_email" maxlength="100" class="frm_input email wide" size="30"> -->
+				<!--
 		<? if ($member['mb_email_certify'] != '') { ?>
 				<img src="<?= G5_THEME_URL ?>/_images/okay_icon.gif" alt="인증됨" style="width:15px;"> 인증됨
 			<? } else { ?>
 				<img src="<?= G5_THEME_URL ?>/_images/x_icon.gif" alt="인증안됨" style="width:15px;"> 인증안됨
 		<? } ?>
 		-->
-					<!-- </td> -->
-					<!-- <th scope="row"><label for="mb_hp">휴대폰번호</label></th> -->
-					<!-- <td> -->
-						<!-- <input type="text" name="nation_number" value="<?php echo $mb['nation_number'] ?>" id="nation_number" class="frm_input" style="height:36px;text-align:center" size="5" maxlength="50"> -->
-						<!-- <input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="20"> -->
+				<!-- </td> -->
+				<!-- <th scope="row"><label for="mb_hp">휴대폰번호</label></th> -->
+				<!-- <td> -->
+				<!-- <input type="text" name="nation_number" value="<?php echo $mb['nation_number'] ?>" id="nation_number" class="frm_input" style="height:36px;text-align:center" size="5" maxlength="50"> -->
+				<!-- <input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="20"> -->
 
-						<!-- <? if ($member['mb_certify'] == 1) { ?>
+				<!-- <? if ($member['mb_certify'] == 1) { ?>
 				<img src="<?= G5_THEME_URL ?>/_images/okay_icon.gif" alt="인증됨" style="width:15px;"> 인증됨
 			<? } else { ?>
 				<img src="<?= G5_THEME_URL ?>/_images/x_icon.gif" alt="인증안됨" style="width:15px;"> 인증안됨
 			<? } ?> -->
 
-					<!-- </td> -->
+				<!-- </td> -->
 				<!-- </tr> -->
 
 	</div>
 
+	<tr>
+		<?php if ($w == 'u') { ?>
+			<th scope="row"><label for="mb_password">비밀번호<?php echo $sound_only ?></label></th>
+			<td><input type="password" name="mb_password" id="mb_password" <?php echo $required_mb_password ?> class="frm_input wide<?php echo $required_mb_password ?>" size="15" maxlength="20"></td>
+			<th scope="row"><label for="reg_tr_password">핀번호</label></th>
+			<td><input type="password" name="reg_tr_password" id="reg_tr_password" class="frm_input wide" size="15" maxlength="6"></td>
+		<?php } ?>
+	</tr>
 
-	<th scope="row"><label for="mb_level">회원 레벨</label></th>
-	<td>
-		<?php echo get_member_level_select('mb_level', 0, 10,$mb['mb_level']) ?>
-	</td>
+	<tr>
+		<th scope="row"><label for="mb_recommend">추천인</label></th>
+		<td>
+			<input type="text" name="mb_recommend" id="mb_recommend" class="frm_input wide" value="<?= $mb['mb_recommend'] ?>">
+		</td>
+	</tr>
 
-	<th scope="row"><label for="mb_hp">휴대폰번호</label></th>
-	<td>			
-		<input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="20">
-	</td>
-
+	<tr>
+		<th scope="row"><label for="mb_level">회원 레벨</label></th>
+		<td>
+			<?php echo get_member_level_select('mb_level', 0, 10, $mb['mb_level']) ?>
+		</td>
+		<th scope="row">
+		<td></td>
+		</th>
 	</tr>
 
 	<style>
@@ -508,16 +550,16 @@ $rank_result = sql_fetch($rank_sql);
 	</style>
 
 	<tr class='divide-top'>
-		<th scope="row">보유 <?=ASSETS_CURENCY?> 수량</th>
+		<th scope="row">보유 <?= ASSETS_CURENCY ?> 수량</th>
 
 		<td colspan="3">
-			<strong><?=shift_auto($this_member_total_token_balance,ASSETS_CURENCY)?> <?=ASSETS_CURENCY?></strong>&nbsp&nbsp (총 입금 수량: <?= shift_auto($mb['mb_deposit_point'],ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?>)
+			<strong><?= shift_auto($this_member_total_token_balance, ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></strong>&nbsp&nbsp (총 입금 수량: <?= shift_auto($mb['mb_deposit_point'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?>)
 		</td>
 	</tr>
 
 	<tr class="ly_up padding-box fund">
 
-		<th scope="row"><?=ASSETS_CURENCY?> 지급/차감</th>
+		<th scope="row"><?= ASSETS_CURENCY ?> 지급/차감</th>
 
 		<td colspan="1">
 			<input type="hidden" name="mb_deposit_point_math" id="math_code1" value="">
@@ -525,7 +567,7 @@ $rank_result = sql_fetch($rank_sql);
 			<input type="button" value="-" class='math_btn minus math_btn1' data-num="1">
 			<input type="text" name="mb_deposit_point_add" value="" id="field_upstair" class="frm_input wide field_upstair" size="15" style="max-width:60%" inputmode=price>
 		</td>
-		<th scope="row"><?=ASSETS_CURENCY?> 지급/차감 내용</th>
+		<th scope="row"><?= ASSETS_CURENCY ?> 지급/차감 내용</th>
 
 		<td colspan="1">
 			<input type="text" name="mb_deposit_point_content" value="" id="field_upstair" class="frm_input wide field_upstair" size="15" style="max-width:60%">
@@ -534,31 +576,31 @@ $rank_result = sql_fetch($rank_sql);
 
 	<tr class="ly_up padding-box fund">
 
-		<th scope="row">스테이킹 <?=ASSETS_CURENCY?> 수량</th>
-		<td colspan="1"><span class='strong soodang'><?= shift_auto($total_staking_row['total_staking'],ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?></span></td>
+		<th scope="row">스테이킹 <?= ASSETS_CURENCY ?> 수량</th>
+		<td colspan="1"><span class='strong soodang'><?= shift_auto($total_staking_row['total_staking'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></span></td>
 
-		<th scope="row">총 지급받은 <?=ASSETS_CURENCY?> 수량</th>
+		<th scope="row">총 지급받은 <?= ASSETS_CURENCY ?> 수량</th>
 		<td colspan="1"><span class='strong soodang'>
-			<input type="hidden" class='no-input' name="mb_balance" value="<?= $mb['mb_balance'] ?>" readonly> 
-			<span style="margin-right:1.5rem;"><?= shift_auto($mb['mb_balance'],ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?></span>
-			
-			<input type="hidden" name="mb_balance_math" id="math_code2" value="">
-			<input type="button" value="+" class='math_btn plus math_btn2' data-num="2">
-			<input type="button" value="-" class='math_btn minus math_btn2' data-num="2">
-			<input type="text" name="calc_mb_balance" value=""  class="frm_input wide field_upstair" size="15" style="max-width:60%" inputmode=price>
+				<input type="hidden" class='no-input' name="mb_balance" value="<?= $mb['mb_balance'] ?>" readonly>
+				<span style="margin-right:1.5rem;"><?= shift_auto($mb['mb_balance'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></span>
+
+				<input type="hidden" name="mb_balance_math" id="math_code2" value="">
+				<input type="button" value="+" class='math_btn plus math_btn2' data-num="2">
+				<input type="button" value="-" class='math_btn minus math_btn2' data-num="2">
+				<input type="text" name="calc_mb_balance" value="" class="frm_input wide field_upstair" size="15" style="max-width:60%" inputmode=price>
 
 		</td>
 
 	</tr>
-		
+
 
 	<tr class="ly_up padding-box fund">
-		<th scope="row">출금 <?=ASSETS_CURENCY?> 수량</th>
-		<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_shift_amt'],ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?></span></td>
+		<th scope="row">출금 <?= ASSETS_CURENCY ?> 수량</th>
+		<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_shift_amt'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></span></td>
 
-		<th scope="row">상품권 구매 <?=ASSETS_CURENCY?> 수량</th>
+		<!-- <th scope="row">상품권 구매 <?= ASSETS_CURENCY ?> 수량</th>
 		<?php $gt_userbuy = sql_fetch("SELECT SUM(price_coin) AS gt_price FROM {$g5['giftcard_history_table']} WHERE mb_id = '{$mb['mb_id']}'"); ?>
-		<td colspan="1"><span class='strong bonus'><?= shift_auto($gt_userbuy['gt_price'],ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?></td>
+		<td colspan="1"><span class='strong bonus'><?= shift_auto($gt_userbuy['gt_price'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></td> -->
 
 
 	</tr>
@@ -580,13 +622,15 @@ $rank_result = sql_fetch($rank_sql);
 				padding-bottom: 30px;
 			}
 
-			.purchase_btn, .giftcard_btn {
+			.purchase_btn,
+			.giftcard_btn {
 				display: inline-grid;
 				height: 40px;
 				padding: 0;
 			}
 
-			.purchase_btn.pack, .giftcard_btn.pack {
+			.purchase_btn.pack,
+			.giftcard_btn.pack {
 				width: 150px;
 				margin-left: 20px;
 				color: white
@@ -617,14 +661,14 @@ $rank_result = sql_fetch($rank_sql);
 		<td colspan="3">
 			<?php
 			$get_shop_item = get_shop_item_type();
-			$esgc_pack_array = package_have_return($mb['mb_id'],0, ASSETS_CURENCY);
+			$esgc_pack_array = package_have_return($mb['mb_id'], 0, ASSETS_CURENCY);
 
 			for ($i = 0; $i < count($get_shop_item); $i++) {
-				?>
+			?>
 				<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-					<span class='pack_title color<?= substr($get_shop_item[$i]['ca_id2'],0,-1) ?>'><?= $get_shop_item[$i]['it_option_subject'] ?></span>
+					<span class='pack_title color<?= substr($get_shop_item[$i]['ca_id2'], 0, -1) ?>'><?= $get_shop_item[$i]['it_option_subject'] ?></span>
 					<div class='pack_have'><?= number_format($esgc_pack_array[$get_shop_item[$i]['it_id']][0]) ?>
-					<div style="color:cadetblue;font-size:13px;"><?= $esgc_pack_array[$get_shop_item[$i]['it_id']] ? shift_auto($esgc_pack_array[$get_shop_item[$i]['it_id']][1],ASSETS_CURENCY) : 0 ?> <?=ASSETS_CURENCY?></div>
+						<div style="color:cadetblue;font-size:13px;"><?= $esgc_pack_array[$get_shop_item[$i]['it_id']] ? shift_auto($esgc_pack_array[$get_shop_item[$i]['it_id']][1], ASSETS_CURENCY) : 0 ?> <?= ASSETS_CURENCY ?></div>
 				</button>
 			<?php } ?>
 
@@ -638,7 +682,7 @@ $rank_result = sql_fetch($rank_sql);
 		</td> -->
 	</tr>
 
-	<tr class="ly_up padding-box">
+	<!-- <tr class="ly_up padding-box">
 
 		<th scope="row">상품권 목록 및 수량</th>
 
@@ -647,7 +691,7 @@ $rank_result = sql_fetch($rank_sql);
 			$giftcard_list = sql_query("SELECT * FROM {$g5['g5_shop_giftcard_table']} WHERE gt_use = '1'");
 
 
-			for ($i = 0; $row = sql_fetch_array($giftcard_list); $i++) {?>
+			for ($i = 0; $row = sql_fetch_array($giftcard_list); $i++) { ?>
 				<button type='button' class='btn giftcard_btn' value='' data-row='<?= json_encode($row, JSON_FORCE_OBJECT) ?>'>
 					<span class='pack_title color<?= $i ?>'><?= shift_auto($row['gt_price'], BALANCE_CURENCY) ?>원 상품권</span>
 					<div class='pack_have'>
@@ -655,16 +699,15 @@ $rank_result = sql_fetch($rank_sql);
 							FROM wpurchase_giftcard_history p
 							JOIN g5_shop_giftcard s 
 							ON p.gt_id = s.gt_id
-							WHERE p.mb_id = '".$mb['mb_id']."' AND p.gt_id = '".$row['gt_id']."'");
-							echo $giftcard_row['cnt'];
+							WHERE p.mb_id = '" . $mb['mb_id'] . "' AND p.gt_id = '" . $row['gt_id'] . "'");
+						echo $giftcard_row['cnt'];
 						?>
-					<div style="color:cadetblue;font-size:13px;">
-						<?= shift_auto($giftcard_row['total'], ASSETS_CURENCY) ?> <?=ASSETS_CURENCY?></div>
+						<div style="color:cadetblue;font-size:13px;">
+							<?= shift_auto($giftcard_row['total'], ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?></div>
 				</button>
 			<?php } ?>
 		</td>
-
-	</tr>
+	</tr> -->
 
 
 	</tr>
@@ -680,18 +723,18 @@ $rank_result = sql_fetch($rank_sql);
 				$(this).addClass('active');
 				$(`#math_code${num}`).val(value);
 			});
-			
+
 			//패키지구매처리
 			$('.purchase_btn').on('click', function() {
 				let data = $(this).data('row');
-				let token = "<?=ASSETS_CURENCY?>";
-            	// let type = data.it_brand;
-				
-				let total_balance = Number('<?=$this_member_total_token_balance?>');
-				// if(type == "ETH") total_balance = Number('<?=$this_member_total_eth_balance?>');
-				
+				let token = "<?= ASSETS_CURENCY ?>";
+				// let type = data.it_brand;
+
+				let total_balance = Number('<?= $this_member_total_token_balance ?>');
+				// if(type == "ETH") total_balance = Number('<?= $this_member_total_eth_balance ?>');
+
 				let coin_quantity = prompt(`스테이킹 하실 ${token} 수량을 입력해주세요.`);
-				if(coin_quantity == null) return false;
+				if (coin_quantity == null) return false;
 
 				let check;
 				check = confirm(`해당 회원에게 ${data.it_name} 패키지를 지급하시겠습니까?\n회원 잔고에서 ${coin_quantity} ${token} (이)가 차감됩니다.`);
@@ -711,12 +754,12 @@ $rank_result = sql_fetch($rank_sql);
 					data: {
 						"mb_id": '<?= $mb['mb_id'] ?>',
 						"mb_no": '<?= $mb['mb_no'] ?>',
-						"od_cart_price" : coin_quantity,
+						"od_cart_price": coin_quantity,
 						"od_tno": data.it_id
 					},
 					success: function(res) {
 						alert(res.msg);
-						if(res.code == "200") location.reload();
+						if (res.code == "200") location.reload();
 					},
 					error: function(e) {
 						console.log(e)
@@ -728,12 +771,12 @@ $rank_result = sql_fetch($rank_sql);
 			//상품권 구매처리
 			$('.giftcard_btn').on('click', function() {
 				let data = $(this).data('row');
-				let token = "<?=ASSETS_CURENCY?>";
+				let token = "<?= ASSETS_CURENCY ?>";
 
-				let total_giftcard_price = data.gt_price/<?=$coin['esgc_krw']?>;
-				let price_coin_fee = shift_coin(total_giftcard_price * (data.gt_fee * 0.01),token);
+				let total_giftcard_price = data.gt_price / <?= $coin['esgc_krw'] ?>;
+				let price_coin_fee = shift_coin(total_giftcard_price * (data.gt_fee * 0.01), token);
 				let coin_quantity = shift_coin(total_giftcard_price + price_coin_fee, token);
-				let total_balance = shift_coin('<?=$this_member_total_token_balance?>',token);
+				let total_balance = shift_coin('<?= $this_member_total_token_balance ?>', token);
 
 				let check;
 				check = confirm(`해당 회원에게 ${data.gt_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원 상품권을 지급하시겠습니까?\n회원 잔고에서 ${coin_quantity} ${token} (이)가 차감됩니다.`);
@@ -754,11 +797,11 @@ $rank_result = sql_fetch($rank_sql);
 						"mb_id": '<?= $mb['mb_id'] ?>',
 						"mb_no": '<?= $mb['mb_no'] ?>',
 						"mb_name": '<?= $mb['mb_name'] ?>',
-						"gt_id" : data.gt_id
+						"gt_id": data.gt_id
 					},
 					success: function(res) {
 						alert(res.msg);
-						if(res.code == "200") location.reload();
+						if (res.code == "200") location.reload();
 					},
 					error: function(e) {
 						console.log(e)
@@ -769,9 +812,9 @@ $rank_result = sql_fetch($rank_sql);
 		});
 	</script>
 	<tr class='divide-bottom'>
-		<th scope="row">출금 <?=ASSETS_CURENCY?> 지갑주소</th>
+		<th scope="row">출금 <?= ASSETS_CURENCY ?> 지갑주소</th>
 		<td colspan="3">
-			<input type="text" name="mb_wallet" value="<?=Decrypt($mb['mb_wallet'],$mb['mb_id'],'x')?>" id="mb_wallet" class="frm_input wide" size="100" readonly=true>
+			<input type="text" name="mb_wallet" value="<?= Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x') ?>" id="mb_wallet" class="frm_input wide" size="100" readonly=true>
 			<button type="button" class="copybutton" onclick="copyAddress('#mb_wallet')">복사하기</button>
 		</td>
 	</tr>
@@ -787,56 +830,56 @@ $rank_result = sql_fetch($rank_sql);
 
 	</tr>
  -->
- 	<?if(ETH_AVAILABLE){?>
+	<? if (ETH_AVAILABLE) { ?>
 		<tr class='divide-top'>
-			<th scope="row">보유 <?=WITHDRAW_CURENCY?> 수량</th>
+			<th scope="row">보유 <?= WITHDRAW_CURENCY ?> 수량</th>
 			<td colspan="1">
-				<strong><?=$this_member_total_eth_balance?> <?=WITHDRAW_CURENCY?></strong> 
+				<strong><?= $this_member_total_eth_balance ?> <?= WITHDRAW_CURENCY ?></strong>
 			</td>
 		</tr>
 
 
 		<tr class='ly_up padding-box fund'>
-			<th scope="row">총 지급받은 <?=WITHDRAW_CURENCY?> 수량</th>
+			<th scope="row">총 지급받은 <?= WITHDRAW_CURENCY ?> 수량</th>
 			<td colspan="1"><span class='strong soodang'>
-			<input type="hidden" class='no-input' value="<?= $mb['mb_balance_eth'] ?>" readonly> 
-			<span style="margin-right:1.5em;"><?= shift_auto($mb['mb_balance_eth']) ?> ETH</span>
-		
-				<input type="hidden" name="mb_balance_eth_math" id="math_code3" value="">
-				<input type="button" value="+" class='math_btn plus math_btn3' data-num="3">
-				<input type="button" value="-" class='math_btn minus math_btn3' data-num="3">
-				<input type="text" name="calc_mb_balance_eth" value="" class="frm_input wide field_upstair" size="15" style="max-width:60%">
+					<input type="hidden" class='no-input' value="<?= $mb['mb_balance_eth'] ?>" readonly>
+					<span style="margin-right:1.5em;"><?= shift_auto($mb['mb_balance_eth']) ?> ETH</span>
+
+					<input type="hidden" name="mb_balance_eth_math" id="math_code3" value="">
+					<input type="button" value="+" class='math_btn plus math_btn3' data-num="3">
+					<input type="button" value="-" class='math_btn minus math_btn3' data-num="3">
+					<input type="text" name="calc_mb_balance_eth" value="" class="frm_input wide field_upstair" size="15" style="max-width:60%">
 			</td>
 
-			<th scope="row">출금 <?=WITHDRAW_CURENCY?> 수량</th>
-			<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_amt_eth']) ?> <?=WITHDRAW_CURENCY?></span></td>
+			<th scope="row">출금 <?= WITHDRAW_CURENCY ?> 수량</th>
+			<td colspan="1"><span class='strong bonus'><?= shift_auto($mb['mb_amt_eth']) ?> <?= WITHDRAW_CURENCY ?></span></td>
 
 		</tr>
 
 		<tr class="ly_up padding-box">
 			<th scope="row">스테이킹 상품 및 수량</th>
-			<td colspan="3">		
-				<?php 
+			<td colspan="3">
+				<?php
 				$get_eth_shop_item = get_shop_item_type(WITHDRAW_CURENCY);
-				$eth_pack_array = package_have_return($mb['mb_id'],0,WITHDRAW_CURENCY);
-				for ($i = 0; $i < count($get_eth_shop_item); $i++) {?>
+				$eth_pack_array = package_have_return($mb['mb_id'], 0, WITHDRAW_CURENCY);
+				for ($i = 0; $i < count($get_eth_shop_item); $i++) { ?>
 					<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_eth_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-						<span class='pack_title color<?= substr($get_eth_shop_item[$i]['ca_id2'],0,-1) ?>'><?= $get_eth_shop_item[$i]['it_option_subject'] ?></span>
+						<span class='pack_title color<?= substr($get_eth_shop_item[$i]['ca_id2'], 0, -1) ?>'><?= $get_eth_shop_item[$i]['it_option_subject'] ?></span>
 						<div class='pack_have'><?= number_format($eth_pack_array[$get_eth_shop_item[$i]['it_id']][0]) ?>
-						<div style="color:cadetblue;font-size:13px;"><?= $eth_pack_array[$get_eth_shop_item[$i]['it_id']] ? shift_auto($eth_pack_array[$get_eth_shop_item[$i]['it_id']][1],ASSETS_CURENCY) : 0 ?> <?=ASSETS_CURENCY?></div>
+							<div style="color:cadetblue;font-size:13px;"><?= $eth_pack_array[$get_eth_shop_item[$i]['it_id']] ? shift_auto($eth_pack_array[$get_eth_shop_item[$i]['it_id']][1], ASSETS_CURENCY) : 0 ?> <?= ASSETS_CURENCY ?></div>
 					</button>
 				<?php } ?>
-			</td>	
+			</td>
 		</tr>
 
 		<tr class='divide-bottom'>
-			<th scope="row">출금 <?=WITHDRAW_CURENCY?> 지갑주소</th>
+			<th scope="row">출금 <?= WITHDRAW_CURENCY ?> 지갑주소</th>
 			<td colspan="3">
-				<input type="text" name="eth_my_wallet" value="<?=Decrypt($mb['eth_my_wallet'],$mb['mb_id'],'x')?>" id="eth_my_wallet" class="frm_input wide" size="100" readonly=true>
+				<input type="text" name="eth_my_wallet" value="<?= Decrypt($mb['eth_my_wallet'], $mb['mb_id'], 'x') ?>" id="eth_my_wallet" class="frm_input wide" size="100" readonly=true>
 				<button type="button" class="copybutton" onclick="copyAddress('#eth_my_wallet')">복사하기</button>
 			</td>
 		</tr>
-	<?}?>
+	<? } ?>
 
 
 	<tr class="hidden">
@@ -950,8 +993,8 @@ $rank_result = sql_fetch($rank_sql);
 		<!-- 	<tr>
 		<th scope="row">회원구분표시</th>
 		<td><input type="checkbox" style='width:24px;height:24px' name="center_use" id="center_use" value=" <?= $mb['center_use'] ?> " class="frm_input" <? if ($mb['center_use'] == '1') {
-																																							echo "checked";
-																																						} ?> /></td>
+																																																																												echo "checked";
+																																																																											} ?> /></td>
 		<th scope="row">회원출금차단</th>
 		<td></td>
 	</tr> -->
@@ -1009,33 +1052,32 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 	<tr>
 		<th scope="row"><label for="mb_memo">KYC인증</label></th>
 		<td colspan="1">
-			<?if($mb['kyc_cert'] > 0){
+			<? if ($mb['kyc_cert'] > 0) {
 				echo kyc_cert($mb['kyc_cert']);
-				echo person_key($mb['mb_id'],$mb['kyc_cert'],$mb['person_key']);
-				echo "<span style='color:gray;margin-left:20px;'>".$mb['kyc_regdt']."</span>";
-			}else{
-				echo person_key($mb['mb_id'],$mb['kyc_cert'],$mb['person_key']);	
-			}?>
+				echo person_key($mb['mb_id'], $mb['kyc_cert'], $mb['person_key']);
+				echo "<span style='color:gray;margin-left:20px;'>" . $mb['kyc_regdt'] . "</span>";
+			} else {
+				echo person_key($mb['mb_id'], $mb['kyc_cert'], $mb['person_key']);
+			} ?>
 
-			<?if($mb['person_key'] != '0'){
+			<? if ($mb['person_key'] != '0') {
 				$kyc_cert = sql_fetch("SELECT * FROM g5_write_kyc WHERE mb_id = '{$mb['mb_id']}' ORDER BY wr_id desc limit 0,1 ");
-				
-				if($kyc_cert){
-					echo "<a href =/adm/bbs/board.php?bo_table=kyc&wr_id=".$kyc_cert['wr_id']." class='line_btn' style='padding:3px 5px;margin-left:5px;'>바로가기</a>";
-				}	
 
-			}?>
+				if ($kyc_cert) {
+					echo "<a href =/adm/bbs/board.php?bo_table=kyc&wr_id=" . $kyc_cert['wr_id'] . " class='line_btn' style='padding:3px 5px;margin-left:5px;'>바로가기</a>";
+				}
+			} ?>
 		</td>
 
 		<th scope="row"><label for="mb_memo">KYC수동처리</label></th>
 		<td colspan="1">
-			<input type="checkbox" id="kyc_admin_1" name="kyc_admin" class="kyc_admin_btn" <?=checkerble(1,$mb['kyc_cert']);?> onclick='checkOnlyOne(this)'value="1">
+			<input type="checkbox" id="kyc_admin_1" name="kyc_admin" class="kyc_admin_btn" <?= checkerble(1, $mb['kyc_cert']); ?> onclick='checkOnlyOne(this)' value="1">
 			<label for="kyc_admin_1">인증회원</label>
 
-			<input type="checkbox" id="kyc_admin_2" name="kyc_admin" class="kyc_admin_btn" <?=checkerble(2,$mb['kyc_cert']);?> onclick='checkOnlyOne(this)' value="2">
+			<input type="checkbox" id="kyc_admin_2" name="kyc_admin" class="kyc_admin_btn" <?= checkerble(2, $mb['kyc_cert']); ?> onclick='checkOnlyOne(this)' value="2">
 			<label for="kyc_admin_2">미승인</label>
 
-			<input type="checkbox" id="kyc_admin_0" name="kyc_admin" class="kyc_admin_btn" <?=checkerble(0,$mb['kyc_cert']);?> onclick='checkOnlyOne(this)'value="0">
+			<input type="checkbox" id="kyc_admin_0" name="kyc_admin" class="kyc_admin_btn" <?= checkerble(0, $mb['kyc_cert']); ?> onclick='checkOnlyOne(this)' value="0">
 			<label for="kyc_admin_0">등록대기</label>
 		</td>
 	</tr>
@@ -1064,17 +1106,16 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 
 <script>
 	function checkOnlyOne(element) {
-  
-		const checkboxes 
-			= document.getElementsByName("kyc_admin");
-		
+
+		const checkboxes = document.getElementsByName("kyc_admin");
+
 		checkboxes.forEach((cb) => {
 			cb.checked = false;
 		})
-		
+
 		element.checked = true;
 	}
-	$('input:checkbox[name=kyc_admin]').on('change', function(){
+	$('input:checkbox[name=kyc_admin]').on('change', function() {
 		alert('관리자 수동 변경시 기존 KYC 회원인증보다 우선처리됩니다.');
 	});
 
@@ -1138,7 +1179,7 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 
 			if ($('#math_code1').val() == '') {
 				$('.plus.math_btn1').focus();
-				alert('수동 <?=ASSETS_CURENCY?> 입금 기호를 선택해주세요');
+				alert('수동 <?= ASSETS_CURENCY ?> 입금 기호를 선택해주세요');
 
 				return false;
 			}
@@ -1148,39 +1189,39 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 			}
 		}
 
-		if(f.calc_mb_balance.value != ''){
+		if (f.calc_mb_balance.value != '') {
 			if ($('#math_code2').val() == '') {
 				$('.plus.math_btn2').focus();
-				alert('총 지급받은 <?=ASSETS_CURENCY?> 수량 기호를 선택해주세요');
+				alert('총 지급받은 <?= ASSETS_CURENCY ?> 수량 기호를 선택해주세요');
 
 				return false;
 			}
 		}
 
-		if(f.calc_mb_balance_eth.value != ''){
+		if (f.calc_mb_balance_eth.value != '') {
 			if ($('#math_code3').val() == '') {
 
 				$('.plus.math_btn3').focus();
-				alert('총 지급받은 <?=WITHDRAW_CURENCY?> 수량 기호를 선택해주세요');
+				alert('총 지급받은 <?= WITHDRAW_CURENCY ?> 수량 기호를 선택해주세요');
 
 				return false;
 			}
 
-			let reg =/^[\d]+\.?[\d]*$/;
-			if(!reg.test(f.calc_mb_balance_eth.value)){
+			let reg = /^[\d]+\.?[\d]*$/;
+			if (!reg.test(f.calc_mb_balance_eth.value)) {
 				alert("숫자,소수점 외에 다른 문자는 사용 불가합니다.");
 				return false;
 			}
 		}
 
-		
-		$('input:checkbox[name=kyc_admin]').each(function (index) {
-			if($(this).is(":checked")==true){
+
+		$('input:checkbox[name=kyc_admin]').each(function(index) {
+			if ($(this).is(":checked") == true) {
 				console.log($(this).val());
 				f.kyc_admin.value = $(this).val();
 			}
 		});
-		
+
 
 		// return true;
 	}
