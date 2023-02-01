@@ -8,14 +8,15 @@ if($is_admin){
 	header('Location: /page.php?id=support_center.admin');
 }
 ?>
+
 <script>
 	var $idx='<?=$_GET['idx']?>';
 	var topicOption = {
 		0 : '입출금',
-		1 : 'ESGC',
+		1 : 'MST',
 		2 : '스테이킹',
-		3 : '상품권',
-		4 : '회원가입',
+		3 : '회원정보',
+		4 : '추천인',
 		5 : "기타"
 	};
 	var $selected;
@@ -251,10 +252,10 @@ if($is_admin){
 									</div>
 									<select class="custom-select" name="topic" id="topic">
 										<option value="0" selected >입출금</option>
-										<option value="1" >ESGC</option>
+										<option value="1" >MST</option>
 										<option value="2" >스테이킹</option>
-										<option value="3" >상품권</option>
-										<option value="4" >회원가입</option>
+										<option value="3" >회원정보</option>
+										<option value="4" >추천인</option>
 										<option value="5" >기타</option>
 									</select>
 								</div>
