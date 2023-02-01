@@ -909,7 +909,7 @@ input:-webkit-autofill:active {
     }
     
     .kyc_label {
-      color: #00a2ff !important;
+      color: $main_color !important;
       font-size: 11px;
       margin: 3px;
       font-weight: 100;
@@ -2537,10 +2537,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .input-group-append {
     .main_btn {
-      border: 1px solid #00a2ff;
+      border: 1px solid $main_color;
 
       &:hover {
-        border-color: #2073f7;
+        border-color: $main_color_2;
       }
     }
   }

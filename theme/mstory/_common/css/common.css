@@ -755,43 +755,6 @@ input.p15 {
   padding: 8px;
   margin-bottom: 15px;
 }
-/* 체크박스
-.check_ty01 {
-  display: inline-flex;
-  align-items: center;
-}
-.check_ty01 input[type='checkbox'],
-.check_ty01 input[type='radio'] {
-  width: 18px;
-  height: 18px;
-  border: 1px solid #767676;
-  border-radius: 3px;
-  margin-right: 8px;
-  position: relative;
-}
-.check_ty01.radius input[type='checkbox'],
-.check_ty01 input[type='radio'] {
-  border-radius: 50%;
-}
-.check_ty01 input[type='checkbox']:checked,
-.check_ty01 input[type='radio']:checked {
-  background-color: #00a2ff;
-  border-color: #00a2ff;
-}
-.check_ty01 input[type='checkbox'] + label,
-.check_ty01 input[type='radio'] + label {
-  font-size: 13px;
-}
-.check_ty01 input[type='checkbox']:checked::after,
-.check_ty01 input[type='radio']:checked::after {
-  content: '✔';
-  color: #fff;
-  position: absolute;
-  left: 50%;
-  top: -2px;
-  transform: translateX(-50%);
-  font-size: 12px;
-} */
 
 /* 회원가입 */
 .bf-login input[type="button"] {
