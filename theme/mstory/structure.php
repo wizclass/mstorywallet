@@ -224,11 +224,11 @@ var gradeMap = {
 	function member_search(){
 		
 			if($("#now_id").val() == ""){
-				commonModal('회원 찾기','검색어를 입력해주세요.',80);
+				dialogModal('회원 찾기','<strong style="color: #333;">검색어를 입력해주세요.</strong>', 'warning');
 				$("#now_id").focus();
 				return;
 			}
-
+			
 			dimShow();
 
 			$.get("/util/level_structure_upgraded.search.php", {

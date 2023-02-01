@@ -10,8 +10,6 @@ if (isset($_SESSION['ss_mb_reg']))
 if (!$mb['mb_id'])
 	goto_url(G5_URL);
 ?>
-
-
 <style>
     .container {
         position: absolute;
