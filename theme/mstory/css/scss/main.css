@@ -689,6 +689,21 @@ input:-webkit-autofill:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.profile .mb_name .nation_flag {
+  display: inline-block;
+  margin-left: 5px;
+  line-height: normal;
+  border: 1px solid #f1f4fb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.profile .mb_name .nation_flag .nation_flag_img {
+  margin: 0;
+  width: 30px;
 }
 .profile .mb_level {
   font-weight: 100;
