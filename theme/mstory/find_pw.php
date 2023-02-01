@@ -101,8 +101,8 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             async: false,
             cache: false,
             data: {
-                mb_id: $('#mb_id').val(),
-                mb_info : $('#mb_name').val(),
+                mb_info: $('#mb_id').val(),
+                mb_name : $('#mb_name').val(),
                 condition: "find_pw"
             },
             complete: function(res) {
