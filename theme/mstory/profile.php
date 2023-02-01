@@ -72,7 +72,7 @@
 
 						<li class='col-12 mt20' style="margin-top: 0;">
 							<label>이메일</label>  
-							<p><?=$member['mb_id']?></p>
+							<p><?=$member['mb_email']?></p>
 						</li>
 						
 						<?php if($member['mb_wallet'] != ""){?>

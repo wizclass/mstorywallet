@@ -2,10 +2,22 @@
 include_once("../common.php");
 
 
-$to_email = $_POST['mb_id'];
+$mb_name = $_POST['mb_name'];
+$mb_info = $_POST['mb_info'];
+
+$condition = "mb_id = ";
+$email_title = "비밀번호 재설정";
+
+if($_POST['condition'] == "find_id"){
+    $condition = "mb_email = ";
+    $email_title = "아이디 찾기";
+}
+
+$condition .= "'{$mb_info}'";
+
 $mb_name = $_POST['mb_name'];
 
-$sql = "SELECT mb_id,mb_name, count(mb_id) as cnt FROM {$g5['member_table']} WHERE mb_id = '{$to_email}' AND mb_name = '{$mb_name}'";
+$sql = "SELECT mb_email, mb_name, count(mb_id) as cnt FROM {$g5['member_table']} WHERE {$condition} AND mb_name = '{$mb_name}'";
 $row = sql_fetch($sql);
 
 if($row['cnt'] <= 0 ){
@@ -13,10 +25,10 @@ if($row['cnt'] <= 0 ){
     return;
 }
 
-$to_id = $row['mb_id'];
+$to_email = $row['mb_email'];
 
 $auth_number= sprintf("%06d", rand(000000, 999999));
-$sql = "update {$g5['member_table']} set mail_invalid = '{$auth_number}' where mb_id = '{$to_email}' and mb_name = '{$mb_name}'";
+$sql = "update {$g5['member_table']} set mail_invalid = '{$auth_number}' where {$condition} and mb_name = '{$mb_name}'";
 sql_query($sql);
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -47,12 +59,12 @@ try {
     $mail -> setFrom(CONFIG_MAIL_ADDR, CONFIG_TITLE);
 
     // 받는 메일
-    $mail -> addAddress($to_email, $to_id);
+    $mail -> addAddress($to_email, "");
 
   
     // 메일 내용
     $mail -> isHTML(true);                                               // HTML 태그 사용 여부
-    $mail -> Subject = "[".CONFIG_TITLE."] MEMBER PASSWORD CERTIFICATION";             // 메일 제목
+    $mail -> Subject = "[".CONFIG_TITLE."] MEMBER CERTIFICATION";             // 메일 제목
     // $mail -> Body = $auth_md5;    // 메일 내용
 
     $hostname=$_SERVER["HTTP_HOST"];
@@ -68,13 +80,13 @@ try {
     margin-top: 20px;'>
     <p 
     style='color:black;font-size: 32px;font-weight: bold;line-height:initial;width: 500px;margin: 0 auto;margin-top: 50px;'>
-    비밀번호 메일인증 안내입니다.
+    {$email_title} 메일인증 안내입니다.
     </p>
     <p
     style='color:black;line-height: 22px;width: 500px;margin: 0 auto;margin-top: 40px;'>
     안녕하세요.<br>
     [ ".CONFIG_TITLE." ]을 이용해 주셔서 진심으로 감사드립니다.<br>
-    <span style='font-weight: bold;'>인증번호는 {$auth_number} 입니다.</span><br>".CONFIG_TITLE." 페이지에서 비밀번호 재설정을 진행해주세요.<br>
+    <span style='font-weight: bold;'>인증번호는 {$auth_number} 입니다.</span><br>".CONFIG_TITLE." 페이지에서 {$email_title}(을)를 진행해주세요.<br>
     </p>
     <div 
     style='color: #969696;font-size: 11px;margin-top: 40px;text-align:center;'>

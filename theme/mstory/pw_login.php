@@ -41,7 +41,7 @@
 				
 
 				<div class="login_btn_bottom">
-					<a href="/page.php?id=find_id" class='desc' style="text-decoration: none">아이디 찾기</a>
+					<a href="/page.php?id=find_id_by_email" class='desc' style="text-decoration: none">아이디 찾기</a>
 					<a href="/page.php?id=find_pw" class='desc find_pw' style="text-decoration: none">비밀번호 찾기</a>
 					<div class="login_btn_wrap">
 						<button type="button" class="btn wd main_btn" onclick="flogin_submit();" rerender="form"><span>로그인</span></button>

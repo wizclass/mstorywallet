@@ -47,7 +47,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             <h5 class="sub_title">
                 <div>인증번호 입력</div>
                 <div class="timer_down_wrap">
-                    <div class='timer-down' id='timer_down'>남은 시간 01:26</div>
+                    <div class='timer-down' id='timer_down'>남은 시간 05:00</div>
                 </div>
             </h5>
             
@@ -60,7 +60,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
         <div class="line"></div>
         <div id="pw_form">
             <h5 class="sub_title">비밀번호 재설정</h5>
-            <input type="password" id='auth_pw' class="b_radius_10 border mt-3" placeholder='영문+숫자+특수문자 조합 8~16자리'>
+            <input type="password" id='auth_pw' class="b_radius_10 border mt-3" placeholder='영문+숫자+특수문자 조합 4~12자리'>
             <h5 class="sub_title">비밀번호 재설정 확인</h5>
             <input type="password" id='re_auth_pw' class="b_radius_10 border mt-3" placeholder='비밀번호 재입력'>
             <input type="button" class="btn btn_wd btn-agree btn--blue main_btn" id='confirm_pw' value="확인">
@@ -101,8 +101,9 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             async: false,
             cache: false,
             data: {
-                mb_id: $('#mb_id').val(),
-                mb_name : $('#mb_name').val()
+                mb_info: $('#mb_id').val(),
+                mb_name : $('#mb_name').val(),
+                condition: "find_pw"
             },
             complete: function(res) {
                 var check = res.hasOwnProperty("responseJSON")
@@ -111,7 +112,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
                     dialogModal('','해당회원을 찾지 못했습니다.','find_warning');
                     return;
                 } else {
-                    dialogModal('','입력하신 아이디로 인증번호가 전송되었습니다. 이메일을 확인해주세요.','find_success');
+                    dialogModal('','가입하신 이메일로 인증번호가 전송되었습니다. 이메일을 확인해주세요.','find_success');
                     let count;
                     $('#modal_return_url').click(function() {
                         count = count_down();
@@ -160,7 +161,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
         var auth_pw = $('#auth_pw').val();
         var re_auth_pw = $('#re_auth_pw').val();
         var blank = /[\s]/g;
-        var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
+        var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{4,12}$/;
         let auth_number = $('#auth_number').val();
 
         if (auth_pw == "" || re_auth_pw == "") {
@@ -169,7 +170,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
         }
 
         if (!pattern.test(auth_pw)) {
-            dialogModal('','영문+숫자+특수 문자 조합을 사용하여 최소 8 자 이상 16 자리 이하 입력해주세요.','find_warning');
+            dialogModal('','영문+숫자+특수 문자 조합을 사용하여 최소 4 자 이상 12 자리 이하 입력해주세요.','find_warning');
             return false;
         }
 
