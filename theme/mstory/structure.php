@@ -511,7 +511,7 @@ var gradeMap = {
 		.badge.package i{font-size:12px;margin-right:2px;}
 		.hp{margin-right:5px;}
 		.toggle{margin-top:-30px;}
-		.mbpoint{padding-left:15px;}
+		strong {color: red;}
 	</style>
 
 	<main>

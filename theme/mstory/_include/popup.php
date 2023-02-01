@@ -122,7 +122,7 @@ $(function() {
 
 <div class="pop_wrap email_pop_wrap notice_img_pop">
 	<p class="pop_title"data-i18n='popup.인증번호 전송'>Email verification</p>
-	<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="체크">
+	<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
 	<div data-i18n='popup.인증번호가 이메일로 전송되었습니다'>Security code sent to your email</div>
 	<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>Close</a>
 </div>
@@ -132,7 +132,7 @@ $(function() {
 <div class="pop_wrap notice_img_pop enroll_ok_pop">
 	<p class="pop_title" data-i18n='popup.신규 회원등록 완료'>new member signup</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
+	<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
 		<span data-i18n='popup.신규회원등록이 완료되었습니다'>signup completed successfully.</span>
 	</div>
 	<div class="pop_close_wrap">
@@ -146,7 +146,7 @@ $(function() {
 <!-- <div class="pop_wrap notice_img_pop ava_pop_wrap">
 	<p class="pop_title">설정 저장</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
+		<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
 		<span>적립 비율이 성공적으로 변경되었습니다</span>
 	</div>
 	<div class="pop_close_wrap">
@@ -159,7 +159,7 @@ $(function() {
 <div class="pop_wrap notice_img_pop support_ok_pop">
 	<p class="pop_title">티켓 전송</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
+	<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
 		<span>티켓이 성공적으로 전송되었습니다</span>
 	</div>
 	<div class="pop_close_wrap">

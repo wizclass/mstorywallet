@@ -886,7 +886,7 @@ input:-webkit-autofill:active {
   margin: 0;
 }
 .pop_wrap.input_pop_css .kyc_label {
-  color: #00c8d5 !important;
+  color: #00a2ff !important;
   font-size: 11px;
   margin: 3px;
   font-weight: 100;
@@ -1034,7 +1034,7 @@ input:-webkit-autofill:active {
   padding-top: 0;
 }
 #commonModal .modal-content #closeModal {
-  background-color: #00c8d5;
+  background-color: #00a2ff;
   color: #fff;
 }
 
@@ -2698,11 +2698,11 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .support_center .input-group-append .main_btn,
 .support_center_admin .input-group-append .main_btn {
-  border: 1px solid #00c8d5;
+  border: 1px solid #00a2ff;
 }
 .support_center .input-group-append .main_btn:hover,
 .support_center_admin .input-group-append .main_btn:hover {
-  border-color: #67dfcf;
+  border-color: #2073f7;
 }
 .support_center .support-container label,
 .support_center .support-container div,

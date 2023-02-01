@@ -324,7 +324,7 @@ if ($_GET['recom_referral']) {
 						return false;
 					}
 
-					dialogModal("인증메일발송", "인증메일이 발송되었습니다.<br>메일인증확인후 돌아와 완료해주세요", 'success');
+					dialogModal("인증메일발송", "인증메일이 발송되었습니다.<br>메일인증 확인 후 돌아와 완료해주세요", 'success');
 				}
 
 			});
