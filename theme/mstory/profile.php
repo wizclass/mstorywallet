@@ -180,7 +180,7 @@
 		$('.reg_btn').click(function(){
 			var target = $(this).data("name");
 			dimShow();
-			$('#'+target).css({top: "50%", transform: "translateY(-50%)", display: "block"});			
+			$('#'+target).css({display: "block"});			
 		});
 
 		$('.person_agree_view').on('click',function(){
