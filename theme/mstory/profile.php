@@ -406,7 +406,7 @@
 				user_email : email
 			},
 			complete: (_) => {
-				dialogModal('이메일 인증','<strong>해당 메일로 이메일을 발송하였습니다.<br>이메일을 확인해주세요.</strong>','failed',false);
+				dialogModal('이메일 인증','<strong>해당 메일로 이메일을 발송하였습니다.<br>이메일을 확인해주세요.</strong>','success',false);
 			}
 		})
 	}
@@ -538,8 +538,8 @@
 	<div class="pop_wrap chage_email_pop1 notice_img_pop">
 		<p class="pop_title" >이메일 변경</p>
 		<div>
-		<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
-		<p> 변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
+			<p> 변경이 성공적으로 완료되었습니다</p>
 		</div>
 		<div class="pop_close_wrap">
 			<a href="javascript:parent.location.reload();" class="btn inline wd pop_close" >창닫기</a>
@@ -628,10 +628,10 @@
 
 	<!-- 변경완료 -->
 	<div class="pop_wrap num2_pop_wrap notice_img_pop">
-		<p class="pop_title" >전화번호 변경</p>
+		<p class="pop_title">전화번호 변경</p>
 		<div>
-		<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
-		<p >변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
+			<p >변경이 성공적으로 완료되었습니다 </p>
 		</div>
 		<div class="pop_close_wrap">
 			<a href="javascript:void(0);" class="btn inline wd main_btn3 pop_close" >창닫기</a>
@@ -706,7 +706,7 @@
 	<div class="pop_wrap chage_name_pop3 notice_img_pop">
 		<p class="pop_title" >이름 변경</p>
 		<div>
-		<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
+			<img src="<?=G5_URL?>/img/success_check.png" alt="체크 이미지">
 			<span>변경 처리되었습니다</span>
 		</div>
 		<div class="pop_close_wrap">
@@ -813,17 +813,15 @@
 					</label>
 				</div>
 			</div> -->
-			<div class='mb15' style="display:flex;align-items: center;">
+			<div class='mb15 check_ty01 radius' style="display:flex;align-items: center;">
 				<input type="checkbox" name="tax_person_number_agree" id="tax_person_number_agree" value="">
-				<label for="tax_person_number_agree" class="tax_person_number_agree">고유식별정보 처리동의</label>
-
+				<label for="tax_person_number_agree" class=" tax_person_number_agree">고유식별정보 처리동의</label>
 				<a href="javascript:void(0);" class="inline_btn person_agree_view" >전문보기</a>
 				<div class="preclose">
 					<textarea id="tax_person_agree_content" class="textbox">
 					</textarea>
 				</div>
 				<div id="argee_content" style="display: none">
-
 				</div>
 			</div>
 		</div>
