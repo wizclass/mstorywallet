@@ -47,7 +47,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             <h5 class="sub_title">
                 <div>인증번호 입력</div>
                 <div class="timer_down_wrap">
-                    <div class='timer-down' id='timer_down'>남은 시간 01:26</div>
+                    <div class='timer-down' id='timer_down'>남은 시간 05:00</div>
                 </div>
             </h5>
             
