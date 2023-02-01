@@ -78,6 +78,18 @@ header{box-shadow:0px 1px 3px rgba(49,104,116,0.05);}
 
     .btn2_wrap {
         display: flex;
+        justify-content: space-between;
+        gap: 10px 0;
+
+        font {
+            width: 100%;
+            height: 100%;
+
+            .btn_double {
+                width: 97%;
+                height: 40px;
+            }
+        }
 
         .btn_cancle {
             flex-grow: 0.3;

@@ -2,7 +2,7 @@
 $menubar = 1;
 include_once(G5_THEME_PATH.'/_include/head.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
-// include_once(G5_THEME_PATH.'/_include/lang.php');
+include_once(G5_THEME_PATH.'/_include/lang.php');
 
 if($nw['nw_enroll'] == 'Y'){
 }else{
@@ -79,44 +79,35 @@ if($service_no) {
 			<p class="check_appear_title mt40"><span >회원가입 약관동의 </span></p>
 			<div class="mt20">
 				<div class="term_space">
-					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required" >
-					<label for="service_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
+					<input type="checkbox" id="service_checkbox" class="checkbox-style-square" name="term_required" >
+					<label for="service_checkbox">
+						<span style='line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
 						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="service_term" class="term_textarea term_none"><?= $service_term['wr_content'] ?></textarea>
-				</div>
-				
-				
-
+				</div>	
 				<div class="term_space">
-					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required" >
-					<label for="private_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
+					<input type="checkbox" id="private_checkbox" class="checkbox-style-square" name="term_required" >
+					<label for="private_checkbox">
+						<span style='line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
 						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
-				</div>
-				
-
-				<div class="term_space">
-					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square term_none" name="mb_sms" value="1">
-					<label for="marketing_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
+				</div>		
+				<!-- <div class="term_space">
+					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square" name="mb_sms" value="1">
+					<label for="marketing_checkbox">
+						<span style='line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
 						<a id="marketing" href="javascript:collapse('#marketing');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
-				</div>
-				
+				</div> -->				
+			</div>			
+
+			<div class="btn2_wrap enroll_btn_wrap" style='width:100%;height:60px; display: flex'>
+				<input class="btn btn_double btn_cancle" type="button" value="취소">
+				<input class="btn btn_double b_skyblue submit main_btn" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
 			</div>
-			
-
-			<div class="btn2_wrap " style='width:100%;height:60px; display: flex'>
-				<input class="btn btn_double btn_secondary btn_cancle" type="button" value="취소">
-				<input class="btn btn_double btn_primary submit main_btn" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
-			</div>
-
-
 		</form>
 	</div>
 

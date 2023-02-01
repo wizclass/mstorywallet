@@ -259,7 +259,7 @@ if ($_GET['recom_referral']) {
 					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
 				</div> -->
 			</div>
-			<div class="btn2_wrap " style='width:100%;height:60px; display: flex'>
+			<div class="btn2_wrap enroll_btn_wrap" style='width:100%;height:60px; display: flex'>
 				<input class="btn btn_double btn_cancle" type="button" value="취소">
 				<input class="btn btn_double b_skyblue submit" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
 			</div>
