@@ -24,10 +24,26 @@ if ($_GET['recom_referral']) {
 	}
 }
 ?>
+<style>
+	.gflag{display:none !important;}
+</style>
+<style>
+	/* 센터 닉네임 사용 추가 0720  by arcthan */
+	.dd{border:2px solid #006df3}
+	.dd .ddTitle{height:40px;line-height:27px;}
+	.dd .ddTitle .ddTitleText img{padding:0;margin-right:5px;box-shadow:0 1px 1px rgb(0 0 0 / 50%)}
+
+	.dd .ddlabel{vertical-align: middle;}
+
+	.dd .divider{right:34px;}
+	.ddcommon .ddArrow{right:10px;}
+</style>
 
 <link href="<?= G5_THEME_URL ?>/css/scss/enroll.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link href="<?=G5_THEME_URL ?>/css/dd.css" rel="stylesheet">
 <script src="<?= G5_URL ?>/js/certify.js"></script>
+<script src="<?=G5_THEME_URL?>/_common/js/jquery.dd.min.js"></script>
 <script>
 	var recommned = "<?= $mb_recommend ?>";
 	var recommend_search = false;
@@ -158,6 +174,19 @@ if ($_GET['recom_referral']) {
 			<input type='hidden' name="cert_type" value="">
 			<input type='hidden' name="cert_no" value="">
 
+			<p class="check_appear_title mt10"><span >국가선택</span></p>
+			<div class="mb20">
+				<select id="nation_number" name="nation_number" required >
+					<option value="" >거주국가를 선택해주세요</option>
+					<option value="82" title="<?=national_flag('82')?>">Korea</option>
+					<option value="1" title="<?=national_flag('1')?>"> USA</option>
+					<option value="81" title="<?=national_flag('81')?>">Japan</option>
+					<option value="84" title="<?=national_flag('84')?>">Vietnam</option>
+					<option value="86" title="<?=national_flag('86')?>">China</option>
+					<option value="66" title="<?=national_flag('66')?>">Thailand</option>
+				</select>
+			</div>
+
 			<!-- 추천인 정보 -->
 			<p class="check_appear_title mt10"><span>추천인정보</span></p>
 			<div class='referzone'>
@@ -169,6 +198,7 @@ if ($_GET['recom_referral']) {
 				</div>
 			</div>
 			<p class="check_appear_title mt40"><span>개인 정보 & 인증</span></p>
+			
 			<div>
 				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
@@ -184,7 +214,7 @@ if ($_GET['recom_referral']) {
 				<?php } else { ?>
 					<input type="text" name="mb_name" style='padding:15px;' id="reg_mb_name" required placeholder="이름" />
 					<div class="" style="display: flex; align-items: center; margin-top: 15px">
-						<div class="nation_number_wrap">
+						<!-- <div class="nation_number_wrap">
 							<select id="nation_number" name="nation_number" required>
 								<option value="1">1</option>
 								<option value="81">81</option>
@@ -195,7 +225,7 @@ if ($_GET['recom_referral']) {
 								<option value="63">63</option>
 								<option value="66">66</option>
 							</select>
-						</div>
+						</div> -->
 						<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
 					</div>					
 					<input type="text" name="mb_id" style='padding:15px' id="reg_mb_id" required placeholder="아이디" />
@@ -276,6 +306,8 @@ if ($_GET['recom_referral']) {
 
 <script>
 	$(function() {
+
+		$("#nation_number").msDropDown();
 		$(".top_title h3").html("<span style='font-size:16px;line-height:16px;'>신규 회원등록</span>");
 
 		onlyNumber('reg_mb_hp');
@@ -523,6 +555,14 @@ if ($_GET['recom_referral']) {
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
+
+		/* 국가선택 검사*/
+		var select_nation = $("#nation_number option:selected").val();
+
+		if(select_nation == "" ){
+			dialogModal('국가선택', '<strong>접속하신 국가를 선택해주세요</strong>', 'warning');
+			return false;
+		}
 
 
 		// 이름

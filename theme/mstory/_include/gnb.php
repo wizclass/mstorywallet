@@ -5,6 +5,37 @@ if($_COOKIE['myLang'])
 {
 	$myLang = $_COOKIE['myLang'];
 }
+
+function national_flag($ncode, $return = 'icon')
+{
+	if ($return == 'icon') {
+		switch ($ncode) {
+			case 1:
+				$tcode = 'us';
+				break;
+			case 81:
+				$tcode = 'jp';
+				break;
+			case 82:
+				$tcode = 'kr';
+				break;
+			case 84:
+				$tcode = 'vn';
+				break;
+			case 86:
+				$tcode = 'cn';
+				break;
+			case 66:
+				$tcode = 'th';
+				break;
+			default:
+				$tcode = 'etc';
+		}
+		$code_return = G5_IMG_URL . '/flag/' . $tcode . '.png';
+		return $code_return;
+	} else if ($return == 'ncode') {
+	}
+}
 ?>
 
 <style>

@@ -50,6 +50,7 @@
 						</li>
 						<li>
 							<h4 class="font_weight mb_name">
+							<span class='nation_flag'><img src="<?=national_flag($member['nation_number'])?>"></span>
 								<span class="mb_name"><?=$member['mb_name']?>님</span>
 								<? if($member['mb_level'] != 10) { ?>
 									<span class='mb_level'><?=$mb_level_array[$member['mb_level']]?></span>
