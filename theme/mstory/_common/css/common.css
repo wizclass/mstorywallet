@@ -755,6 +755,37 @@ input.p15 {
   padding: 8px;
   margin-bottom: 15px;
 }
+/* 체크박스 */
+.check_ty01 {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px;
+}
+.check_ty01 input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #767676;
+  border-radius: 3px;
+  margin-right: 8px;
+  position: relative;
+}
+.check_ty01 input[type='checkbox']:checked {
+  background-color: #00a2ff;
+  border-color: #00a2ff;
+}
+.check_ty01 input[type='checkbox'] + label {
+  font-size: 13px;
+}
+.check_ty01 input[type='checkbox']:checked::after {
+  content: '✔';
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+
 /* 회원가입 */
 .bf-login input[type="button"] {
   background: #7e7e7f;
@@ -1202,19 +1233,13 @@ a.desc {
   border-radius: 10px;
 }
 .enroll_wrap .referzone {
-  background: #fff;
   margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-  border: 2px solid #545878;
 }
 .enroll_wrap .referzone input[type="text"] {
-  color: black;
-  border-bottom: none;
-  background: transparent;
-  margin-bottom: 0;
-  border-radius: 0;
-  margin-top: 0px;
+  margin: 0;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #dfe4ec;
 }
 .enroll_wrap .referzone input::placeholder {
   color: #666;

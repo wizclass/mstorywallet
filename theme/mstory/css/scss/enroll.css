@@ -1,3 +1,25 @@
+@charset "UTF-8";
+/*스테이킹 컬러셋 6개만 사용 */
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
 header {
   -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
           box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
@@ -26,14 +48,18 @@ header {
   margin: 10px 0;
 }
 
-.checkbox-style-square + label {
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background: white;
-  cursor: pointer;
-  border: black solid 1px;
+.checkbox-style-square {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #767676;
   border-radius: 3px;
+  margin-right: 8px;
+  position: relative;
+}
+.checkbox-style-square + label {
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: -18px;
 }
 .checkbox-style-square + label span {
   position: absolute;
@@ -41,9 +67,19 @@ header {
   -webkit-transform: translate(22px, -3px);
           transform: translate(22px, -3px);
 }
-.checkbox-style-square:checked + label {
-  background: url("/img/check_green.png") no-repeat center/17px 18px;
-  background-repeat: no-repeat;
+.checkbox-style-square:checked {
+  background-color: #00a2ff;
+  border-color: #00a2ff;
+}
+.checkbox-style-square:checked::after {
+  content: "✔";
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
 }
 
 #center .user {
@@ -102,6 +138,7 @@ header {
           flex-grow: 1;
 }
 .enroll_wrap .pw_ul > li {
+  width: 49.5%;
   background: #ecf3fb;
   -webkit-box-shadow: inset 0px 1px 1px rgba(49, 104, 116, 0.15);
           box-shadow: inset 0px 1px 1px rgba(49, 104, 116, 0.15);

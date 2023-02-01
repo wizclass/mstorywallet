@@ -2,7 +2,7 @@
 $menubar = 1;
 include_once(G5_THEME_PATH . '/_include/head.php');
 include_once(G5_THEME_PATH . '/_include/gnb.php');
-// include_once(G5_THEME_PATH.'/_include/lang.php');
+include_once(G5_THEME_PATH.'/_include/lang.php');
 
 if ($nw['nw_enroll'] == 'Y') {
 } else {
@@ -160,24 +160,22 @@ if ($_GET['recom_referral']) {
 
 			<!-- 추천인 정보 -->
 			<p class="check_appear_title mt10"><span>추천인정보</span></p>
-			<section class='referzone'>
+			<div class='referzone'>
 				<div class="btn_input_wrap">
 					<input type="text" name="mb_recommend" id="reg_mb_recommend" value="<?= $mb_recommend ?>" required placeholder="추천인 아이디" />
 					<div class='in_btn_ly2'>
 						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"><span>검색</span></button>
 					</div>
 				</div>
-			</section>
-
+			</div>
 			<p class="check_appear_title mt40"><span>개인 정보 & 인증</span></p>
 			<div>
 				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
 
-
 				<!-- <div class='in_btn_ly'><input type="button" id='win_hp_cert' class='btn_round check hp_cert' value="휴대폰 본인인증" style="width:80px;"></div> -->
 				<?php if (REGISTER_USEPASS) { ?>
-					<input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;">
+					<input type="button" id='win_hp_cert' class='btn btn_wd b_skyblue hp_cert' value="휴대폰 본인인증" style="width:100%;">
 					<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름" />
 					<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호" />
 					<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)" />
@@ -199,21 +197,17 @@ if ($_GET['recom_referral']) {
 							</select>
 						</div>
 						<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
-					</div>
-					
+					</div>					
 					<input type="text" name="mb_id" style='padding:15px' id="reg_mb_id" required placeholder="아이디" />
 					<input type="email" name="mb_email" class='cabinet' style='padding:15px' id="reg_mb_email" required placeholder="이메일" />
 					<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
 					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
 				<?php } ?>
 			</div>
-
-
-			<ul class="clear_fix pw_ul mt20">
+			<ul class="dp-flex justify-content-between pw_ul mt20">
 				<li>
 					<input type="password" name="mb_password" id="reg_mb_password" minlength="4" maxlength="12" placeholder="로그인 비밀번호" />
 					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" maxlength="12" placeholder="로그인 비밀번호 확인" />
-
 					<strong><span class='mb10' style='display:block;font-size:13px;'>비밀번호 설정 조건</span></strong>
 					<ul>
 						<li class="x_li" id="pm_1">4자 이상 12자 이하</li>
@@ -221,10 +215,9 @@ if ($_GET['recom_referral']) {
 						<li class="x_li" id="pm_5">비밀번호 비교</li>
 					</ul>
 				</li>
-				<li style='margin-left:5px'>
+				<li>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="출금비밀번호(핀코드)" />
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="출금비밀번호(핀코드) 확인" />
-
 					<strong><span class='mb10' style='display:block;font-size:13px;'>핀코드 설정 조건</span></strong>
 					<ul>
 						<li class="x_li" id="pt_1">6 자리</li>
@@ -234,8 +227,6 @@ if ($_GET['recom_referral']) {
 				</li>
 			</ul>
 
-
-
 			<!--
 			<hr>
 			<div class="agreement_btn"> <button type="button" class="agreeement_show btn"><span data-i18n='register.회원가입 약관보기'>Read Terms and Conditions</span></button></div>
@@ -244,44 +235,34 @@ if ($_GET['recom_referral']) {
 			<p class="check_appear_title mt40"><span>회원가입 약관동의 </span></p>
 			<div class="mt20">
 				<div class="term_space">
-					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required">
-					<label for="service_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
+					<input type="checkbox" id="service_checkbox" class="checkbox-style-square" name="term_required">
+					<label for="service_checkbox">
+						<span style='line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
 						<a id="service" href="javascript:collapse('#service');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="service_term" class="term_textarea term_none"><?= $service_term['wr_content'] ?></textarea>
 				</div>
-
-
-
 				<div class="term_space">
-					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required">
-					<label for="private_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
+					<input type="checkbox" id="private_checkbox" class="checkbox-style-square" name="term_required">
+					<label for="private_checkbox">
+						<span style='line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
 						<a id="private" href="javascript:collapse('#private');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
 				</div>
-
-
-				<div class="term_space">
-					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square term_none" name="mb_sms" value="1">
-					<label for="marketing_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
+				<!-- <div class="term_space">
+					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square" name="mb_sms" value="1">
+					<label for="marketing_checkbox">
+						<span style='line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
 						<a id="marketing" href="javascript:collapse('#marketing');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
-				</div>
-
+				</div> -->
 			</div>
-
-
 			<div class="btn2_wrap " style='width:100%;height:60px; display: flex'>
-				<input class="btn btn_double btn_secondary btn_cancle" type="button" value="취소">
-				<input class="btn btn_double btn_primary submit main_btn" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
+				<input class="btn btn_double btn_cancle" type="button" value="취소">
+				<input class="btn btn_double b_skyblue submit" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
 			</div>
-
-
 		</form>
 	</div>
 

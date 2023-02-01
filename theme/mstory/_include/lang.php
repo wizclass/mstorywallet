@@ -10,12 +10,10 @@
 
 <style type="text/css">
     .language_wrap {
-        padding: 20px 0;
         text-align: center;
     }
     .language_text {
         font-size: 13px;
-        margin-bottom: 10px;
         color: #0c3879;
     }
     a.gflag {
@@ -62,7 +60,6 @@
 
 
 <div class="language_wrap">
-    <p class="language_text">언어선택</p>
     <a href="#" onclick="doGTranslate('ko|ko');return false;" title="한국어" class="gflag nturl"
     style="background-position:-0px -205px;">
         <img src="//gtranslate.net/flags/blank.png" alt="한국어"/>

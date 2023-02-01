@@ -127,6 +127,7 @@ $(document).ready(function(){
 		</ul>	
 		<div class="position_wrap">	
 			<div class="gnb_language_wrap">
+				<p class="language_text">언어선택</p>
 				<? include_once(G5_THEME_PATH.'/_include/lang.php'); ?>
 			</div>
 			<div class="logout_wrap">

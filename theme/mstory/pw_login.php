@@ -29,7 +29,7 @@
 					<input type="password" name="mb_password" id="u_pw" style="line-height:22px;" placeholder="비밀번호 입력" onkeyup="press(event)"/>
 				</div>
 
-				<div style='display:flex; align-items:center; padding: 6px'>
+				<div class="check_ty01" style='display:flex; align-items:center; padding: 6px'>
 					<input type="checkbox" id="showPw" >
 					<label for="showPw" style="margin:0">비밀번호 표시</label>
 				</div>

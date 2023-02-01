@@ -276,6 +276,9 @@ header .left_gnbWrap .position_wrap {
 	background: #fff;
 	padding-top: 10px;
 }
+header .left_gnbWrap .gnb_language_wrap {
+	text-align: center;
+}
 header .left_gnbWrap .gnb_language_wrap .language_wrap {
 	padding: 10px 0;
 }

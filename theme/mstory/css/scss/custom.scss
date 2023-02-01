@@ -78,17 +78,17 @@ a.btn_cancle,
     background: #fff;
 
     &:hover {
-        color: $sub-color;
+        color: $main-color;
         background: white;
-        border: 1px solid #ccc;
+        border: 1px solid $main-color;
     }
 }
 
 .user.selected {
-    background: $sub-color;
+    background: $main-color;
 }
 .btn-primary {
-    background: $sub-color;
+    background: $main-color;
     color: white;
 }
 
