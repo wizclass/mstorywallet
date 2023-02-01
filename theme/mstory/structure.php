@@ -505,12 +505,11 @@ var gradeMap = {
 	</script>
 
 	<style>
-		.toggle{float:right;width:30px;height:30px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
+		.toggle{float:right;width:30px;height:30px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc;margin-top:-38px;}
 		.toggle i{vertical-align:middle;line-height:36px;}
 		.badge.package{ background:none;border:1px solid #2b3a6d;color:#2b3a6d;font-size:12px;line-height:10px;padding:4px 10px;}
 		.badge.package i{font-size:12px;margin-right:2px;}
 		.hp{margin-right:5px;}
-		.toggle{margin-top:-30px;}
 		strong {color: red;}
 	</style>
 
@@ -558,10 +557,10 @@ var gradeMap = {
 							<span class="direct_cnt badge"></span>
 							<span class="badge package "></span><br>
 							<!-- <span class='divided'></span> -->
-							<p class='mbpoint'>
+							<!-- <p class='mbpoint'>
 								<span class="pv"></span>|&nbsp
 								<span class="acc"></span>
-							</p>
+							</p> -->
 							<span class='toggle'><i class="ri-line-height"></i></span>
 						</dt>
 					</dl>
