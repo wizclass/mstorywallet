@@ -24,19 +24,9 @@ if ($_GET['recom_referral']) {
 	}
 }
 ?>
-<style>
-	.gflag{display:none !important;}
-</style>
-<style>
-	/* 센터 닉네임 사용 추가 0720  by arcthan */
-	.dd{border:2px solid #006df3}
-	.dd .ddTitle{height:40px;line-height:27px;}
-	.dd .ddTitle .ddTitleText img{padding:0;margin-right:5px;box-shadow:0 1px 1px rgb(0 0 0 / 50%)}
 
-	.dd .ddlabel{vertical-align: middle;}
-
-	.dd .divider{right:34px;}
-	.ddcommon .ddArrow{right:10px;}
+<style>
+	.gflag {display:none !important;}
 </style>
 
 <link href="<?= G5_THEME_URL ?>/css/scss/enroll.css" rel="stylesheet">
@@ -177,7 +167,7 @@ if ($_GET['recom_referral']) {
 			<p class="check_appear_title mt10"><span >국가선택</span></p>
 			<div class="mb20">
 				<select id="nation_number" name="nation_number" required >
-					<option value="" >거주국가를 선택해주세요</option>
+					<option value="" >거주 국가를 선택해주세요</option>
 					<option value="82" title="<?=national_flag('82')?>">Korea</option>
 					<option value="1" title="<?=national_flag('1')?>"> USA</option>
 					<option value="81" title="<?=national_flag('81')?>">Japan</option>
@@ -189,7 +179,7 @@ if ($_GET['recom_referral']) {
 
 			<!-- 추천인 정보 -->
 			<p class="check_appear_title mt10"><span>추천인정보</span></p>
-			<div class='referzone'>
+			<div class='referzone mb20'>
 				<div class="btn_input_wrap">
 					<input type="text" name="mb_recommend" id="reg_mb_recommend" value="<?= $mb_recommend ?>" required placeholder="추천인 아이디" />
 					<div class='in_btn_ly2'>
@@ -197,8 +187,9 @@ if ($_GET['recom_referral']) {
 					</div>
 				</div>
 			</div>
-			<p class="check_appear_title mt40"><span>개인 정보 & 인증</span></p>
-			
+
+			<!-- 개인 정보 & 인증 -->
+			<p class="check_appear_title mt10"><span>개인 정보 & 인증</span></p>			
 			<div>
 				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
@@ -659,4 +650,6 @@ if ($_GET['recom_referral']) {
 			obj.value = obj.value.replace(RegExp, '');
 		}
 	}
+
+	$('.dd.ddcommon').css('width','100% !important;');
 </script>
