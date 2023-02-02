@@ -28,10 +28,16 @@ if($is_admin){
 
 	$(function() {
 		$(document).on('click','.btn.send' ,function(e) {
-			$('#ticketChildForm [name=idx]').val($(this).attr('idx'));
-			$('#ticketChildForm [name=content]').val($(this).parents('.chat-input').find('.message').val());
-			$('#ticketChildForm').append($(this).parents('.chat-input').find('.messageFile').clone());
-			$('#ticketChildForm').submit();
+			if (!$(this).parents('.chat-input').find('.message').val()) {
+				dialogModal("문의 알림", "문의하실 내용을 적어주세요.", 'warning');
+				return false;
+			} else {
+				$('#ticketChildForm [name=idx]').val($(this).attr('idx'));
+				$('#ticketChildForm [name=content]').val($(this).parents('.chat-input').find('.message').val());
+				$('#ticketChildForm').append($(this).parents('.chat-input').find('.messageFile').clone());
+				$('#ticketChildForm').submit();
+			}
+			
 		});
 
 		$(document).on('keypress', function(event){
