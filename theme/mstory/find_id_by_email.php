@@ -133,7 +133,7 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
                                             $('#auth_number_confirm').attr('disabled',true);
                                             $('#auth_number').attr("readonly", true);
                                             
-                                            dialogModal('',`${mb_name} 님의 아이디는<br><span style='color:#ffd00d;'>${res.wanted_id}</span>입니다.`,'success');
+                                            dialogModal('',`${mb_name} 님의 아이디는<br><strong style='color:#333;'>${res.wanted_id}</strong>입니다.`,'success');
                                         })
                                     }else{
                                         dialogModal('',res.msg,'find_warning');

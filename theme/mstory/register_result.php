@@ -26,35 +26,27 @@ if (!$mb['mb_id'])
         background: #384b97;
         color: midnightblue;
     }
-
     .btn.btn-agree {
         position: fixed;
         bottom: 20px;
         left: 15px;
         width: calc(100% - 30px);
         padding: 18px 0;
-
     }
-
     .btn_wd{width:100%;padding:10px 15px;display:block;}
-
     .register-result {
         text-align: center;
     }
-
     .register-result .title {
         font-size: 18px;
         font-weight: bold;
     }
-
     .register-result .title + p {
         margin: 0 auto;
     }
-
     body{
         height:0%
     }
-
 </style>
 <body>
     <div class="register-result">
