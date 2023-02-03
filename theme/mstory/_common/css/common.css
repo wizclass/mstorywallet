@@ -4051,6 +4051,18 @@ a.gray_close {
   .pop_wrap {
     width: calc(80% - 250px);
   }
+  .notice_wrap {
+		width: calc(100% - 330px)
+	}
+  #wrapper {
+		max-width: inherit;
+		position: initial;
+		left: 0;
+		margin-left: 300px;
+	}
+  #wrapper.menu_back_gnb {
+    margin-left: 0;
+  }
 }
 .company {
   font-size: 11px;
