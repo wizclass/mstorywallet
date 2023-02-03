@@ -37,6 +37,7 @@ if ($_GET['recom_referral']) {
 <script>
 	var recommned = "<?= $mb_recommend ?>";
 	var recommend_search = false;
+	var check_id = 0;
 
 	var center_search = false;
 
@@ -173,11 +174,11 @@ if ($_GET['recom_referral']) {
 
 		if(result) {
 			dialogModal("ID 중복확인", result, "warning");
-			var check_id = 0;
+			check_id = 0;
 			return check_id;
 		} else {
 			dialogModal("ID 중복확인", "사용 가능한 아이디입니다.", "success");
-			var check_id = 1;
+			check_id = 1;
 			return check_id;
 		}
 	}
@@ -344,11 +345,11 @@ if ($_GET['recom_referral']) {
 			});
 		});
 
-		
-
-		$('#idCheck').on('change', function() {
-			var check_id = 0;
-		});
+		if(!<?=REGISTER_USEPASS?>) {
+			$('#reg_mb_id').on('change', function() {
+				check_id = 0;
+			});
+		} 
 
 		// 아이디 중복확인
 		$('#idCheck').on('click', function() {
@@ -584,7 +585,7 @@ if ($_GET['recom_referral']) {
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
-		var check_id = reg_mb_id_check();
+		
 
 		/* 국가선택 검사*/
 		var select_nation = $("#nation_number option:selected").val();
