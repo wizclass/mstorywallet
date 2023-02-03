@@ -66,7 +66,7 @@ $(document).ready(function(){
 	</div>
 	<?}else{?>
 	<div class="menu">
-		<a href="#" class='menu_icon' style="vertical-align:sub"><i class="ri-menu-2-line" style="font-size:25px;vertical-align:middle;"></i></a>
+		<a href="#" class='menu_icon' style="vertical-align:sub"><i class="ri-menu-2-line"></i></a>
 	</div>
 	<?}?>
 	
