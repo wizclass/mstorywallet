@@ -37,6 +37,7 @@ if ($_GET['recom_referral']) {
 <script>
 	var recommned = "<?= $mb_recommend ?>";
 	var recommend_search = false;
+	var check_id = 0;
 
 	var center_search = false;
 
@@ -155,6 +156,32 @@ if ($_GET['recom_referral']) {
 		});
 
 	} ///*추천인등록*/
+
+	var reg_mb_id_check = function() {
+		$.ajax({
+			type: "POST",
+			url: g5_bbs_url+"/ajax.mb_id.php",
+			data: {
+					//"reg_mb_id": encodeURIComponent($("#reg_mb_id").val())
+					"reg_mb_id": $("#reg_mb_id").val()
+			},
+			cache: false,
+			async: false,
+			success: function(data) {
+					result = data;
+			}
+		});
+
+		if(result) {
+			dialogModal("ID 중복확인", result, "warning");
+			check_id = 0;
+			return check_id;
+		} else {
+			dialogModal("ID 중복확인", "사용 가능한 아이디입니다.", "success");
+			check_id = 1;
+			return check_id;
+		}
+	}
 </script>
 
 <div class="v_center" style="padding:0;">
@@ -220,6 +247,7 @@ if ($_GET['recom_referral']) {
 						<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px; margin-top: 0px;' required placeholder="휴대폰번호" />
 					</div>					
 					<input type="text" name="mb_id" style='padding:15px' id="reg_mb_id" required placeholder="아이디" />
+					<div class='in_btn_ly'><input type="button" id='idCheck' class='btn_round check' value="중복확인"></div>
 					<input type="email" name="mb_email" class='cabinet' style='padding:15px' id="reg_mb_email" required placeholder="이메일" />
 					<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
 					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
@@ -315,6 +343,17 @@ if ($_GET['recom_referral']) {
 			$('#modal_return_url').on('click', function() {
 				location.href = g5_url;
 			});
+		});
+
+		if(!<?=REGISTER_USEPASS?>) {
+			$('#reg_mb_id').on('change', function() {
+				check_id = 0;
+			});
+		} 
+
+		// 아이디 중복확인
+		$('#idCheck').on('click', function() {
+			reg_mb_id_check();
 		});
 
 		/*이메일 체크*/
@@ -546,6 +585,7 @@ if ($_GET['recom_referral']) {
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
+		
 
 		/* 국가선택 검사*/
 		var select_nation = $("#nation_number option:selected").val();
@@ -561,12 +601,6 @@ if ($_GET['recom_referral']) {
 			dialogModal('이름입력확인', '이름을 확인해주세요', 'warning');
 			return false;
 		}
-
-		//아이디 중복체크
-		// if (check_id == 0) {
-		// 	dialogModal('ID 중복확인', '아이디 중복확인을 해주세요.', 'warning');
-		// 	return false;
-		// }
 
 		//추천인 검사
 		if (f.mb_recommend.value == '' || f.mb_recommend.value == 'undefined') {
@@ -591,6 +625,14 @@ if ($_GET['recom_referral']) {
 			return false;
 		}
 
+
+		if(!<?= REGISTER_USEPASS ?>) {
+			if (check_id == 0) {
+				dialogModal('ID 중복확인', '아이디 중복확인을 해주세요.', 'warning');
+				return false;
+			}
+		}
+		
 
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
@@ -633,9 +675,7 @@ if ($_GET['recom_referral']) {
 					f.submit();
 				} else {
 					dialogModal("이메일 인증", res.res, 'failed');
-
 				}
-
 			},
 			error: function(e) {
 				console.log(e)
