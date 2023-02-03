@@ -194,7 +194,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
           </div>
           <div class="qrBox_right">
             <input type="text" id="my_eth_wallet" class="wallet_addr" value="" title='my address' readonly/>
-            <p class="explain_text">최소 입금 수량은 <?=$deposit_min_limit?> <?=ASSETS_CURENCY?> 입니다.<br><?=$deposit_min_limit?> ESGC 미만 입금 시 잔고 반영이 불가합니다.<br>입금 후 하단의 입금신청을 눌러주세요.</p>
+            <p class="explain_text">최소 입금 수량은 <?=$deposit_min_limit?> <?=ASSETS_CURENCY?> 입니다.<br><?=$deposit_min_limit?> <?=ASSETS_CURENCY?> 미만 입금 시 잔고 반영이 불가합니다.<br>입금 후 하단의 입금신청을 눌러주세요.</p>
             <button class="btn wd line_btn wd" id="accountCopy" onclick="copyURL('#my_eth_wallet')">
               <span >주소복사</span>
             </button>
@@ -218,7 +218,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
                     동안 타지갑으로의 출금이 제한될 수 있습니다.<br><br>
                   </li>
                   <li>
-                    위 주소로는 ESGC만 입금 가능합니다. 해당 주소로 다른 디지털 자산을 입금 시도 할 경우에 발생 할 수 있는
+                    위 주소로는 <?= ASSETS_CURENCY ?>만 입금 가능합니다. 해당 주소로 다른 디지털 자산을 입금 시도 할 경우에 발생 할 수 있는
                     오류/손실은 복구 불가능합니다.<br><br>
                   </li>
                   <li>
@@ -274,9 +274,11 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
                   <li>
                     디지털 자산의 특성상 출금 신청이 완료되면 취소 할 수 없습니다. 보내기전 주소와 수량을 꼭 확인 해주세요.<br><br>
                   </li>
+                  <?if(ETH_AVAILABLE){?>
                   <li>
                     이더리움은 이더리움 지갑으로만 송금이 가능합니다. 오입금에 주의하시기 바랍니다.<br><br>
                   </li>
+                  <?}?>
                   <li>
                     출금이 이루어지는 주소는 타지갑의 입금 주소와 동일하지 않습니다.<br><br>
                   </li>
@@ -311,17 +313,19 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
       </div>
     </section>
 
-    <?if($memlev > 1){?>
-    <div class="status_card_wrap eth">
-      <h5>출금가능수량</h5>
-      <div class="quantity_wrap">
-        <p class="esgc_quantity"><?=$shift_total_eth_balance?> <span class="currency"><?=WITHDRAW_CURENCY?></span></p>
-        <!-- <p class="price"><?=$total_eth_balance_krw?> <?=BALANCE_CURENCY?></p> -->
+    <?if(ETH_AVAILABLE){?>
+      <?if($memlev > 1){?>
+      <div class="status_card_wrap eth">
+        <h5>출금가능수량</h5>
+        <div class="quantity_wrap">
+          <p class="esgc_quantity"><?=$shift_total_eth_balance?> <span class="currency"><?=WITHDRAW_CURENCY?></span></p>
+          <!-- <p class="price"><?=$total_eth_balance_krw?> <?=BALANCE_CURENCY?></p> -->
+        </div>
+        <div class="link_btn_wrap">
+          <a href="javascript:link('withdraw','eth');">출금</a>
+        </div>
       </div>
-      <div class="link_btn_wrap">
-        <a href="javascript:link('withdraw','eth');">출금</a>
-      </div>
-    </div>
+      <?}?>
     <?}?>
   </div>
   <div>
@@ -578,10 +582,10 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
     var target = "<?=$_GET['target']?>";
     var view = "<?=$_GET['view']?>";
 
-    if(view == "deposit" && target == "esgc") {
-      link('deposit','esgc');
-    } else if(view == "withdraw" && target == "esgc"){
-      link('withdraw','esgc');
+    if(view == "deposit" && target == "<?= ASSETS_CURENCY ?>") {
+      link('deposit','<?= ASSETS_CURENCY ?>');
+    } else if(view == "withdraw" && target == "<?= ASSETS_CURENCY ?>"){
+      link('withdraw','<?= ASSETS_CURENCY ?>');
     } else if(view == "withdraw" && target == "eth") {
       link('withdraw','eth');
     }
@@ -1084,9 +1088,6 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x')
                 <ul>
                   <li>
                       디지털 자산의 특성상 출금 신청이 완료되면 취소 할 수 없습니다. 보내기전 주소와 수량을 꼭 확인 해주세요.<br><br>
-                  </li>
-                  <li>
-                      이더리움은 이더리움 지갑으로만 송금이 가능합니다. 오입금에 주의하시기 바랍니다.<br><br>
                   </li>
                   <li>
                       출금이 이루어지는 주소는 타지갑의 입금 주소와 동일하지 않습니다.<br><br>

@@ -68,7 +68,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 	<tr>
 
-		<th scope="row"><label for="nw_change"> ESGC 시세<strong class="sound_only"> 필수</strong></label></th>
+		<th scope="row"><label for="nw_change"> <?=ASSETS_CURENCY?> 시세<strong class="sound_only"> 필수</strong></label></th>
 		<td>
             <p style="padding:0;"><input type="checkbox" id="nw_change" name="nw_change" <?if($nw['nw_change'] == 'Y') {echo "checked";}?>/><label for="nw_change" style=""><span class="ui"></span><span class="nw_change_txt">사용 설정</span></label></p>
 		</td> 

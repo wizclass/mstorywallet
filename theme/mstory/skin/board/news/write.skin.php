@@ -139,7 +139,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
     </div>
     <?php } ?>
     -->
-    <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
+    <!-- <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
     <div class="bo_w_flie write_div">
         <div class="file_wr write_div">
             <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-download" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>
@@ -156,7 +156,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
         <?php } ?>
 
     </div>
-    <?php } ?>
+    <?php } ?> -->
 
 
     <?php if ($is_use_captcha) { //자동등록방지  ?>

@@ -1,5 +1,8 @@
 <?php
 include_once('./_common.php');
+if($bo_table == "notice")  $sub_menu = "300250";
+if($bo_table == "kyc")  $sub_menu = "300400";
+if($bo_table == "agreement")  $sub_menu = "300500";
 include_once('../admin.head.php');
 include_once(G5_EDITOR_LIB);
 include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');

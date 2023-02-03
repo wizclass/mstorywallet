@@ -30,7 +30,12 @@ function print_menu2($key, $no)
         if ($menu[$key][$i][4] == 1) $gnb_grp_style = 'gnb_grp_style';
         else $gnb_grp_style = '';
 
-        $str .= '<li class="gnb_2dli"><a href="'.$menu[$key][$i][2].'" class="gnb_2da '.$gnb_grp_style.' '.$gnb_grp_div.'" target="_blank">'.$menu[$key][$i][1].'</a></li>';
+        if(ADMIN_MENU_BLANK) {
+            $str .= '<li class="gnb_2dli"><a href="'.$menu[$key][$i][2].'" class="gnb_2da '.$gnb_grp_style.' '.$gnb_grp_div.'" target="_blank">'.$menu[$key][$i][1].'</a></li>';
+        } else {
+            $str .= '<li class="gnb_2dli"><a href="'.$menu[$key][$i][2].'" class="gnb_2da '.$gnb_grp_style.' '.$gnb_grp_div.'">'.$menu[$key][$i][1].'</a></li>';
+        }
+        
 
         $auth_menu[$menu[$key][$i][0]] = $menu[$key][$i][1];
     }
@@ -168,7 +173,12 @@ $(function(){
 
                 $href1 = $href2 = '';
                 if ($menu['menu'.$key][0][2]) {
-                    $href1 = '<a href="'.$menu['menu'.$key][0][2].'" class="gnb_1da" target="_blank">';
+                    if(ADMIN_MENU_BLANK) {
+                        $href1 = '<a href="'.$menu['menu'.$key][0][2].'" class="gnb_1da" target="_blank">';
+                    } else {
+                        $href1 = '<a href="'.$menu['menu'.$key][0][2].'" class="gnb_1da">';
+                    }
+                    
                     $href2 = '</a>';
                 } else {
                     continue;
@@ -216,8 +226,12 @@ foreach($menu['menu'.$menu_key] as $key=>$value) {
             $svc_class = ' class="lnb_svc"';
         else
             $svc_class = '';
-
-        echo $nl.'<li><a href="'.$value[2].'"'.$svc_class.' target="_blank">'.$value[1].'</a></li>';
+        if(ADMIN_MENU_BLANK) {
+            echo $nl.'<li><a href="'.$value[2].'"'.$svc_class.' target="_blank">'.$value[1].'</a></li>';
+        } else {
+            echo $nl.'<li><a href="'.$value[2].'"'.$svc_class.'>'.$value[1].'</a></li>';
+        }
+        
         $nl = PHP_EOL;
     }
 }

@@ -77,26 +77,29 @@ $title = 'Dashboard';
 					<?
 						$memlev = $member['mb_level']; 
 						if($memlev > 1){$numrow = 'col-4';}else{$numrow = 'col-6';}
+						if(!ETH_AVAILABLE){$numrow = 'col-6';}
 					?>
 					<ul class="row top">
 						<?if($memlev == 0){?>
-							<li class="<?=$numrow?>"><dt class=" title">ESGC</dt></li>
+							<li class="<?=$numrow?>"><dt class=" title"><?=ASSETS_CURENCY?></dt></li>
 							<li class="<?=$numrow?>"><dd class=" value"><?=$shift_total_token_balance?></dd></li>
 							<style>
 								.breadcrumb .total_view_wrap .total_view_top li + li::before {margin: 0}
 							</style>
 						<?}else if($memlev > 0){?>
 							<li class="<?=$numrow?>">
-								<dt class=" title">ESGC</dt>
+								<dt class=" title"><?=ASSETS_CURENCY?></dt>
 								<dd class=" value"><?=$shift_total_token_balance?></dd>
 							</li>
 
+							<?if(ETH_AVAILABLE){?>
 								<?if($memlev > 1){?>
 									<li class="<?=$numrow?>">
 										<dt class="title">ETH</dt>
 										<dd class="value"><?=$shift_total_eth_balance?></dd>
 									</li>
 								<?}?>
+							<?}?>
 							
 							<li class="<?=$numrow?>">
 								<dt class="title">스테이킹</dt>
@@ -108,7 +111,7 @@ $title = 'Dashboard';
 				<?php
 					if($nw['nw_change'] == 'Y'){ ?>
 					<div class="quote_wrap" id="price_refresh">
-						<img class="refresh" src="<?=G5_THEME_URL?>/img/refresh.svg" alt=""> 현재 ESGC 시세: <span id="coin_price"><?=shift_auto($coin['esgc_krw'],BALANCE_CURENCY)?></span> <?=BALANCE_CURENCY?>
+						<img class="refresh" src="<?=G5_THEME_URL?>/img/refresh.svg" alt=""> 현재 <?=ASSETS_CURENCY?> 시세: <span id="coin_price"><?=shift_auto($coin['esgc_krw'],BALANCE_CURENCY)?></span> <?=BALANCE_CURENCY?>
 					</div>
 				<?php } ?>
 			
