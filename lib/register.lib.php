@@ -13,8 +13,8 @@ function valid_mb_id($reg_mb_id, $register_usepass = REGISTER_USEPASS)
 {
 
     if($register_usepass == 0) {
-        if (preg_match("/[^0-9a-z]+/i", $reg_mb_id))
-        return "회원아이디는 영문자, 숫자 만 입력하세요.".$reg_mb_id;
+        if (!preg_match("/^[a-zA-Z][a-zA-Z0-9]*/", $reg_mb_id))
+        return "회원아이디의 첫자는 영문자로 하고, 영문 또는 영문자와 숫자를 결합해 입력하세요.";
     else
         return "";
     } else {
@@ -26,8 +26,8 @@ function valid_mb_id($reg_mb_id, $register_usepass = REGISTER_USEPASS)
 
 function count_mb_id($reg_mb_id)
 {
-    if (strlen($reg_mb_id) < 2)
-        return "회원아이디는 최소 2글자 이상 입력하세요.";
+    if (strlen($reg_mb_id) < 4)
+        return "회원아이디는 최소 4자 이상 입력하세요.";
     else
         return "";
 }
