@@ -127,7 +127,7 @@ $(document).ready(function(){
 				</a>
 			</li> -->
 
-			<li class="recommend_icon">
+			<li class="recommend_icon <?if($_GET['id'] === 'structure'){echo 'active';}?>">
 				<a href="/page.php?id=structure">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">추천조직도</div>
@@ -141,14 +141,14 @@ $(document).ready(function(){
 				</a>
 			</li>
 
-			<li class="question_icon <?if($_GET['id'] === 'support_center'){echo 'active';}?>">
+			<li class="question_icon <?if($_GET['id'] === 'support_center' || $_GET['id'] === 'support_center.admin'){echo 'active';}?>">
 				<a href="/page.php?id=support_center">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">1:1문의사항</div>
 				</a>
 			</li>
 
-			<li class="reffer_icon">
+			<li class="reffer_icon <?if($_GET['id'] === 'referral_link'){echo 'active';}?>">
 				<a href="/page.php?id=referral_link">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">추천인링크</div>
