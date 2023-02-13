@@ -2078,7 +2078,8 @@ function sql_real_escape_string($str, $link=null)
 	if(!$link)
 		$link = $g5['connect_db'];
 
-	return mysqli_real_escape_string($link, $str);
+	/* return mysqli_real_escape_string($link, $str); */
+	return mysqli_real_escape_string($link, htmlspecialchars($str,ENT_QUOTES));
 }
 
 function escape_trim($field)
