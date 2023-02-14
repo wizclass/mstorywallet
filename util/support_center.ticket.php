@@ -8,8 +8,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 /* if(!$_GET['is_closed']) $_GET['is_closed'] = '0'; */
 
-if(!$_GET['is_closed']) {
-	sql_real_escape_string($_GET['is_closed']);
+if($_GET['is_closed']) {
+	$closed = intval(sql_real_escape_string($_GET['is_closed']));
+} else {
+	$closed = 0;
 }
 
 
@@ -33,7 +35,7 @@ if($method == 'GET'){
 					select pid, max(create_date) as answer_dt from ticket_child where mb_no = 1
 						group by pid
 				) t2 on t.idx = t2.pid
-			where is_closed = '{$_GET['is_closed']}' order by idx desc";
+			where is_closed = {$closed} order by idx desc";
 		}
 	}else{
 		$sql = "select idx, topic, subject, is_closed, mb_no,
@@ -43,7 +45,7 @@ if($method == 'GET'){
 				select pid, max(create_date) as answer_dt from ticket_child where mb_no = 1
 					group by pid
 			) t2 on t.idx = t2.pid
-		where is_closed = '{$_GET['is_closed']}' and mb_no = '{$member['mb_no']}' order by idx desc";
+		where is_closed = {$closed} and mb_no = '{$member['mb_no']}' order by idx desc";
 	}
 
     //print_r($sql);
